@@ -1,0 +1,116 @@
+
+.Sidebar_Section{
+    width: 20%;
+    // border: 2px solid blue;
+    background-color: #2A2D74;
+    padding: 50px 0px 100px;
+    // position: fixed;
+    position: sticky;
+    top: 0;
+    // left: 0;
+  }
+
+  .Logo_icon{
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .General_Container{
+    padding: 40px 0px;
+
+    h3{
+      color: #fff;
+      font-family: Poppins;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 40px;
+      text-align: left;
+      text-transform: uppercase;
+      margin-left: 30px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .General_Head{
+
+      a{
+        text-decoration: none;
+        color: #b1afaf;
+
+        .Dashboard_Text{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          // border: 2px solid green;
+          // margin-top: 20px;
+          padding: 8px 30px;
+          color: #fff;
+          border: 1px solid #2A2D74;
+          
+          &:hover {
+            background-color: #6569BF;
+            color: #fff;
+            // border-left: 5px solid #fff;
+          }
+    
+    
+            .Dribble{
+              color: #b1afaf;
+              font-size: 20px;
+            }
+    
+            h4{
+              font-family: Poppins;
+              font-size: 20px;
+              font-weight: 400;
+              line-height: 36px;
+              text-align: left;
+            }
+        }
+      }
+    }
+
+    .General_Head_Two{
+      margin-top: 30px;
+
+      a{
+        text-decoration: none;
+        color: #b1afaf;
+
+        .Dashboard_Text_Two{
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          // border: 2px solid green;
+          // margin-top: 20px;
+          padding: 8px 30px;
+          color: #fff;
+          border: 1px solid #2A2D74;
+          
+          &:hover {
+            background-color: #6569BF;
+            color: #fff;
+            // border-left: 5px solid #fff;
+          }
+    
+    
+            .Dribble_Two{
+              color: red;
+              font-size: 20px;
+            }
+    
+            h4{
+              font-family: Poppins;
+              font-size: 20px;
+              font-weight: 400;
+              line-height: 36px;
+              text-align: left;
+              color: red;
+            }
+        }
+      }
+    }
+
+  
+  }
