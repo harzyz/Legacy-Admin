@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import styles from "../sidebar/sidebar.module.scss";
 // import variables from "../styles/variables.module.scss";
@@ -10,8 +11,16 @@ import { FaDribbble } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
+import { useState } from "react";
 
 export default function Sidebar() {
+
+    const [active, setActive] = useState(false);
+
+     const toggleMenu = () => {
+    setActive((open) => !open);
+  };
+
   return (
     <section className={styles.Sidebar_Section}>
         <div className={styles.Logo_icon}>
@@ -33,15 +42,34 @@ export default function Sidebar() {
                         </div>
                     </Link>
                 </div>
-                <div className={styles.General_Head}>
-                    <Link href="/levels/beginners">
-                        <div className={styles.Dashboard_Text}>
+                <div className={styles.General_Head_Level}>
+                    
+                        <div className={styles.Dashboard_Text} onClick={toggleMenu}  >
                             <FaDribbble className={styles.Dribble} />
                             <h4>Levels</h4>
                             <BsChevronDown />
                         </div>
-                    </Link>
                 </div>
+
+                <div className={active ? styles.expert : styles.expert_block}>
+                    <ul>
+                        <Link href="/levels/beginners">
+                            <li>
+                                Beginner{" "}
+                            </li>
+                        </Link>
+                        <li>
+                        Intermediate{" "}
+                        </li>
+                        <li>
+                        Expert{" "}
+                        </li>
+                        <li>
+                        Elite{" "}
+                        </li>
+                    </ul>
+                </div>
+
                 <h3>Accounts</h3>
                 <div className={styles.General_Head}>
                     <Link href="/levels/beginners">
@@ -61,7 +89,7 @@ export default function Sidebar() {
                 </div>
             </div>
 
-            
+
         
         </div>
         

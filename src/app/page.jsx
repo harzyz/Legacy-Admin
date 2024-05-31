@@ -10,6 +10,7 @@ import Timmytwo from "../../public/assets/Timmy Action pose 5 with background 2.
 import Timmythree from "../../public/assets/Frame 11795.svg";
 // import variables from "./page.module.scss";
 
+
 export default function Home() {
   return (
     <main className={styles.main}>
