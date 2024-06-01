@@ -1,0 +1,206 @@
+
+.Profile_Container{
+    width: 80%;
+    // position: relative;
+    background-color: #F4F6FF;
+    padding: 50px 50px;
+
+    .Dashboard_Wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        .Dashboard_Text{
+    
+          h2{
+            font-family: Poppins;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 36px;
+            text-align: left;
+            color: #2A2D74;        
+          }
+        }
+    
+        .Admin_Wrapper{
+          display: flex;
+          align-items: center;
+          gap: 25px;
+          
+          .Admin_Text{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            // border: 2px solid red;
+            padding: 8px 15px ;
+            border-radius: 20px;
+            background-color: #fff;
+    
+            .Admin_Icon{
+              font-size: 22px;
+              color: #2A2D74;
+            }
+    
+            p{
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 32px;
+              text-align: left;
+              color: #000;
+            }
+          }
+        }
+      }
+
+      .Profile_Admin{
+        background-color: #fff;
+        padding:40px 20px;
+        margin-top: 60px;
+
+        .Profile_Admin_Head{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            p{
+                color: #192126;
+                font-family: Poppins;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                
+            }
+
+            .Edit_Para{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                background-color: #2A2D74;
+                border-radius: 15px;
+                padding: 0px 15px;
+                cursor: pointer;
+                margin-top: 10px;
+
+                p{
+                     color: #fff;
+                     font-size: 14px;
+                }
+            }
+        }
+
+        .Two_Button{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 80px 10px 50px;
+
+            .Profile_Button{
+                // padding: 10px 20px;
+                background-color: #2A2D74;
+                color: #fff;
+                font-family: Poppins;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                border: none;
+
+                // width: Hug (131px)px;
+                // height: Hug (46px)px;
+                // top: 480px;
+                // left: 472px;
+                padding: 7px 21px 7px 21px;
+                border-radius: 18px;
+                opacity: 0px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #fff;
+                    color: #2A2D74;
+                    border: 1px dotted #2A2D74;
+                }
+            }
+
+            .Account_Button{
+                // padding: 10px 20px;
+                background-color: #fff;
+                color: #2A2D74;
+                font-family: Poppins;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 32px;
+                text-align: left;
+                border: 1px dotted #2A2D74;
+
+                // width: Hug (131px)px;
+                // height: Hug (46px)px;
+                // top: 480px;
+                // left: 472px;
+                padding: 7px 21px 7px 21px;
+                border-radius: 18px;
+                opacity: 0px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #2A2D74;
+                    color: #fff;
+                }
+            }
+        }
+
+        .Complete_Wrapper{
+            padding: 15px 50px;
+            background-color: #F4F6FF;
+
+            p{
+                color: #192126;
+                font-family: Poppins;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                letter-spacing: 0.0015em;
+                text-align: left;
+                
+            }
+        }
+
+        .Complete_Form{
+            padding: 15px 20px;
+
+            .Complete_Label{
+
+                label{
+                    font-family: Poppins;
+                    font-size: 18px;
+                    font-weight: 500;
+                    // line-height: 32px;
+                    text-align: left;
+                    color: #1E1E1EA6;
+                }
+
+                .Complete_Text{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0px 50px 0px 0px;
+                    p{
+                        font-family: Poppins;
+                        font-size: 18px;
+                        font-weight: 600;
+                        // line-height: 32px;
+                        text-align: left;
+                        color: #1E1E1E;
+                    }
+
+                    .Complete_Icon{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+      }
+}

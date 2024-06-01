@@ -20,6 +20,7 @@ export default function Sidebar() {
      const toggleMenu = () => {
     setActive((open) => !open);
   };
+  
 
   return (
     <section className={styles.Sidebar_Section}>
@@ -72,7 +73,7 @@ export default function Sidebar() {
 
                 <h3>Accounts</h3>
                 <div className={styles.General_Head}>
-                    <Link href="/levels/beginners">
+                    <Link href="/profile">
                         <div className={styles.Dashboard_Text}>
                             <CgProfile className={styles.Dribble} />
                             <h4>My profile</h4>

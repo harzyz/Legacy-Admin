@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Image from "next/image";
 import styles from "../beginners/beginners.module.scss";
@@ -8,8 +9,16 @@ import Timmy from "../../../../public/assets/Timmysmall.svg";
 import { RiEdit2Line } from "react-icons/ri";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../public/assets/Plus.svg";
+import { useState } from "react";
 
 export default function Beginners() {
+
+  const [down, setDown] = useState(false);
+
+  const toggleMenu = () => {
+    setDown((open) => !open);
+  };
+
   return (
     <section className={styles.Beginners_Container}>
       <div className={styles.Admin_Wrapper}>
@@ -24,9 +33,18 @@ export default function Beginners() {
           className={styles.Admin_Img}
            />
         </div>
-        <div className={styles.Categories}>
-          <p>All Categories</p>
-          <MdArrowDropDown className={styles.Thick_Down_Icon} />
+        <div className={styles.Categories_Container}>
+          <div className={styles.Categories}>
+            <p>All Categories</p>
+            <MdArrowDropDown className={styles.Thick_Down_Icon} onClick={toggleMenu} />
+          </div>
+          <div className={down ? styles.drills : styles.drills_block}>
+              <ul>
+                  <li>Exercise</li>
+                  <li>Drills</li>
+                  <li>Moves</li>
+              </ul>
+          </div>
         </div>
         <section className={styles.Activity_Container}>
           <div className={styles.Animation_Wrapper}>
