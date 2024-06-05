@@ -1,0 +1,261 @@
+.Beginners_Container{
+    width: 80%;
+    background-color: #F4F6FF;
+    padding: 50px 50px;
+
+    .Admin_Wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 25px;
+        
+        .Admin_Text{
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 8px 15px ;
+          border-radius: 20px;
+          background-color: #fff;
+  
+          .Admin_Icon{
+            font-size: 22px;
+            color: #2A2D74;
+          }
+  
+          p{
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            text-align: left;
+            color: #000;
+          }
+        }
+      }
+
+      .Categories_Container{
+        position: relative;
+        
+        .Categories{
+            // border: 2px solid green;
+            width: 21%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+            margin: 30px 0px;
+    
+            .Thick_Down_Icon{
+                font-size: 30px;
+                cursor: pointer;
+                // border: 2px solid red;
+            }
+          }
+
+          .drills_block{
+            display: none;
+          }
+
+          .drills{
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            
+            ul{
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            //   justify-content: center;
+              padding: 10px 0px;
+            //   border: 2px solid red;
+              width: 100%;
+              max-width: 200px;
+              border-radius: 8px;
+              background-color: #fff;
+              filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            //   margin-left: 10px;
+      
+              li{
+                // border: 2px solid red;
+                list-style: none;
+                color: #2A2D74;
+                font-family: Poppins;
+                font-size: 19px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 36px; /* 163.636% */
+                cursor: pointer;
+                padding: 0px 20px;
+                // margin: 10px 0px;
+      
+                &:hover{
+                  color: #fff;
+                  background-color: #8184D1;
+                }
+              }
+            }
+      
+          }
+    
+      }
+
+      
+      .Activity_Container{
+
+
+        .Animation_Wrapper{
+            padding: 20px 20px;
+            background-color: #2A2D74;
+
+            ul{
+                display: flex;
+                gap: 50px;
+
+                li{
+                    list-style: none;
+                    font-family: Poppins;
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 36px;
+                    text-align: left;
+                    color: #F4F6FF;
+                }
+            }
+        }
+      }
+
+      .Activty_Container{
+        // border: 2px solid gray;
+
+
+        .Activty_Form{
+            // border-bottom: 2px solid green;
+            // padding: 20px;
+    
+            ul{
+                display: none;
+                align-items: center;
+                gap: 70px;
+    
+                li{
+                    list-style: none;
+                    border: 2px solid red;
+                    font-size: 13px;
+    
+                    .Timmy_Head{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+    
+                        input[type="checkbox"] {
+                            width: 2em;
+                            height: 2rem;
+                            accent-color: green;
+                          }
+                    }
+    
+                    .Lorem{
+                        border: 2px solid green;
+                    }
+    
+                    .Edit_Box{
+                        display: flex;
+                        gap: 15px;
+    
+                        .Edit_Icon{
+                            font-size: 30px;
+                            color: #2A2D74;
+                        }
+                    }
+                }
+            }
+
+            .Timmy_Head_Two{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                border-bottom: 1px solid rgb(165, 163, 163);
+                // border: 2px solid red;
+                padding: 20px 20px;
+
+                .Timmy_Head{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    input[type="checkbox"] {
+                        width: 2em;
+                        height: 2rem;
+                        accent-color: green;
+                      }
+                }
+
+
+                .Strech_One{
+                    width: 23%;
+                }
+
+                .Strech_Two{
+                    width: 30%;
+                }
+
+                .Strech_Three{
+                    width: 10.33%;
+                }
+
+                .Strech_Four{
+                    width: 5.33%;
+                }
+
+                .Strech_Five{
+                    width: 35%;
+                }
+
+
+                .Edit_Box{
+                    display: flex;
+                    gap: 15px;
+
+                    .Edit_Icon{
+                        font-size: 25px;
+                        color: #2A2D74;
+                        cursor: pointer;
+                    }
+                }
+
+                
+            }
+
+            .Plus_Wrapper{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                // border: 2px solid red;
+                padding: 20px 20px;
+
+                .Plus{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    background-color: #2A2D74;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    cursor: pointer;
+
+                    p{
+                        color: #fff;
+                    }
+                }
+            }
+          }
+      }
+
+      
+}

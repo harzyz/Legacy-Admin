@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import {  Poppins, Inter } from "next/font/google";
 import "./styles/globals.scss";
 import Sidebar from "./sidebar/page";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'], subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

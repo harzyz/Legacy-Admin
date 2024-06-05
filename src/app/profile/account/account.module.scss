@@ -5,6 +5,7 @@
     background-color: #F4F6FF;
     padding: 50px 50px;
 
+
     .Dashboard_Wrapper{
         display: flex;
         justify-content: space-between;
@@ -55,7 +56,7 @@
 
       .Profile_Admin{
         background-color: #fff;
-        padding:40px 20px;
+        padding:40px 0px;
         margin-top: 60px;
 
         .Profile_Admin_Head{
@@ -100,41 +101,14 @@
 
             .Profile_Button{
                 // padding: 10px 20px;
-                background-color: #2A2D74;
-                color: #fff;
-                font-family: Poppins;
-                font-size: 18px;
-                font-weight: 600;
-                line-height: 32px;
-                text-align: left;
-                border: none;
-
-                // width: Hug (131px)px;
-                // height: Hug (46px)px;
-                // top: 480px;
-                // left: 472px;
-                padding: 7px 21px 7px 21px;
-                border-radius: 18px;
-                opacity: 0px;
-                cursor: pointer;
-
-                &:hover{
-                    background-color: #fff;
-                    color: #2A2D74;
-                    border: 1px dotted #2A2D74;
-                }
-            }
-
-            .Account_Button{
-                // padding: 10px 20px;
                 background-color: #fff;
                 color: #2A2D74;
+                border: 1px dotted #2A2D74;
                 font-family: Poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 32px;
                 text-align: left;
-                border: 1px dotted #2A2D74;
 
                 // width: Hug (131px)px;
                 // height: Hug (46px)px;
@@ -150,57 +124,81 @@
                     color: #fff;
                 }
             }
-        }
 
-        .Complete_Wrapper{
-            padding: 15px 50px;
-            background-color: #F4F6FF;
-
-            p{
-                color: #192126;
+            .Account_Button{
+                // padding: 10px 20px;
+                background-color: #2A2D74;
+                color: #fff;
                 font-family: Poppins;
-                font-size: 16px;
+                font-size: 18px;
                 font-weight: 600;
-                line-height: 24px;
-                letter-spacing: 0.0015em;
+                line-height: 32px;
                 text-align: left;
+                border: none;
                 
+
+                // width: Hug (131px)px;
+                // height: Hug (46px)px;
+                // top: 480px;
+                // left: 472px;
+                padding: 7px 21px 7px 21px;
+                border-radius: 18px;
+                opacity: 0px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #fff;
+                    color: #2A2D74;
+                    border: 1px dotted #2A2D74;
+
+                }
             }
         }
 
-        .Complete_Form{
-            padding: 15px 20px;
+        .Account_Wrapper{
+            padding-bottom: 10px;
+            margin-top: 20px;
 
-            .Complete_Label{
+            .Account_Information{
+                padding: 8px 30px;
+                background-color: #B2B5F1;
+            }
 
-                label{
+            .Last_Login{
+                border-bottom: 1px solid gray;
+                padding: 10px 30px;
+                display: flex;
+                align-items: center;
+                gap: 200px;
+                justify-content: space-between;
+                width: 100%;
+
+                p{
                     font-family: Poppins;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: 500;
-                    // line-height: 32px;
+                    line-height: 32px;
                     text-align: left;
                     color: #1E1E1EA6;
+                    width: 30%;
                 }
 
-                .Complete_Text{
+                .Verified_Status{
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 0px 50px 0px 0px;
-                    p{
+                    justify-content: flex-start;
+                    width: 70%;
+
+                    strong{
                         font-family: Poppins;
-                        font-size: 18px;
+                        font-size: 16px;
                         font-weight: 600;
-                        // line-height: 32px;
+                        line-height: 32px;
                         text-align: left;
                         color: #1E1E1E;
                     }
-
-                    .Complete_Icon{
-                        cursor: pointer;
-                    }
                 }
             }
         }
+
       }
 }

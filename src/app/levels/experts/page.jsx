@@ -12,7 +12,7 @@ import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Link from 'next/link';
 
-export default function Beginners() {
+export default function Experts() {
 
   const [down, setDown] = useState(false);
 

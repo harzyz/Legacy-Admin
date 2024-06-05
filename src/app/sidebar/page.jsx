@@ -59,12 +59,15 @@ export default function Sidebar() {
                                 Beginner{" "}
                             </li>
                         </Link>
+                        
                         <li>
                         Intermediate{" "}
                         </li>
-                        <li>
-                        Expert{" "}
-                        </li>
+                        <Link href="/levels/experts">
+                            <li>
+                            Expert{" "}
+                            </li>
+                        </Link>
                         <li>
                         Elite{" "}
                         </li>

@@ -56,6 +56,41 @@ export default function page() {
                     <button className={styles.Account_Button}>Account Information</button>
                 </Link>
             </div>
+            <div className={styles.Account_Wrapper}>
+                <div className={styles.Account_Information}>
+                    <h3>Account Information</h3>
+                </div>
+                <div className={styles.Last_Login}>
+                    <p>Last Login</p>
+                    <div className={styles.Verified_Status}>
+                        <strong>Aug 14, 2023</strong>
+                    </div>
+                </div>
+                <div className={styles.Last_Login}>
+                    <p>Account Email</p>
+                    <div className={styles.Verified_Status}>
+                        <strong>Lorem ipsum dolor sit</strong>
+                    </div>
+                </div>
+                <div className={styles.Last_Login}>
+                    <p>Email Status</p>
+                    <div className={styles.Verified_Status}>
+                        <strong>Verified</strong>
+                    </div>
+                </div>
+                <div className={styles.Last_Login}>
+                    <p>Profile ID</p>
+                    <div className={styles.Verified_Status}>
+                        <strong>445609</strong>
+                    </div>
+                </div>
+                <div className={styles.Last_Login}>
+                    <p>Gender</p>
+                    <div className={styles.Verified_Status}>
+                        <strong>Male</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
   )
