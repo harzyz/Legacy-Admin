@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import styles from "../sidebar/sidebar.module.scss";
 // import variables from "../styles/variables.module.scss";
 import Link from 'next/link';
@@ -14,6 +15,8 @@ import { PiSignOutLight } from "react-icons/pi";
 import { useState } from "react";
 
 export default function Sidebar() {
+
+    const pathname = usePathname()
 
     const [active, setActive] = useState(false);
 
@@ -54,22 +57,25 @@ export default function Sidebar() {
 
                 <div className={active ? styles.expert : styles.expert_block}>
                     <ul>
-                        <Link href="/levels/beginners">
-                            <li>
+                        <li>
+                            <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
                                 Beginner{" "}
-                            </li>
-                        </Link>
-                        
-                        <li>
-                        Intermediate{" "}
+                            </Link>
                         </li>
-                        <Link href="/levels/experts">
-                            <li>
-                            Expert{" "}
-                            </li>
-                        </Link>
                         <li>
-                        Elite{" "}
+                            <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
+                            Intermediate{" "}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
+                                Expert{" "}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
+                            Elite{" "}
+                            </Link>
                         </li>
                     </ul>
                 </div>
