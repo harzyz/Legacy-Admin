@@ -15,16 +15,12 @@ import Link from 'next/link';
 export default function Beginners() {
 
   const [down, setDown] = useState(false);
-  const [out, setOut] = useState(initialState);
 
   const toggleMenu = () => {
     setDown((open) => !open);
   };
 
-  const handleDelete = () => {
-    setOut(todos.filter((todo) => todo.id !== id))
-    
-}
+
 
   return (
     <section className={styles.Beginners_Container}>
@@ -87,7 +83,7 @@ export default function Beginners() {
                 <li>
                   <div className={styles.Edit_Box}>
                     <RiEdit2Line className={styles.Edit_Icon} />
-                    <RiDeleteBin6Line  onClick={() => handleDelete()} className={styles.Edit_Icon} />
+                    <RiDeleteBin6Line className={styles.Edit_Icon} />
                   </div>
                 </li>
               </ul>
