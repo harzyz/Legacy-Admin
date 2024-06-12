@@ -1,14 +1,14 @@
 "use client"
 import React from 'react'
 import Image from "next/image";
-import styles from "../beginners/beginners.module.scss";
+import styles from "../exercise/exercise.module.scss";
 import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
+import Framess from "../../../../../public/assets/Frame 10.svg";
 import { MdArrowDropDown } from "react-icons/md";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
+import Timmy from "../../../../../public/assets/Timmysmall.svg";
 import { RiEdit2Line } from "react-icons/ri";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import plus from "../../../../public/assets/Plus.svg";
+import plus from "../../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Link from 'next/link';
 
@@ -30,7 +30,7 @@ export default function Beginners() {
             <p>Hello Admin</p>
           </div>
           <Image
-          src={Frames}
+          src={Framess}
           width={50}
           height={50}
           className={styles.Admin_Img}
@@ -38,20 +38,21 @@ export default function Beginners() {
         </div>
         <div className={styles.Categories_Container}>
           <div className={styles.Categories}>
-            <p>All Categories</p>
+            <p>Exercise</p>
             <MdArrowDropDown className={styles.Thick_Down_Icon} onClick={toggleMenu} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
-                  <li>
-                    <Link href={"/levels/beginners/exercise"}>Exercise</Link>
-                  </li>
+                    <li>
+                        <Link href={"/levels/beginners"}>All Categories</Link>
+                    </li>
                   <li>
                     <Link href={"/levels/beginners/drills"}>Drills</Link>
                   </li>
                   <li>
                     <Link href={"/levels/beginners/move"}>Moves</Link>
                   </li>
+                  {/* <li>Moves</li> */}
               </ul>
           </div>
         </div>
@@ -197,75 +198,6 @@ export default function Beginners() {
                   </div>
               </div>
 
-              <div className={styles.Timmy_Head_Two}>
-                <div className={styles.Timmy_Head}>
-                      <input type='checkbox' className={styles.Timmy_Input} />
-                      <Image
-                      src={Timmy}
-                      width={50}
-                      height={50}
-                      alt='timmy'
-                      className={styles.Timmy_Img}
-                      />
-                  </div>
-
-                    <div className={styles.Strech_One}>
-                        <p>Neck Stretch</p>
-                    </div>
-                    <div  className={styles.Strech_Two}>
-                        <p>10 Neck Stretch</p>
-                    </div>
-                    
-                    <div className={styles.Strech_Three}>
-                        <p>01:59</p>
-                    </div>
-                    <div className={styles.Strech_Four}>
-                        <p>01</p>
-                    </div>
-                    <div className={styles.Strech_Five}>
-                        <p>Lorem ipsum dolor...</p>
-                    </div>
-                    <div className={styles.Edit_Box}>
-                      <RiEdit2Line className={styles.Edit_Icon} />
-                      <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
-              </div>
-
-              <div className={styles.Timmy_Head_Two}>
-                <div className={styles.Timmy_Head}>
-                      <input type='checkbox' className={styles.Timmy_Input} />
-                      <Image
-                      src={Timmy}
-                      width={50}
-                      height={50}
-                      alt='timmy'
-                      className={styles.Timmy_Img}
-                      />
-                  </div>
-
-                    <div className={styles.Strech_One}>
-                        <p>Neck Stretch</p>
-                    </div>
-                    <div  className={styles.Strech_Two}>
-                        <p>10 Neck Stretch</p>
-                    </div>
-                    
-                    <div className={styles.Strech_Three}>
-                        <p>01:59</p>
-                    </div>
-                    <div className={styles.Strech_Four}>
-                        <p>01</p>
-                    </div>
-                    <div className={styles.Strech_Five}>
-                        <p>Lorem ipsum dolor...</p>
-                    </div>
-                    <div className={styles.Edit_Box}>
-                      <RiEdit2Line className={styles.Edit_Icon} />
-                      <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
-              </div>
-
-                
                   <div className={styles.Plus_Wrapper}>
                   <Link href={"/levels/activity"} >
                       <div className={styles.Plus}>
