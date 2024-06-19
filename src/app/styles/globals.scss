@@ -1,4 +1,10 @@
 // @import "./mixins";
+@font-face {
+  font-family: 'Poppins';
+  src: url('/legacy_admin/public/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;
@@ -9,4 +15,5 @@
 body {
   display: flex;
   width: 100%;
+  font-family: 'Poppins', Poppins;
 }

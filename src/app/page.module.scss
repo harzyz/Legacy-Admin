@@ -11,6 +11,9 @@
   position: absolute;
   top: 0;
   left: 20%;
+  // margin-left: 350px;
+  flex-grow: 1;
+  // border: 2px solid red;
 }
 
 .main {
@@ -19,6 +22,9 @@
   position: relative;
   background-color: #F4F6FF;
   padding: 50px 50px;
+  margin-left: 272px;
+  flex-grow: 1;
+  // border: 2px solid red;
 
   .Dashboard_Wrapper{
     display: flex;

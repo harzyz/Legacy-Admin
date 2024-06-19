@@ -2,8 +2,8 @@ import React from 'react'
 import styles from "../activity/activity.module.scss";
 import Image from "next/image";
 import { VscAccount } from "react-icons/vsc";
-import note from "../../../../public/assets/Frame 10.svg";
-import notes from "../../../../public/assets/Timmysmall.svg";
+import note from "../../../../../public/assets/Frame 10.svg";
+import notes from "../../../../../public/assets/Timmysmall.svg";
 
 export default function Activity() {
   return (

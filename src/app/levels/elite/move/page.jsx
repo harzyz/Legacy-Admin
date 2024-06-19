@@ -205,7 +205,7 @@ export default function Beginners() {
               </div>
 
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/activity"} >
+                  <Link href={"/levels/elite/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}

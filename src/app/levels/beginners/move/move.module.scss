@@ -2,6 +2,8 @@
     width: 80%;
     background-color: #F4F6FF;
     padding: 50px 50px;
+    margin-left: 250px;
+    flex-grow: 1;
 
     .Admin_Wrapper{
         display: flex;
@@ -23,7 +25,7 @@
           }
   
           p{
-            font-family: Poppins;
+            // font-family: Poppins;
             font-size: 18px;
             font-weight: 400;
             line-height: 32px;
@@ -49,6 +51,7 @@
             background-color: #fff;
             box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
             margin: 30px 0px;
+            cursor: pointer;
     
             .Thick_Down_Icon{
                 font-size: 30px;
@@ -80,40 +83,30 @@
               background-color: #fff;
               filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             //   margin-left: 10px;
-      
+
+            a{
+              text-decoration: none;
+              color: #2A2D74;
+              // font-family: Poppins;
+              font-size: 19px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 36px; /* 163.636% */
+              cursor: pointer;
+
               li{
-                // color: #2A2D74;
-                // font-family: Poppins;
-                // font-size: 19px;
-                // font-style: normal;
-                // font-weight: 500;
-                // line-height: 36px;
-                // cursor: pointer;
                 padding: 0px 20px;
                 list-style: none;
-                
-
-                a{
-                    text-decoration: none;
-                    
-                    color: #2A2D74;
-                    font-family: Poppins;
-                    font-size: 19px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 36px; /* 163.636% */
-                    cursor: pointer;
-                }
-      
-                &:hover{
-                  color: #fff;
-                  background-color: #8184D1;
-                }
               }
-            }
-      
+
+              &:hover{
+                color: #fff;
+                background-color: #8184D1;
+              }
           }
-    
+      
+            }
+          }
       }
 
       
@@ -130,7 +123,7 @@
 
                 li{
                     list-style: none;
-                    font-family: Poppins;
+                    // font-family: Poppins;
                     font-size: 20px;
                     font-weight: 400;
                     line-height: 36px;

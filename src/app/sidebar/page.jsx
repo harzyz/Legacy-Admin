@@ -14,6 +14,7 @@ import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
 import { useState } from "react";
 
+
 export default function Sidebar() {
 
     const pathname = usePathname()
@@ -57,26 +58,26 @@ export default function Sidebar() {
 
                 <div className={active ? styles.expert : styles.expert_block}>
                     <ul>
-                        <li>
-                            <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
+                        <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
+                            <li>
                                 Beginner{" "}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
-                            Intermediate{" "}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
+                            </li>
+                        </Link>
+                        <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
+                            <li>
+                                Intermediate{" "}
+                            </li>
+                        </Link>
+                        <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
+                            <li>
                                 Expert{" "}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
-                            Elite{" "}
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
+                        <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
+                            <li>
+                                Elite{" "}
+                            </li>
+                        </Link>
                     </ul>
                 </div>
 

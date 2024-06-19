@@ -8,6 +8,7 @@ import arrowred from "../../public/assets/Group 3264.svg";
 import Timmy from "../../public/assets/Timmy Action pose 4 with background 2.svg";
 import Timmytwo from "../../public/assets/Timmy Action pose 5 with background 2.svg";
 import Timmythree from "../../public/assets/Frame 11795.svg";
+import './styles//globals.scss';
 // import variables from "./page.module.scss";
 
 

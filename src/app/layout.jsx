@@ -1,4 +1,4 @@
-import {  Poppins, Inter } from "next/font/google";
+import {  Inter } from "next/font/google";
 import "./styles/globals.scss";
 import Sidebar from "./sidebar/page";
 

@@ -1,11 +1,18 @@
 
-
+.Sidebar_Section::-webkit-scrollbar {
+  display: none;
+}
 .Sidebar_Section{
     width: 20%;
-    // border: 2px solid blue;
+    // border: 2px solid red;
     background-color: #2A2D74;
     padding: 50px 0px 50px;
-    // left: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // width: 250px;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   .Logo_icon{
@@ -19,7 +26,7 @@
 
     h3{
       color: #fff;
-      font-family: Poppins;
+      // font-family: Poppins;
       font-size: 18px;
       font-weight: 500;
       line-height: 40px;
@@ -59,7 +66,7 @@
             }
     
             h4{
-              font-family: Poppins;
+              // font-family: Poppins;
               font-size: 20px;
               font-weight: 400;
               line-height: 36px;
@@ -96,7 +103,7 @@
             }
     
             h4{
-              font-family: Poppins;
+              // font-family: Poppins;
               font-size: 20px;
               font-weight: 400;
               line-height: 36px;
@@ -120,31 +127,29 @@
         padding: 0px 0px 0px 100px;
         // transition: 2s;
 
-       
-
-       
-
-        li{
-          // border: 2px solid red;
-          color: rgba(255, 255, 255, 0.65);
-          font-family: Poppins;
-          font-size: 19px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 36px; /* 163.636% */
-          cursor: pointer;
-          // margin: 10px 0px;
-
           .link{
             color: rgba(255, 255, 255, 0.65);
             text-decoration: none;
+            // border: 2px solid green;
+            
+            li{
+              // border: 2px solid purple;
+              // color: rgba(255, 255, 255, 0.65);
+              // font-family: Poppins;
+              font-size: 19px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 36px; /* 163.636% */
+              cursor: pointer;
+              // margin: 10px 0px;
+              
+            }
           }
-  
+
           .active{
             color: #fff;
             font-weight: bold;
           }
-        }
       }
 
     }
@@ -179,7 +184,7 @@
             }
     
             h4{
-              font-family: Poppins;
+              // font-family: Poppins;
               font-size: 20px;
               font-weight: 400;
               line-height: 36px;

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from "next/image";
-import styles from "../move/move.module.scss";
+import styles from "../drills/drills.module.scss";
 import { VscAccount } from "react-icons/vsc";
 import Framess from "../../../../../public/assets/Frame 10.svg";
 import { MdArrowDropDown } from "react-icons/md";
@@ -38,24 +38,24 @@ export default function Beginners() {
         </div>
         <div className={styles.Categories_Container}>
           <div className={styles.Categories} onClick={toggleMenu}>
-            <p>Moves</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon}/>
+            <p>Drills</p>
+            <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
-              <Link href={"/levels/beginners"}>
+              <Link href={"/levels/intermediate"}>
                     <li>
                         All Categories
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/exercise"}>
+                  <Link href={"/levels/intermediate/exercise"}>
                     <li>
                     Exercises
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/drills"}>
+                  <Link href={"/levels/intermediate/move"}>
                     <li>
-                    Drills
+                    Moves
                     </li>
                   </Link>
                   {/* <li>Moves</li> */}
@@ -205,7 +205,7 @@ export default function Beginners() {
               </div>
 
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/activity"} >
+                  <Link href={"/levels/intermediate/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}

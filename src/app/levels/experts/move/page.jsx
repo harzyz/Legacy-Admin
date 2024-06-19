@@ -39,21 +39,21 @@ export default function Beginners() {
         <div className={styles.Categories_Container}>
           <div className={styles.Categories} onClick={toggleMenu}>
             <p>Moves</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon}/>
+            <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
-              <Link href={"/levels/beginners"}>
+              <Link href={"/levels/experts"}>
                     <li>
                         All Categories
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/exercise"}>
+                  <Link href={"/levels/experts/exercise"}>
                     <li>
                     Exercises
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/drills"}>
+                  <Link href={"/levels/experts/drills"}>
                     <li>
                     Drills
                     </li>
@@ -205,7 +205,7 @@ export default function Beginners() {
               </div>
 
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/activity"} >
+                  <Link href={"/levels/experts/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}

@@ -35,15 +35,27 @@ export default function Experts() {
            />
         </div>
         <div className={styles.Categories_Container}>
-          <div className={styles.Categories}>
+          <div className={styles.Categories} onClick={toggleMenu}>
             <p>All Categories</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon} onClick={toggleMenu} />
+            <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
-                  <li>Exercise</li>
-                  <li>Drills</li>
-                  <li>Moves</li>
+              <Link href={"/levels/experts/exercise"}>
+                    <li>
+                      Exercise
+                    </li>
+                  </Link>
+                  <Link href={"/levels/experts/drills"}>
+                    <li>
+                    Drills
+                    </li>
+                  </Link>
+                  <Link href={"/levels/experts/move"}>
+                    <li>
+                    Moves
+                    </li>
+                  </Link>
               </ul>
           </div>
         </div>
@@ -259,7 +271,7 @@ export default function Experts() {
 
                 
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/activity"} >
+                  <Link href={"/levels/experts/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}

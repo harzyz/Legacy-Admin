@@ -38,21 +38,27 @@ export default function Beginners() {
 
         
         <div className={styles.Categories_Container}>
-          <div className={styles.Categories}>
+          <div className={styles.Categories} onClick={toggleMenu}>
             <p>Exercise</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon} onClick={toggleMenu} />
+            <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
+              <Link href={"/levels/beginners"}>
                     <li>
-                        <Link href={"/levels/beginners"}>All Categories</Link>
+                        All Categories
                     </li>
-                  <li>
-                    <Link href={"/levels/beginners/drills"}>Drills</Link>
-                  </li>
-                  <li>
-                    <Link href={"/levels/beginners/move"}>Moves</Link>
-                  </li>
+                  </Link>
+                  <Link href={"/levels/beginners/drills"}>
+                    <li>
+                    Drills
+                    </li>
+                  </Link>
+                  <Link href={"/levels/beginners/move"}>
+                    <li>
+                    Moves
+                    </li>
+                  </Link>
                   {/* <li>Moves</li> */}
               </ul>
           </div>
