@@ -38,7 +38,7 @@ export default function Sidebar() {
         <div>
         
             <div className={styles.General_Container}>
-                <h3>Genaral</h3>
+                <h3>General</h3>
                 <div className={styles.General_Head}>
                     <Link href="/">
                         <div className={styles.Dashboard_Text}>
