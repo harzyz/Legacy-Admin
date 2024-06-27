@@ -7,7 +7,7 @@ import note from "../../../../../public/assets/Frame 10.svg";
 import notes from "../../../../../public/assets/Timmysmall.svg";
 import { useSavedData } from '../../../../../context/SavedDataContext';
 
-export default function Activity() {
+ const Activity = () => {
   const [formData, setFormData] = useState({
     animationImages: '',
     animationVideos: '',
@@ -143,3 +143,5 @@ export default function Activity() {
     </section>
   );
 }
+
+export default Activity

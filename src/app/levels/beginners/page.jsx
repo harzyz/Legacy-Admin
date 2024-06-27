@@ -13,7 +13,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import { useSavedData } from '../../../../context/SavedDataContext'; 
 
-export default function Beginners() {
+ const Beginners = () =>{
   const [down, setDown] = useState(false);
   const { savedData } = useSavedData();
 
@@ -147,3 +147,4 @@ export default function Beginners() {
     </section>
   );
 }
+export default Beginners
