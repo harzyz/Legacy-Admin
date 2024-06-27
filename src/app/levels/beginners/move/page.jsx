@@ -101,108 +101,18 @@ export default function Beginners() {
                 </li>
               </ul>
 
-              <div className={styles.Timmy_Head_Two}>
-                <div className={styles.Timmy_Head}>
-                      <input type='checkbox' className={styles.Timmy_Input} />
-                      <Image
-                      src={Timmy}
-                      width={50}
-                      height={50}
-                      alt='timmy'
-                      className={styles.Timmy_Img}
-                      />
-                  </div>
-
-                    <div className={styles.Strech_One}>
-                        <p>Neck Stretch</p>
-                    </div>
-                    <div  className={styles.Strech_Two}>
-                        <p>10 Neck Stretch</p>
-                    </div>
-                    
-                    <div className={styles.Strech_Three}>
-                        <p>01:59</p>
-                    </div>
-                    <div className={styles.Strech_Four}>
-                        <p>01</p>
-                    </div>
-                    <div className={styles.Strech_Five}>
-                        <p>Lorem ipsum dolor...</p>
-                    </div>
-                    <div className={styles.Edit_Box}>
-                      <RiEdit2Line className={styles.Edit_Icon} />
-                      <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
+              {timmyHead.map((timmy) => (
+              <div key={timmy.id}>
+                <TimmyDetails
+                  imageProp={Timmy}
+                  page={timmy.name}
+                  description={timmy.description}
+                  text={timmy.time}
+                  day={timmy.day}
+                  animation={timmy.animation}
+                />
               </div>
-
-              <div className={styles.Timmy_Head_Two}>
-                <div className={styles.Timmy_Head}>
-                      <input type='checkbox' className={styles.Timmy_Input} />
-                      <Image
-                      src={Timmy}
-                      width={50}
-                      height={50}
-                      alt='timmy'
-                      className={styles.Timmy_Img}
-                      />
-                  </div>
-
-                    <div className={styles.Strech_One}>
-                        <p>Neck Stretch</p>
-                    </div>
-                    <div  className={styles.Strech_Two}>
-                        <p>10 Neck Stretch</p>
-                    </div>
-                    
-                    <div className={styles.Strech_Three}>
-                        <p>01:59</p>
-                    </div>
-                    <div className={styles.Strech_Four}>
-                        <p>01</p>
-                    </div>
-                    <div className={styles.Strech_Five}>
-                        <p>Lorem ipsum dolor...</p>
-                    </div>
-                    <div className={styles.Edit_Box}>
-                      <RiEdit2Line className={styles.Edit_Icon} />
-                      <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
-              </div>
-
-
-              <div className={styles.Timmy_Head_Two}>
-                <div className={styles.Timmy_Head}>
-                      <input type='checkbox' className={styles.Timmy_Input} />
-                      <Image
-                      src={Timmy}
-                      width={50}
-                      height={50}
-                      alt='timmy'
-                      className={styles.Timmy_Img}
-                      />
-                  </div>
-
-                    <div className={styles.Strech_One}>
-                        <p>Neck Stretch</p>
-                    </div>
-                    <div  className={styles.Strech_Two}>
-                        <p>10 Neck Stretch</p>
-                    </div>
-                    
-                    <div className={styles.Strech_Three}>
-                        <p>01:59</p>
-                    </div>
-                    <div className={styles.Strech_Four}>
-                        <p>01</p>
-                    </div>
-                    <div className={styles.Strech_Five}>
-                        <p>Lorem ipsum dolor...</p>
-                    </div>
-                    <div className={styles.Edit_Box}>
-                      <RiEdit2Line className={styles.Edit_Icon} />
-                      <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
-              </div>
+            ))}
 
                   <div className={styles.Plus_Wrapper}>
                   <Link href={"/levels/activity"} >
