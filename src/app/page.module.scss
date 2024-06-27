@@ -18,13 +18,14 @@
 
 .main {
   width: 80%;
-  // color: red;
+  // max-width: 1220px;
   position: relative;
   background-color: #F4F6FF;
   padding: 50px 50px;
-  margin-left: 272px;
+  // margin-left: 272px;
   flex-grow: 1;
   // border: 2px solid red;
+  // overflow: hidden;
 
   .Dashboard_Wrapper{
     display: flex;
@@ -227,6 +228,8 @@
 
   .Timmy_Wrapper{
     padding: 40px 0px 0px;
+    // border: 2px solid red;
+    width: 100%;
 
     h2{
       font-family: Poppins;
@@ -243,11 +246,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
+      gap: 30px;
       margin-top: 40px;
   
       .Timmy_img{
-        width: 35%;
+        width: 30%;
         border-radius: 8px;
       }
     }

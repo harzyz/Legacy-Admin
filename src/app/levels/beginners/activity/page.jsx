@@ -1,11 +1,34 @@
+"use client"
 import React from 'react'
 import styles from "../activity/activity.module.scss";
 import Image from "next/image";
 import { VscAccount } from "react-icons/vsc";
 import note from "../../../../../public/assets/Frame 10.svg";
 import notes from "../../../../../public/assets/Timmysmall.svg";
+import { useState } from "react";
 
 export default function Activity() {
+
+    const [timmyDetail, setTimmyDetail] = useState({
+        name: "",
+        text: "",
+        time: "",
+        description: "",
+        src: null,
+        video: "",
+      });
+
+      const timmy = {};
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTimmyDetail({
+      ...timmyDetail,
+      [name] : value
+    });
+  };
+
+  
   return (
     <section className={styles.Activity_Container}>
         <div className={styles.Admin_Wrapper}>
@@ -34,25 +57,25 @@ export default function Activity() {
                     height={50}
                     className={styles.Animation_Img}
                     />
-                    <input type='text' className={styles.Activity_Input} placeholder='Input URL' />
+                    <input type='text' className={styles.Activity_Input} onChange={handleChange}  placeholder='Input URL' />
                 </div>
             </div>
             <div className={styles.Activity_Head}>
                 <p>Animation Videos<span>*</span></p>
                 <div className={styles.Activity_Form}>
-                    <input type='text' className={styles.Activity_Input} placeholder='Input URL' />
+                    <input type='text' className={styles.Activity_Input} onChange={handleChange} placeholder='Input URL' />
                 </div>
             </div>
             <div className={styles.Activity_Head}>
                 <p>Animation Name<span>*</span></p>
                 <div className={styles.Activity_Form}>
-                    <input type='text' className={styles.Activity_Input} />
+                    <input type='text' className={styles.Activity_Input} onChange={handleChange} />
                 </div>
             </div>
             <div className={styles.Activity_Head}>
                 <p>Description<span>*</span></p>
                 <div className={styles.Activity_Form}>
-                    <input type='text' className={styles.Activity_Input} />
+                    <input type='text' className={styles.Activity_Input} onChange={handleChange} />
                 </div>
             </div>
             <div className={styles.Activity_Head}>
