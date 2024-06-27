@@ -27,6 +27,7 @@ export default function Sidebar() {
   
 
   return (
+
     <section className={styles.Sidebar_Section}>
         <div className={styles.Logo_icon}>
             <Image
@@ -67,40 +68,84 @@ export default function Sidebar() {
                             <li>
                                 Intermediate{" "}
                             </li>
-                        </Link>
-                        <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
-                            <li>
-                                Expert{" "}
-                            </li>
-                        </Link>
-                        <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
-                            <li>
-                                Elite{" "}
-                            </li>
-                        </Link>
-                    </ul>
-                </div>
+=======
+    <div className={styles.Sidebar_New}>
+        <section className={styles.Sidebar_Section}>
+            <div className={styles.Logo_icon}>
+                <Image
+                src={card1}
+                width={150}
+                height={100}
+                />
+            </div>
+            <div>
+            
+                <div className={styles.General_Container}>
+                    <h3>Genaral</h3>
+                    <div className={styles.General_Head}>
+                        <Link href="/">
+                            <div className={styles.Dashboard_Text}>
+                                <FiHome className={styles.Dribble} />
+                                <h4>Dashboard</h4>
+                            </div>
 
-                <h3>Accounts</h3>
-                <div className={styles.General_Head}>
-                    <Link href="/profile">
-                        <div className={styles.Dashboard_Text}>
-                            <CgProfile className={styles.Dribble} />
-                            <h4>My profile</h4>
-                        </div>
-                    </Link>
-                </div>
-                <div className={styles.General_Head_Two}>
-                    <Link href="/levels/beginners">
-                        <div className={styles.Dashboard_Text_Two}>
-                            <PiSignOutLight className={styles.Dribble_Two} />
-                            <h4>LOGOUT</h4>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
+                    <div className={styles.General_Head_Level}>
+                        
+                            <div className={styles.Dashboard_Text} onClick={toggleMenu}  >
+                                <FaDribbble className={styles.Dribble} />
+                                <h4>Levels</h4>
+                                <BsChevronDown />
+                            </div>
+                    </div>
+
+                    <div className={active ? styles.expert : styles.expert_block}>
+                        <ul>
+                            <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
+                                <li>
+                                    Beginner{" "}
+                                </li>
+                            </Link>
+                            <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
+                                <li>
+                                    Intermediate{" "}
+                                </li>
+                            </Link>
+                            <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
+                                <li>
+                                    Expert{" "}
+                                </li>
+                            </Link>
+                            <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
+                                <li>
+                                    Elite{" "}
+                                </li>
+                            </Link>
+                        </ul>
+                    </div>
+
+                    <h3>Accounts</h3>
+                    <div className={styles.General_Head}>
+                        <Link href="/profile">
+                            <div className={styles.Dashboard_Text}>
+                                <CgProfile className={styles.Dribble} />
+                                <h4>My profile</h4>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className={styles.General_Head_Two}>
+                        <Link href="/levels/beginners">
+                            <div className={styles.Dashboard_Text_Two}>
+                                <PiSignOutLight className={styles.Dribble_Two} />
+                                <h4>LOGOUT</h4>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-    </section>
+            
+        </section>
+    </div>
   )
 }
