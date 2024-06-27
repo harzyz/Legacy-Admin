@@ -5,6 +5,7 @@ import Image from "next/image";
 import { VscAccount } from "react-icons/vsc";
 import note from "../../../../../public/assets/Frame 10.svg";
 import notes from "../../../../../public/assets/Timmysmall.svg";
+import { useSavedData } from '../../../../../context/SavedDataContext';
 
 export default function Activity() {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ export default function Activity() {
     timeSec: ''
   });
 
-  const [savedData, setSavedData] = useState(null);
+  const { addSavedData } = useSavedData();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +25,7 @@ export default function Activity() {
   };
 
   const handleSave = () => {
-    setSavedData(formData);
+    addSavedData(formData);
     setFormData({
       animationImages: '',
       animationVideos: '',
@@ -139,16 +140,6 @@ export default function Activity() {
           </div>
         </div>
       </section>
-      {savedData && (
-        <section className={styles.SavedData}>
-          <h4>Saved Activity</h4>
-          <p>Animation Images: {savedData.animationImages}</p>
-          <p>Animation Videos: {savedData.animationVideos}</p>
-          <p>Animation Name: {savedData.animationName}</p>
-          <p>Description: {savedData.description}</p>
-          <p>Time: {savedData.timeMin} Min {savedData.timeSec} Sec</p>
-        </section>
-      )}
     </section>
   );
 }
