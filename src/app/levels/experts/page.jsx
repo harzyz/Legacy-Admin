@@ -30,6 +30,7 @@ export default function Experts() {
           </div>
           <Image
           src={Frames}
+          alt='plus'
           width={50}
           height={50}
           className={styles.Admin_Img}
@@ -117,6 +118,7 @@ export default function Experts() {
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
+                        alt='plus'
                         width={30}
                         height={30}
                         />

@@ -34,6 +34,7 @@ export default function Sidebar() {
                 src={card1}
                 width={150}
                 height={100}
+                alt='card'
                 />
             </div>
             <div>

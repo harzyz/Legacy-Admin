@@ -25,6 +25,7 @@ export default function page() {
             </div>
             <Image
             src={notification}
+            alt='notification'
             width={50}
             height={50}
             className={styles.Admin_Img}
@@ -62,12 +63,14 @@ export default function page() {
                 <div className={styles.Complete_Head}>
                     <Image
                     src={line}
+                    alt='line'
                     width={220}
                     height={50}
                     className={styles.Complete_Thick}
                      />
                     <Image
                     src={thick}
+                    alt='thick'
                     width={550}
                     height={50}
                     className={styles.Complete_Line}
@@ -81,6 +84,7 @@ export default function page() {
                         <p>Lorem ipsum dolor sit amet</p>
                         <Image 
                         src={simple}
+                        alt='simple'
                         width={20}
                         height={50}
                         className={styles.Complete_Icon}
@@ -93,6 +97,7 @@ export default function page() {
                         <p>+2349139254991</p>
                         <Image 
                         src={simple}
+                        alt='simple'
                         width={20}
                         height={50}
                         className={styles.Complete_Icon}
@@ -105,6 +110,7 @@ export default function page() {
                         <p>Lorem ipsum dolor sit amet</p>
                         <Image 
                         src={simple}
+                        alt='simple'
                         width={20}
                         height={50}
                         className={styles.Complete_Icon}

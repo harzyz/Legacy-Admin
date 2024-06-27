@@ -38,6 +38,7 @@ export default function Activity() {
           </div>
           <Image
           src={note}
+          alt='plus'
           width={50}
           height={50}
           className={styles.Admin_Img}
@@ -53,6 +54,7 @@ export default function Activity() {
                 <div className={styles.Activity_Form}>
                     <Image 
                     src={notes}
+                    alt='plus'
                     width={50}
                     height={50}
                     className={styles.Animation_Img}

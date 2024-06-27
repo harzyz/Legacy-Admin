@@ -30,6 +30,7 @@ export default function Beginners() {
           </div>
           <Image
           src={Framess}
+          alt='plus'
           width={50}
           height={50}
           className={styles.Admin_Img}
@@ -121,6 +122,7 @@ export default function Beginners() {
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
+                        alt='plus'
                         width={30}
                         height={30}
                         />

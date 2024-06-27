@@ -22,6 +22,7 @@ export default function page() {
             </div>
             <Image
             src={notifications}
+            alt='notifications'
             width={50}
             height={50}
             className={styles.Admin_Img}

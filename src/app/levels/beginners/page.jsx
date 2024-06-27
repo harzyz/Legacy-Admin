@@ -18,6 +18,7 @@ export default function Beginners() {
 
   const [down, setDown] = useState(false);
 
+
   const toggleMenu = () => {
     setDown((open) => !open);
   };
@@ -91,13 +92,14 @@ export default function Beginners() {
           </div>
           <Image
           src={Frames}
+          alt='plus'
           width={50}
           height={50}
           className={styles.Admin_Img}
            />
         </div>
         <div className={styles.Categories_Container}>
-          <div className={styles.Categories}>
+          <div className={styles.Categories} onClick={toggleMenu}>
             <p>All Categories</p>
             <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
@@ -180,6 +182,7 @@ export default function Beginners() {
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
+                        alt='plus'
                         width={30}
                         height={30}
                         />

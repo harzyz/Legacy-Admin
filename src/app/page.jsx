@@ -27,6 +27,7 @@ export default function Home() {
           </div>
           <Image
           src={Frame}
+          alt="Frame"
           width={50}
           height={50}
           className={styles.Admin_Img}

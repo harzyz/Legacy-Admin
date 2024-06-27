@@ -11,6 +11,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Link from 'next/link';
+import TimmyDetails from '../TimmyDetails';
 
 export default function Beginners() {
 
@@ -31,6 +32,7 @@ export default function Beginners() {
           </div>
           <Image
           src={Framess}
+          alt='plus'
           width={50}
           height={50}
           className={styles.Admin_Img}
@@ -119,6 +121,7 @@ export default function Beginners() {
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
+                        alt='plus'
                         width={30}
                         height={30}
                         />
