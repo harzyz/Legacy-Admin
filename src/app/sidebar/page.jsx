@@ -27,48 +27,6 @@ export default function Sidebar() {
   
 
   return (
-
-    <section className={styles.Sidebar_Section}>
-        <div className={styles.Logo_icon}>
-            <Image
-            src={card1}
-            width={150}
-            height={100}
-             />
-        </div>
-        <div>
-        
-            <div className={styles.General_Container}>
-                <h3>General</h3>
-                <div className={styles.General_Head}>
-                    <Link href="/">
-                        <div className={styles.Dashboard_Text}>
-                            <FiHome className={styles.Dribble} />
-                            <h4>Dashboard</h4>
-                        </div>
-                    </Link>
-                </div>
-                <div className={styles.General_Head_Level}>
-                    
-                        <div className={styles.Dashboard_Text} onClick={toggleMenu}  >
-                            <FaDribbble className={styles.Dribble} />
-                            <h4>Levels</h4>
-                            <BsChevronDown />
-                        </div>
-                </div>
-
-                <div className={active ? styles.expert : styles.expert_block}>
-                    <ul>
-                        <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
-                            <li>
-                                Beginner{" "}
-                            </li>
-                        </Link>
-                        <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
-                            <li>
-                                Intermediate{" "}
-                            </li>
-=======
     <div className={styles.Sidebar_New}>
         <section className={styles.Sidebar_Section}>
             <div className={styles.Logo_icon}>
@@ -88,7 +46,6 @@ export default function Sidebar() {
                                 <FiHome className={styles.Dribble} />
                                 <h4>Dashboard</h4>
                             </div>
-
                         </Link>
                     </div>
                     <div className={styles.General_Head_Level}>
