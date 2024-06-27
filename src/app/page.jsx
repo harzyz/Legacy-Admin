@@ -12,7 +12,6 @@ import './styles//globals.scss';
 // import variables from "./page.module.scss";
 
 
-
 export default function Home() {
   return (
     <main className={styles.main}>
