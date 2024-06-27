@@ -11,11 +11,11 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Link from 'next/link';
-import { useSavedData } from '../../../../context/SavedDataContext'; 
+import { useSavedData } from '../../../../context/SavedDataContext';
 import TimmyDetails from './TimmyDetails';
 
 
- const Beginners = () =>{
+const Beginners = () => {
   const [down, setDown] = useState(false);
   const { savedData } = useSavedData();
 
@@ -30,7 +30,7 @@ import TimmyDetails from './TimmyDetails';
       name: "Neck Stretch",
       // text: "10 Neck Stretch",
       description: "10 Neck Stretch",
-      time:"01:59",
+      time: "01:59",
       day: "01",
       src: Timmy,
       animation: "Lorem ipsum dolor...",
@@ -41,7 +41,7 @@ import TimmyDetails from './TimmyDetails';
       name: "Neck Stretch",
       // text: "10 Neck Stretch",
       description: "20 Neck Stretch",
-      time:"01:59",
+      time: "01:59",
       day: "01",
       src: Timmy,
       animation: "Lorem ipsum dolor...",
@@ -52,7 +52,7 @@ import TimmyDetails from './TimmyDetails';
       name: "Neck Stretch",
       // text: "10 Neck Stretch",
       description: "10 Neck Stretch",
-      time:"01:59",
+      time: "01:59",
       day: "01",
       src: Timmy,
       animation: "Lorem ipsum dolor...",
@@ -63,7 +63,7 @@ import TimmyDetails from './TimmyDetails';
       name: "Neck Stretch",
       // text: "10 Neck Stretch",
       description: "10 Neck Stretch",
-      time:"01:59",
+      time: "01:59",
       day: "01",
       src: Timmy,
       animation: "Lorem ipsum dolor...",
@@ -74,12 +74,12 @@ import TimmyDetails from './TimmyDetails';
       name: "Neck Stretch",
       // text: "10 Neck Stretch",
       description: "10 Neck Stretch",
-      time:"01:59",
+      time: "01:59",
       day: "01",
       src: Timmy,
       animation: "Lorem ipsum dolor...",
     },
-   
+
   ];
 
   return (
@@ -114,33 +114,34 @@ import TimmyDetails from './TimmyDetails';
             </Link>
           </ul>
 
-        <div className={styles.Categories_Container}>
-          <div className={styles.Categories}>
-            <p>All Categories</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon} />
-          </div>
-          <div className={down ? styles.drills : styles.drills_block}>
+          <div className={styles.Categories_Container}>
+            <div className={styles.Categories}>
+              <p>All Categories</p>
+              <MdArrowDropDown className={styles.Thick_Down_Icon} />
+            </div>
+            <div className={down ? styles.drills : styles.drills_block}>
 
               <ul>
-                  <Link href={"/levels/beginners/exercise"}>
-                    <li>
-                      Exercise
-                    </li>
-                  </Link>
-                  <Link href={"/levels/beginners/drills"}>
-                    <li>
+                <Link href={"/levels/beginners/exercise"}>
+                  <li>
+                    Exercise
+                  </li>
+                </Link>
+                <Link href={"/levels/beginners/drills"}>
+                  <li>
                     Drills
-                    </li>
-                  </Link>
-                  <Link href={"/levels/beginners/move"}>
-                    <li>
+                  </li>
+                </Link>
+                <Link href={"/levels/beginners/move"}>
+                  <li>
                     Moves
-                    </li>
-                  </Link>
-                  
-              </ul>
-          </div>
+                  </li>
+                </Link>
 
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
       <section className={styles.Activity_Container}>
@@ -219,30 +220,30 @@ import TimmyDetails from './TimmyDetails';
               </div>
 
               {timmyHead.map((timmy) => (
-              <div key={timmy.id}>
-                <TimmyDetails
-                  imageProp={Timmy}
-                  page={timmy.name}
-                  description={timmy.description}
-                  text={timmy.time}
-                  day={timmy.day}
-                  animation={timmy.animation}
-                />
-              </div>
-            ))}
-                
-                  <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/beginners/activity"} >
-                      <div className={styles.Plus}>
-                        <Image 
-                        src={plus}
-                        width={30}
-                        height={30}
-                        />
-                          <p>Add More Fields</p>
-                      </div>
-                    </Link>
+                <div key={timmy.id}>
+                  <TimmyDetails
+                    imageProp={Timmy}
+                    page={timmy.name}
+                    description={timmy.description}
+                    text={timmy.time}
+                    day={timmy.day}
+                    animation={timmy.animation}
+                  />
+                </div>
+              ))}
+
+              <div className={styles.Plus_Wrapper}>
+                <Link href={"/levels/beginners/activity"} >
+                  <div className={styles.Plus}>
+                    <Image
+                      src={plus}
+                      width={30}
+                      height={30}
+                    />
+                    <p>Add More Fields</p>
                   </div>
+                </Link>
+              </div>
 
             </div>
           ))}
