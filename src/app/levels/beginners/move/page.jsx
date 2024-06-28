@@ -38,6 +38,7 @@ export default function Beginners() {
           className={styles.Admin_Img}
            />
         </div>
+        
         <div className={styles.Categories_Container}>
           <div className={styles.Categories} onClick={toggleMenu}>
             <p>Moves</p>
