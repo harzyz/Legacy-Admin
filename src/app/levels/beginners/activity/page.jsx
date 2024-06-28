@@ -18,6 +18,8 @@ export default function Activity() {
         video: "",
       });
 
+      
+
       const timmy = {};
 
   const handleChange = (e) => {
