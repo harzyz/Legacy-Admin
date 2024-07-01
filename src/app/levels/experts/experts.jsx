@@ -13,7 +13,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import TimmyDetails from '../beginners/TimmyDetails';
 
-export default function Beginners() {
+export default function Experts() {
 
   const [down, setDown] = useState(false);
 
@@ -43,17 +43,17 @@ export default function Beginners() {
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
               <ul>
-              <Link href={"/levels/elite/exercise"}>
+              <Link href={"/levels/experts/exercise"}>
                     <li>
                       Exercise
                     </li>
                   </Link>
-                  <Link href={"/levels/elite/drills"}>
+                  <Link href={"/levels/experts/drills"}>
                     <li>
                     Drills
                     </li>
                   </Link>
-                  <Link href={"/levels/elite/move"}>
+                  <Link href={"/levels/experts/move"}>
                     <li>
                     Moves
                     </li>
@@ -100,7 +100,7 @@ export default function Beginners() {
                 </li>
               </ul>
 
-              {timmyHead.map((timmy) => (
+              {/* {timmyHead.map((timmy) => (
               <div key={timmy.id}>
                 <TimmyDetails
                   imageProp={Timmy}
@@ -111,10 +111,10 @@ export default function Beginners() {
                   animation={timmy.animation}
                 />
               </div>
-            ))}
+            ))} */}
 
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/elite/activity"} >
+                  <Link href={"/levels/experts/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
