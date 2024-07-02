@@ -13,7 +13,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import TimmyDetails from '../beginners/TimmyDetails';
 
-export default function Beginners() {
+export default function Intermediate() {
 
   const [down, setDown] = useState(false);
 
@@ -100,7 +100,7 @@ export default function Beginners() {
                 </li>
               </ul>
 
-              {timmyHead.map((timmy) => (
+              {/* {timmyHead.map((timmy) => (
               <div key={timmy.id}>
                 <TimmyDetails
                   imageProp={Timmy}
@@ -111,7 +111,7 @@ export default function Beginners() {
                   animation={timmy.animation}
                 />
               </div>
-            ))}
+            ))} */}
 
 
                   <div className={styles.Plus_Wrapper}>
