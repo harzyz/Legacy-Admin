@@ -60,22 +60,22 @@ export default function Sidebar() {
 
                     <div className={active ? styles.expert : styles.expert_block}>
                         <ul>
-                            <Link className={`${styles.link} ${pathname === '/levels/beginners' ? styles.active : ''}`} href="/levels/beginners">
+                            <Link href="/levels/beginners">
                                 <li>
                                     Beginner{" "}
                                 </li>
                             </Link>
-                            <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
+                            <Link href="/levels/intermediate">
                                 <li>
                                     Intermediate{" "}
                                 </li>
                             </Link>
-                            <Link className={`${styles.link} ${pathname === '/levels/experts' ? styles.active : ''}`} href="/levels/experts">
+                            <Link  href="/levels/experts">
                                 <li>
                                     Expert{" "}
                                 </li>
                             </Link>
-                            <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
+                            <Link  href="/levels/elite">
                                 <li>
                                     Elite{" "}
                                 </li>
