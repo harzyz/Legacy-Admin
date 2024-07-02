@@ -1,4 +1,10 @@
-import React from 'react'
+"use-client"
+import Image from 'next/image';
+import React, { useState } from 'react'
+import { VscAccount } from 'react-icons/vsc';
+import note from "../../../../public/assets/Frame 10.svg";
+import notes from "../../../../public/assets/Timmysmall.svg";
+import styles from './activity.module.scss'
 
 const Activity = () => {
     const [timmyDetail, setTimmyDetail] = useState({
@@ -24,7 +30,7 @@ const Activity = () => {
 
   return (
     <section className={styles.Activity_Container}>
-        <div className={styles.Admin_Wrapper}>
+        {/* <div className={styles.Admin_Wrapper}>
           <div className={styles.Admin_Text}>
             <VscAccount className={styles.Admin_Icon} />
             <p>Hello Admin</p>
@@ -36,7 +42,7 @@ const Activity = () => {
           height={50}
           className={styles.Admin_Img}
            />
-        </div>
+        </div> */}
         <div className={styles.Add_New_Activity}>
             <h4>Add new activity</h4>
         </div>
