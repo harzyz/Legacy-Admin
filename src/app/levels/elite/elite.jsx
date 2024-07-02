@@ -11,77 +11,15 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Link from 'next/link';
-import TimmyDetails from './TimmyDetails';
-// import '../../styles//globals.scss';
+import TimmyDetails from '../beginners/TimmyDetails';
 
-export default function Beginners() {
+export default function Elite() {
 
   const [down, setDown] = useState(false);
-
 
   const toggleMenu = () => {
     setDown((open) => !open);
   };
-
-  const timmyHead = [
-    {
-      id: 1,
-      name: "Neck Stretch",
-      // text: "10 Neck Stretch",
-      description: "10 Neck Stretch",
-      time:"01:59",
-      day: "01",
-      src: Timmy,
-      animation: "Lorem ipsum dolor...",
-    },
-
-    {
-      id: 2,
-      name: "Neck Stretch",
-      // text: "10 Neck Stretch",
-      description: "20 Neck Stretch",
-      time:"01:59",
-      day: "01",
-      src: Timmy,
-      animation: "Lorem ipsum dolor...",
-    },
-
-    {
-      id: 3,
-      name: "Neck Stretch",
-      // text: "10 Neck Stretch",
-      description: "10 Neck Stretch",
-      time:"01:59",
-      day: "01",
-      src: Timmy,
-      animation: "Lorem ipsum dolor...",
-    },
-
-    {
-      id: 4,
-      name: "Neck Stretch",
-      // text: "10 Neck Stretch",
-      description: "10 Neck Stretch",
-      time:"01:59",
-      day: "01",
-      src: Timmy,
-      animation: "Lorem ipsum dolor...",
-    },
-
-    {
-      id: 5,
-      name: "Neck Stretch",
-      // text: "10 Neck Stretch",
-      description: "10 Neck Stretch",
-      time:"01:59",
-      day: "01",
-      src: Timmy,
-      animation: "Lorem ipsum dolor...",
-    },
-   
-  ];
-
-
 
   return (
     <section className={styles.Beginners_Container}>
@@ -104,24 +42,22 @@ export default function Beginners() {
             <MdArrowDropDown className={styles.Thick_Down_Icon} />
           </div>
           <div className={down ? styles.drills : styles.drills_block}>
-
               <ul>
-                  <Link href={"/levels/beginners/exercise"}>
+              <Link href={"/levels/elite/exercise"}>
                     <li>
                       Exercise
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/drills"}>
+                  <Link href={"/levels/elite/drills"}>
                     <li>
                     Drills
                     </li>
                   </Link>
-                  <Link href={"/levels/beginners/move"}>
+                  <Link href={"/levels/elite/move"}>
                     <li>
                     Moves
                     </li>
                   </Link>
-                  
               </ul>
           </div>
         </div>
@@ -164,7 +100,7 @@ export default function Beginners() {
                 </li>
               </ul>
 
-              {timmyHead.map((timmy) => (
+              {/* {timmyHead.map((timmy) => (
               <div key={timmy.id}>
                 <TimmyDetails
                   imageProp={Timmy}
@@ -175,10 +111,10 @@ export default function Beginners() {
                   animation={timmy.animation}
                 />
               </div>
-            ))}
-                
+            ))} */}
+
                   <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/beginners/activity"} >
+                  <Link href={"/levels/elite/activity"} >
                       <div className={styles.Plus}>
                         <Image 
                         src={plus}
@@ -190,6 +126,8 @@ export default function Beginners() {
                       </div>
                     </Link>
                   </div>
+                
+              
             </div>
           </div>
         </section>

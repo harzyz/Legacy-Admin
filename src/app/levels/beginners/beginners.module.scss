@@ -1,5 +1,5 @@
 .Beginners_Container{
-    width: 80%;
+    width: 100%;
     background-color: #F4F6FF;
     padding: 50px 50px;
     // margin-left: 250px;
@@ -265,4 +265,49 @@
       }
 
       
+}
+
+.dropdown_options{
+  list-style: none;
+  width: 239px;
+  height: 160px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 100%;
+  left: 0px
+}
+.dropdown_options_list{
+  height: 53px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #2A2D74;
+}
+.dropdown_options_listr{
+  height: 53px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  cursor: pointer;
+  background-color: #8184D1;
+  color: #fff;
+}
+.dropdown_options_list:hover{
+  background-color: #8184D1;
+  color: #fff;
+}
+.selected_option{
+  height: 53px;
+  border-radius: 40px;
+  width: 239px;
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+}
+.cat_container{
+  padding-bottom: 20px;
+  position: relative;
 }

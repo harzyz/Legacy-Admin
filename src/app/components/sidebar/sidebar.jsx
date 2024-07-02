@@ -5,7 +5,7 @@ import styles from "../sidebar/sidebar.module.scss";
 // import variables from "../styles/variables.module.scss";
 import Link from 'next/link';
 import Image from 'next/image';
-import card1 from "../../../public/assets/Component 6.svg";
+import card1 from "../../../../public/assets/Component 6.svg";
 // import home from "../../../public/assets/DribbbleLogo.svg";
 import { FiHome } from "react-icons/fi";
 import { FaDribbble } from "react-icons/fa";
@@ -60,22 +60,22 @@ export default function Sidebar() {
 
                     <div className={active ? styles.expert : styles.expert_block}>
                         <ul>
-                            <Link href="/levels/beginners">
+                            <Link className={`${styles.link} ${pathname === '/levels/beginner' ? styles.active : ''}`} href="/levels/beginner">
                                 <li>
                                     Beginner{" "}
                                 </li>
                             </Link>
-                            <Link href="/levels/intermediate">
+                            <Link className={`${styles.link} ${pathname === '/levels/beginner' ? styles.active : ''}`} href="/levels/intermediate">
                                 <li>
                                     Intermediate{" "}
                                 </li>
                             </Link>
-                            <Link  href="/levels/experts">
+                            <Link className={`${styles.link} ${pathname === '/levels/expert' ? styles.active : ''}`} href="/levels/expert">
                                 <li>
                                     Expert{" "}
                                 </li>
                             </Link>
-                            <Link  href="/levels/elite">
+                            <Link className={`${styles.link} ${pathname === '/levels/beginner' ? styles.active : ''}`} href="/levels/elite">
                                 <li>
                                     Elite{" "}
                                 </li>
