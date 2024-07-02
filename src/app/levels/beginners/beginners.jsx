@@ -14,11 +14,14 @@ import Link from "next/link";
 import TimmyDetails from "./TimmyDetails";
 import Move from "@/app/components/move/move";
 import Dropdown from "@/app/components/dropdown/dropdown";
+import Drills from "@/app/components/drills/drills";
+import Exercise from "@/app/components/exercise/exercise";
+import caret from '../../../../public/assets/caret.svg'
 // import '../../styles//globals.scss';
 
 export default function Beginners() {
   const [down, setDown] = useState(false);
-  const [exercise, setExercise] = useState(null);
+  const [exercise, setExercise] = useState('default');
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +38,7 @@ export default function Beginners() {
     setIsOpen(!isOpen);
   };
 
-  const more = ["Moves", "Drills", "Exerscise"];
+  const more = ["Moves", "Drills", "Exercise"];
 
   const toggleMenu = () => {
     setDown((open) => !open);
@@ -113,43 +116,24 @@ export default function Beginners() {
           className={styles.Admin_Img}
         />
       </div>
-      <div className={styles.Categories_Container}>
-        <div className={styles.Categories} onClick={toggleMenu}>
-          <p>All Categories</p>
-          <MdArrowDropDown className={styles.Thick_Down_Icon} />
-        </div>
-        {/* <Dropdown options={more} /> */}
+      <div className={styles.cat_container}>
         <div>
-          <button onClick={toggleDropDown}>
-            {selectedOption || "All Categories"}
+          <button className={styles.selected_option} onClick={toggleDropDown}>
+            {selectedOption || "All Categories"} <Image src={caret} />
           </button>
 
           {isOpen && (
-            <ul>
+            <ul className={styles.dropdown_options}>
               {more.map((item) => (
-                <li onClick={() => selectOption(item)} key={item}>
+                <li className={exercise=== item ? styles.dropdown_options_listr : styles.dropdown_options_list} onClick={() => selectOption(item)} key={item}>
                   {item}
                 </li>
               ))}
             </ul>
           )}
         </div>
-
-        <div className={down ? styles.drills : styles.drills_block}>
-          <ul>
-            <Link href={"/levels/beginners/exercise"}>
-              <li>Exercise</li>
-            </Link>
-            <Link href={"/levels/beginners/drills"}>
-              <li>Drills</li>
-            </Link>
-            <Link href={"/levels/beginners/move"}>
-              <li>Moves</li>
-            </Link>
-          </ul>
-        </div>
       </div>
-      {exercise === 'Drills' && 
+      {exercise === 'default' && 
         <section className={styles.Activity_Container}>
           <div className={styles.Animation_Wrapper}>
             <ul>
@@ -215,6 +199,8 @@ export default function Beginners() {
         </section>
       }
       {exercise === 'Moves' && <Move />}
+      {exercise === 'Drills' && <Drills />}
+      {exercise === 'Exercise' && <Exercise />}
     </section>
   );
 }

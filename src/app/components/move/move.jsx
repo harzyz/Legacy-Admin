@@ -21,46 +21,6 @@ const Move = () => {
   
     return (
       <section className={styles.Beginners_Container}>
-          <div className={styles.Admin_Wrapper}>
-            <div className={styles.Admin_Text}>
-              <VscAccount className={styles.Admin_Icon} />
-              <p>Hello Admin</p>
-            </div>
-            <Image
-            src={Framess}
-            alt='plus'
-            width={50}
-            height={50}
-            className={styles.Admin_Img}
-             />
-          </div>
-          
-          <div className={styles.Categories_Container}>
-            <div className={styles.Categories} onClick={toggleMenu}>
-              <p>Moves</p>
-              <MdArrowDropDown className={styles.Thick_Down_Icon}/>
-            </div>
-            <div className={down ? styles.drills : styles.drills_block}>
-                <ul>
-                <Link href={"/levels/beginners"}>
-                      <li>
-                          All Categories
-                      </li>
-                    </Link>
-                    <Link href={"/levels/beginners/exercise"}>
-                      <li>
-                      Exercises
-                      </li>
-                    </Link>
-                    <Link href={"/levels/beginners/drills"}>
-                      <li>
-                      Drills
-                      </li>
-                    </Link>
-                    {/* <li>Moves</li> */}
-                </ul>
-            </div>
-          </div>
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
