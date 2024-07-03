@@ -13,7 +13,7 @@ import { useState } from "react";
 import Link from 'next/link';
 import TimmyDetails from '../TimmyDetails';
 
-export default function Beginners() {
+export default function Exercise() {
 
   const [down, setDown] = useState(false);
 

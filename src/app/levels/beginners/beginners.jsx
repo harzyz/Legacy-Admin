@@ -38,7 +38,7 @@ export default function Beginners() {
     setIsOpen(!isOpen);
   };
 
-  const more = ["Moves", "Drills", "Exercise"];
+  const more = ["All Categories","Moves", "Drills", "Exercise"];
 
   const toggleMenu = () => {
     setDown((open) => !open);
@@ -122,10 +122,11 @@ export default function Beginners() {
             {selectedOption || "All Categories"} <Image src={caret} />
           </button>
 
+
           {isOpen && (
             <ul className={styles.dropdown_options}>
               {more.map((item) => (
-                <li className={exercise=== item ? styles.dropdown_options_listr : styles.dropdown_options_list} onClick={() => selectOption(item)} key={item}>
+                <li className={exercise === item ? styles.dropdown_options_listr : styles.dropdown_options_list} onClick={() => selectOption(item)} key={item}>
                   {item}
                 </li>
               ))}
