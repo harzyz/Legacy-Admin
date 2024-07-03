@@ -65,7 +65,7 @@ export default function Sidebar() {
                                     Beginner{" "}
                                 </li>
                             </Link>
-                            <Link className={`${styles.link} ${pathname === '/levels/intermediate' ? styles.active : ''}`} href="/levels/intermediate">
+                            <Link className={`${styles.link} ${pathname === '/levels/beginner' ? styles.active : ''}`} href="/levels/intermediate">
                                 <li>
                                     Intermediate{" "}
                                 </li>
@@ -75,7 +75,7 @@ export default function Sidebar() {
                                     Expert{" "}
                                 </li>
                             </Link>
-                            <Link className={`${styles.link} ${pathname === '/levels/elite' ? styles.active : ''}`} href="/levels/elite">
+                            <Link className={`${styles.link} ${pathname === '/levels/beginner' ? styles.active : ''}`} href="/levels/elite">
                                 <li>
                                     Elite{" "}
                                 </li>
