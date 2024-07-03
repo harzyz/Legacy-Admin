@@ -114,7 +114,6 @@
 
       
       .Activity_Container{
-        border: 2px solid red;
 
 
         .Animation_Wrapper{
@@ -149,6 +148,8 @@
               // border: 2px solid green;
               text-align: center;
               padding:  50px 0px;
+              font-size: 30px;
+              font-weight: 600;
             }
     
             ul{
@@ -158,7 +159,7 @@
     
                 li{
                     list-style: none;
-                    border: 2px solid red;
+                    // border: 2px solid red;
                     font-size: 13px;
     
                     .Timmy_Head{
@@ -199,7 +200,6 @@
                 text-align: center;
                 gap: 40px;
                 border-bottom: 1px solid rgb(165, 163, 163);
-                border: 2px solid red;
                 padding: 20px 20px;
 
                 .Timmy_Head{
@@ -238,7 +238,7 @@
 
                 .Edit_Box{
                     display: flex;
-                    border: 2px solid red;
+                    // border: 2px solid red;
                     gap: 25px;
 
                     .Edit_Icon{
