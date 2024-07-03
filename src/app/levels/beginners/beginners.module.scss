@@ -2,6 +2,7 @@
     width: 100%;
     background-color: #F4F6FF;
     padding: 50px 50px;
+    height: 100vh;
     // margin-left: 250px;
     // flex-grow: 1;
 
@@ -122,7 +123,7 @@
 
             ul{
                 display: flex;
-                gap: 50px;
+                gap: 40px;
 
                 li{
                     list-style: none;
@@ -143,7 +144,12 @@
 
         .Activty_Form{
             // border-bottom: 2px solid green;
-            // padding: 20px;
+
+            .No_Activities{
+              // border: 2px solid green;
+              text-align: center;
+              padding:  50px 0px;
+            }
     
             ul{
                 display: none;
@@ -171,25 +177,29 @@
                         border: 2px solid green;
                     }
     
-                    .Edit_Box{
-                        display: flex;
-                        gap: 15px;
-    
-                        .Edit_Icon{
-                            font-size: 30px;
-                            color: #2A2D74;
-                        }
-                    }
+                    // .Edit_Box{
+                    //     display: flex;
+                    //     gap: 20px;
+                    //     border: 2px solid red;
+                    // }
                 }
             }
+
+          //   .Edit_Box{
+          //     display: flex;
+          //     // gap: 40px;
+          //     border: 2px solid greenyellow;
+          // }
 
             .Timmy_Head_Two{
                 width: 100%;
                 display: flex;
                 align-items: center;
-                gap: 50px;
+                justify-content: center;
+                text-align: center;
+                gap: 40px;
                 border-bottom: 1px solid rgb(165, 163, 163);
-                // border: 2px solid red;
+                border: 2px solid red;
                 padding: 20px 20px;
 
                 .Timmy_Head{
@@ -228,7 +238,8 @@
 
                 .Edit_Box{
                     display: flex;
-                    gap: 15px;
+                    border: 2px solid red;
+                    gap: 25px;
 
                     .Edit_Icon{
                         font-size: 25px;
@@ -268,6 +279,76 @@
       
 }
 
+.Delete_Modal{
+  padding:50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  strong{
+    color: #2A2D74;
+    font-size: 20px;
+  }
+
+  p{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .Delete_Modal_btn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .Delete_Modal_btn_One{
+      padding: 20px 0px;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      background-color: #2A2D74;
+      border: 2px solid #2A2D74;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover{
+        border: 2px solid #2A2D74;
+        color: #2A2D74;
+        background-color: #fff;
+      }
+    }
+
+    .Delete_Modal_btn_Two{
+      padding: 20px 0px;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      background-color: #fff;
+      color: #2A2D74;
+      border: 2px solid #2A2D74;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover{
+        border: 2px solid #2A2D74;
+        color: #fff;
+        background-color: #2A2D74;
+      }
+    }
+
+  }
+}
+
 .dropdown_options{
   list-style: none;
   width: 239px;
@@ -301,14 +382,31 @@
   color: #fff;
 }
 .selected_option{
-  height: 53px;
+  width: 15%;
+  // height: 53px;
   border-radius: 40px;
-  width: 239px;
+  // width: 170px;
   background-color: #FFFFFF;
+  padding: 12px 10px;
   border: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins' , sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  justify-content: center;
   box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+  cursor: pointer;
+}
+.selected_option:hover{
+  background-color: #2A2D74;
+  color: #FFF;
 }
 .cat_container{
   padding-bottom: 20px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  border: 2px solid red;
+  // gap: 0px;
 }
