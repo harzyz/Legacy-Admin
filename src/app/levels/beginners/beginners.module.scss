@@ -302,12 +302,25 @@
 .selected_option{
   height: 53px;
   border-radius: 40px;
-  width: 239px;
+  width: 170px;
   background-color: #FFFFFF;
   border: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins' , sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  justify-content: center;
   box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+  cursor: pointer;
+}
+.selected_option:hover{
+  background-color: #2A2D74;
+  color: #FFF;
 }
 .cat_container{
   padding-bottom: 20px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
