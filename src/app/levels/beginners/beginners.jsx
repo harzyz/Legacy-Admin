@@ -4,18 +4,11 @@ import Image from "next/image";
 import styles from "../beginners/beginners.module.scss";
 import { VscAccount } from "react-icons/vsc";
 import Frames from "../../../../public/assets/Frame 10.svg";
-import { MdArrowDropDown } from "react-icons/md";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
-import { RiEdit2Line } from "react-icons/ri";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import Link from "next/link";
 import TimmyDetails from "./TimmyDetails";
-import caret from "../../../../public/assets/caret.svg";
 import Activity from "@/app/components/activity/activity";
-import Modal from "@/app/components/modal/modal";
-// import '../../styles//globals.scss';
 
 export default function Beginners() {
   const [activity, setActivity] = useState(false);
