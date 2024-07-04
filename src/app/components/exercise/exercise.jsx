@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "../exercise/exercise.module.scss";
+import styles from "./exercise.module.scss";
 import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../../public/assets/Plus.svg";
+import Frames from "../../../../public/assets/Frame 10.svg";
+import Timmy from "../../../../public/assets/Timmysmall.svg";
+import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
+// import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "../../beginners/TimmyDetails";
+import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
 
 export default function Exercise() {
   const [activity, setActivity] = useState(false);
@@ -72,33 +73,8 @@ export default function Exercise() {
 
   return (
     <section className={styles.Beginners_Container}>
-      <div className={styles.Admin_Wrapper}>
-        <div className={styles.Admin_Text}>
-          <VscAccount className={styles.Admin_Icon} />
-          <p>Hello Admin</p>
-        </div>
-        <Image
-          src={Frames}
-          alt="plus"
-          width={50}
-          height={50}
-          className={styles.Admin_Img}
-        />
-      </div>
       {!activity && (
         <div>
-          <div className={styles.cat_container}>
-            {more.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => handleFilterChange(item.value)}
-                className={styles.selected_option}
-              >
-                {item.gg}
-              </div>
-            ))}
-          </div>
-
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
