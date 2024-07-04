@@ -80,7 +80,7 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
   return (
     <div className={styles.Activity_Container}>
       <div className={styles.Add_New_Activity}>
-      <h4>{editItem ? 'Edit Activity' : 'Add new activity'}</h4>
+      <b>{editItem ? 'Edit Activity' : 'Add new activity / Exercise'}</b>
       </div>
       <form onSubmit={submit} className={styles.Activity_Wrapper}>
         <h4>Basic information</h4>
@@ -172,9 +172,9 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
           </p>
           <div className={styles.Activity_Form_two}>
             <input type="text" value={minute} id="minute" name="minute" maxLength="2" onChange={handleTimeChange}  className={styles.Activity_Input} />
-            <p>Min</p>
-            <input type="text" value={seconds} id="seconds" name="seconds" maxLength="2" onChange={handleTimeChange} className={styles.Activity_Input} />
-            <p>Sec</p>
+            {/* <p>Min</p> */}
+            {/* <input type="text" value={seconds} id="seconds" name="seconds" maxLength="2" onChange={handleTimeChange} className={styles.Activity_Input} /> */}
+            {/* <p>Sec</p> */}
           </div>
         </div>
         <div className={styles.Button_One}>

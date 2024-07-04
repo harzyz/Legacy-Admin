@@ -22,12 +22,12 @@ const Modal = ({ isOpen, onClose, children }) => {
           onClick={onClose}
           style={{ zIndex: 1000 }}
         >
-          <div
-            style={{
-              background: '#ffffff',
-              borderRadius: '8px',
-              padding: '10px',
-            }}
+          <div className={styles.Modal_Container}
+            // style={{
+            //   background: '#ffffff',
+            //   borderRadius: '8px',
+            //   padding: '10px',
+            // }}
             onClick={e => e.stopPropagation()}
           >
             {children}
