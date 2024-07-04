@@ -13,7 +13,7 @@ import Exercise from "@/app/components/exercise/exercise";
 import Moves from "@/app/components/moves/moves";
 import Drills from "@/app/components/drills/drills";
 
-export default function Experts() {
+export default function Experts({id}) {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("exercise");
@@ -99,6 +99,8 @@ export default function Experts() {
           </div>
         ))}
       </div>
+      <h3>Day {id}</h3>
+      
       {filterType === 'exercise' && <Exercise />}
       {filterType === 'moves' && <Moves />}
       {filterType === 'drills' && <Drills />}

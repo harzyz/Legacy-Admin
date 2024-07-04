@@ -21,7 +21,7 @@ import Moves from "@/app/components/moves/moves";
 import Drills from "@/app/components/drills/drills";
 // import '../../styles//globals.scss';
 
-export default function Intermediate() {
+export default function Intermediate({id}) {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("exercise");
@@ -107,6 +107,7 @@ export default function Intermediate() {
           </div>
         ))}
       </div>
+      <h3>Day {id}</h3>
       {filterType === 'exercise' && <Exercise />}
       {filterType === 'moves' && <Moves />}
       {filterType === 'drills' && <Drills />}
