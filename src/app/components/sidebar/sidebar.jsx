@@ -43,7 +43,7 @@ export default function Sidebar() {
             <div className={styles.General_Head_Level}>
               <div className={styles.Dashboard_Text} onClick={toggleMenu}>
                 <FaDribbble className={styles.Dribble} />
-                <h4>Levels</h4>
+                <Link href='/levels'><h4>Levels</h4></Link>
                 <BsChevronDown />
               </div>
             </div>

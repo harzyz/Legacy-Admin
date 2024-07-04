@@ -16,35 +16,33 @@ import caret from "../../../../public/assets/caret.svg";
 import Activity from "@/app/components/activity/activity";
 import Modal from "@/app/components/modal/modal";
 import TimmyHead from "./TimmyHead";
+import Exercise from "@/app/components/exercise/exercise";
+import Moves from "@/app/components/moves/moves";
+import Drills from "@/app/components/drills/drills";
 // import '../../styles//globals.scss';
 
 export default function Intermediate() {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
-  const [filterType, setFilterType] = useState("");
+  const [filterType, setFilterType] = useState("exercise");
   const [editItem, setEditItem] = useState(null);
   
 
   const more = [
     {
       id: 1,
-      gg: "All Categories",
-      value: "",
+      gg: "Exerscise",
+      value: "exercise",
     },
     {
       id: 2,
-      gg: "Moves",
-      value: "move",
-    },
-    {
-      id: 3,
       gg: "Drills",
       value: "drills",
     },
     {
-      id: 4,
-      gg: "Exerscise",
-      value: "exercise",
+      id: 3,
+      gg: "Moves",
+      value: "moves",
     },
   ];
 
@@ -97,67 +95,21 @@ export default function Intermediate() {
           className={styles.Admin_Img}
         />
       </div>
-      {!activity && (
-        <div>
-          <div className={styles.cat_container}>
-            {more.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => handleFilterChange(item.value)}
-                className={styles.selected_option}
-              >
-                {item.gg}
-              </div>
-            ))}
+
+      <div className={styles.cat_container}>
+        {more.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => handleFilterChange(item.value)}
+            className={styles.selected_option}
+          >
+            {item.gg}
           </div>
-
-          <section className={styles.Activity_Container}>
-            <div className={styles.Animation_Wrapper}>
-              <ul>
-                <li>Animation</li>
-                <li>Activity Name</li>
-                <li>Description</li>
-                <li>Duration</li>
-                <li>Day</li>
-                <li>Animation URL</li>
-              </ul>
-            </div>
-            <div className={styles.Activty_Container}>
-              <div className={styles.Activty_Form}>
-                {filteredMoves.map((timmy) => (
-                  <div key={timmy.id}>
-                    <TimmyHead
-                      imageProp={Timmy}
-                      animationName={timmy.anime_name}
-                      animation={timmy.anime_image_url}
-                      description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
-                      onDelete={() => deleteMove(timmy.id)}
-                      onEdit={() => handleEdit(timmy)}
-                    />
-                  </div>
-                ))}
-
-                <div onClick={addNewField} className={styles.Plus_Wrapper}>
-                  <div className={styles.Plus}>
-                    <Image src={plus} alt="plus" width={30} height={30} />
-                    <p>Add More Fields</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      )}
-      {activity && (
-        <Activity
-          collect={setMoves}
-          editItem={editItem}
-          handleUpdate={handleUpdate}
-          setActivity={setActivity}
-        />
-      )}
+        ))}
+      </div>
+      {filterType === 'exercise' && <Exercise />}
+      {filterType === 'moves' && <Moves />}
+      {filterType === 'drills' && <Drills />}
     </section>
   );
 }
