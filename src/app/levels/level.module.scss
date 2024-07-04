@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     background-color: #6E71CADE;
+    color: #fff;
 }
 
 .day_card_grid{
@@ -13,6 +14,11 @@
     grid-template-columns: repeat(10, 70px);
     column-gap: 10px;
     row-gap: 10px;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 .container{

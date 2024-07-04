@@ -13,12 +13,11 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
     anime_video_url: "",
     anime_name: "",
     description: "",
-    type: "",
     minute: '',
     seconds: '',
   });
 
-  const { anime_image_url, anime_video_url, anime_name, description, minute, seconds, type } = timmyDetail;
+  const { anime_image_url, anime_video_url, anime_name, description, minute, seconds, } = timmyDetail;
 
   useEffect(() => {
     if (editItem) {
@@ -153,19 +152,7 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
             />
           </div>
         </div>
-        <div className={styles.Activity_Head}>
-          <p>
-            Type<span>*</span>
-          </p>
-          <div className={styles.Activity_Form}>
-            <select onChange={handleChange} name="type" id="type">
-              <option>Select type</option>
-              {types.map(item => (
-                <option key={item.id} value={item.value}>{item.type}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+       
         <div className={styles.Activity_Head}>
           <p>
             Time<span>*</span>
@@ -173,7 +160,7 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
           <div className={styles.Activity_Form_two}>
             <input type="text" value={minute} id="minute" name="minute" maxLength="2" onChange={handleTimeChange}  className={styles.Activity_Input} />
             {/* <p>Min</p> */}
-            {/* <input type="text" value={seconds} id="seconds" name="seconds" maxLength="2" onChange={handleTimeChange} className={styles.Activity_Input} /> */}
+            <input type="text" value={seconds} id="seconds" name="seconds" maxLength="2" onChange={handleTimeChange} className={styles.Activity_Input} />
             {/* <p>Sec</p> */}
           </div>
         </div>

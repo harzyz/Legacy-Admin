@@ -1,8 +1,9 @@
 .Beginners_Container{
   width: 100%;
   background-color: #F4F6FF;
-  padding: 50px 50px;
+  // padding: 50px 50px;
   height: 100vh;
+  margin-top: 20px;
   // margin-left: 250px;
   // flex-grow: 1;
 
@@ -431,4 +432,12 @@ align-items: center;
 margin-top: 30px;
 // border: 2px solid red;
 // gap: 0px;
+}
+
+.Day_One{
+  color: #2A2D74;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
 }

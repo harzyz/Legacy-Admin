@@ -1,9 +1,9 @@
 .Beginners_Container{
     width: 100%;
     background-color: #F4F6FF;
-    padding: 50px 50px;
+    // padding: 50px 50px;
     height: 100vh;
-    // margin-left: 250px;
+    margin-top: 20px;
     // flex-grow: 1;
 
     .Admin_Wrapper{
@@ -202,7 +202,7 @@
                 gap: 55px;
                 border-bottom: 1px solid rgb(165, 163, 163);
                 padding: 20px 20px;
-                border: 2px solid red;
+                // border: 2px solid red;
 
                 .Timmy_Head{
                     display: flex;

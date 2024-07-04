@@ -11,8 +11,8 @@ import { useState } from "react";
 import Activity from "@/app/components/activity/activity";
 import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
 
-export default function Exercise() {
-  const [activity, setActivity] = useState(false);
+export default function Exercise({activity, setActivity}) {
+  
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
@@ -70,6 +70,7 @@ export default function Exercise() {
   };
 
   const filteredMoves = filterByMoves(filterType);
+
 
   return (
     <section className={styles.Beginners_Container}>

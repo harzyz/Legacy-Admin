@@ -82,7 +82,7 @@ const TimmyDetails = ({
           <p>Are you sure you want to delete this activity item? This action cannot be undone</p>
           <div className={styles.Delete_Modal_btn}>
             <button className={styles.Delete_Modal_btn_One} onClick={onDelete}>Delete</button>
-            <button className={styles.Delete_Modal_btn_Two}>Cancel</button>
+            <button onClick={() => setOpen(false)} className={styles.Delete_Modal_btn_Two}>Cancel</button>
           </div>
         </div>
       </Modal>

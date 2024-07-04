@@ -3,6 +3,7 @@
     background-color: #F4F6FF;
     padding: 50px 50px;
     height: 100vh;
+    overflow-y: scroll;
     // margin-left: 250px;
     // flex-grow: 1;
 
@@ -119,6 +120,8 @@
         .Animation_Wrapper{
             padding: 20px 20px;
             background-color: #2A2D74;
+            
+          
 
             ul{
                 display: flex;
@@ -229,16 +232,15 @@
   align-items: center;
   // justify-content: center;
   text-align: center;
-  gap: 35px;
+  gap: 15px;
   border-bottom: 1px solid rgb(165, 163, 163);
   padding: 20px 20px;
-  border: 2px solid green;
 
   .Timmy_Head{
       display: flex;
       align-items: center;
       gap: 10px;
-      border: 2px solid green;
+      // border: 2px solid green;
       // width: 20%;
 
       input[type="checkbox"] {
@@ -250,18 +252,15 @@
 
 
   .Strech_One{
-      width: 18%;
-      border: 2px solid black;
+      width: 15%;
   }
 
   .Strech_Two{
       width: 18%;
-      border: 2px solid red;
   }
 
   .Strech_Three{
-      width: 10%;
-      border: 2px solid greenyellow;
+      width: 6%;
   }
 
   // .Strech_Four{
@@ -270,7 +269,6 @@
 
   .Strech_Five{
       width: 15%;
-      border: 2px solid yellow;
   }
 
 
@@ -425,14 +423,20 @@
   color: #FFF;
 }
 
-.active{
-  background-color: red;
-}
 .cat_container{
   padding-bottom: 20px;
   display: flex;
   align-items: center;
   margin-top: 30px;
-  border: 2px solid red;
   // gap: 0px;
+
+  
+}
+
+.Day_One{
+  color: #2A2D74;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
 }

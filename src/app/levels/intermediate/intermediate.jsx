@@ -104,7 +104,7 @@ export default function Intermediate({id}) {
         />
       </div>
 
-      <div className={styles.cat_container}>
+      {!activity &&<div className={styles.cat_container}>
         {more.map((item) => (
           <div
             key={item.id}
@@ -114,11 +114,11 @@ export default function Intermediate({id}) {
             {item.gg}
           </div>
         ))}
-      </div>
-      <h3>Day {id}</h3>
-      {filterType === 'exercise' && <Exercise />}
-      {filterType === 'moves' && <Moves />}
-      {filterType === 'drills' && <Drills />}
+      </div>}
+      <p className={styles.Day_One}>Day {id}</p>
+      {filterType === 'exercise' && <Exercise  activity={activity} setActivity={setActivity} />}
+      {filterType === 'moves' && <Moves  activity={activity} setActivity={setActivity} />}
+      {filterType === 'drills' && <Drills  activity={activity} setActivity={setActivity} />}
     </section>
   );
 }

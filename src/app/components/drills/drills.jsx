@@ -11,8 +11,8 @@ import { useState } from "react";
 import Activity from "@/app/components/activity/activity";
 import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
 
-export default function Drills() {
-  const [activity, setActivity] = useState(false);
+export default function Drills({activity, setActivity}) {
+  // const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
