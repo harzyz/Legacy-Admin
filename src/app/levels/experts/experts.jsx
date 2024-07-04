@@ -92,7 +92,7 @@ export default function Experts({id}) {
           <div
             key={item.id}
             onClick={() => handleFilterChange(item.value)}
-            className={styles.selected_option}
+            className={filterType === item.value ? styles.selected_option1: styles.selected_option}
           >
             {item.gg}
           </div>
