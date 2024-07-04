@@ -122,12 +122,12 @@
 
             ul{
                 display: flex;
-                gap: 40px;
+                gap: 70px;
 
                 li{
                     list-style: none;
                     // font-family: Poppins;
-                    font-size: 20px;
+                    font-size: 17px;
                     font-weight: 400;
                     line-height: 36px;
                     text-align: left;
@@ -139,6 +139,7 @@
 
       .Activty_Container{
         // border: 2px solid gray;
+        background-color: #fff;
 
 
         .Activty_Form{
@@ -196,16 +197,18 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                // justify-content: center;
                 text-align: center;
-                gap: 40px;
+                gap: 55px;
                 border-bottom: 1px solid rgb(165, 163, 163);
                 padding: 20px 20px;
+                border: 2px solid red;
 
                 .Timmy_Head{
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    // width: 20%;
 
                     input[type="checkbox"] {
                         width: 2em;
@@ -216,34 +219,37 @@
 
 
                 .Strech_One{
-                    width: 23%;
+                    width: 15%;
+                    // border: 2px solid green;
                 }
 
                 .Strech_Two{
-                    width: 30%;
+                    width: 18%;
+                    // border: 2px solid red;
                 }
 
                 .Strech_Three{
-                    width: 10.33%;
+                    width: 10%;
+                    // border: 2px solid greenyellow;
                 }
 
-                .Strech_Four{
-                    width: 5.33%;
-                }
+                // .Strech_Four{
+                //     width: 5.33%;
+                // }
 
                 .Strech_Five{
-                    width: 35%;
+                    width: 15%;
+                    // border: 2px solid yellow;
                 }
 
 
                 .Edit_Box{
                     display: flex;
-                    // border: 2px solid red;
-                    gap: 25px;
+                    // border: 2px solid purple;
+                    gap: 40px;
+                    width: 20%;
 
                     .Edit_Icon{
-                        font-size: 25px;
-                        color: #2A2D74;
                         cursor: pointer;
                     }
                 }
@@ -275,8 +281,6 @@
             }
           }
       }
-
-      
 }
 
 .Delete_Modal{
@@ -397,16 +401,21 @@
   justify-content: center;
   box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
   cursor: pointer;
+  // border: 2px solid red;
 }
 .selected_option:hover{
   background-color: #2A2D74;
   color: #FFF;
+}
+
+.active{
+  background-color: red;
 }
 .cat_container{
   padding-bottom: 20px;
   display: flex;
   align-items: center;
   margin-top: 30px;
-  border: 2px solid red;
+  // border: 2px solid red;
   // gap: 0px;
 }

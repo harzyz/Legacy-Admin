@@ -1,8 +1,6 @@
 "use-client"
 import React, { useState } from "react";
 import styles from "../beginners/beginners.module.scss";
-import { RiEdit2Line } from "react-icons/ri";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import Image from "next/image";
 import Modal from "@/app/components/modal/modal";
 import edit from "../../../../public/assets/Group 3245.svg";
@@ -58,14 +56,12 @@ const TimmyDetails = ({
         alt="edit"
         width={20}
         onClick={onEdit}
-        className={styles.Edit_Icon}
          />
          <Image
         src={delet}
         alt="delete"
         width={20}
         onClick={() => setOpen(true)}
-        className={styles.Edit_Icon}
          />
         {/* <RiEdit2Line onClick={onEdit} className={styles.Edit_Icon} />
         <RiDeleteBin6Line onClick={() => setOpen(true)} className={styles.Edit_Icon} /> */}

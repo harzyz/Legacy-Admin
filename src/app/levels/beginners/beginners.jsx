@@ -6,36 +6,38 @@ import { VscAccount } from "react-icons/vsc";
 import Frames from "../../../../public/assets/Frame 10.svg";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../public/assets/Plus.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
+// import { usePathname } from "next/navigation";
+// import { useRouter } from 'next/router';
 
 export default function Beginners() {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
+  // const [activeItem, setActiveItem] = useState('');
+
+  // const pathname = usePathname();
+  // const { pathname } = useRouter();
   
 
   const more = [
+  
     {
       id: 1,
-      gg: "All Categories",
-      value: "",
-    },
-    {
-      id: 2,
-      gg: "Moves",
+      gg: "Exerscise",
       value: "move",
     },
     {
-      id: 3,
+      id: 2,
       gg: "Drills",
       value: "drills",
     },
     {
-      id: 4,
-      gg: "Exerscise",
+      id: 3,
+      gg: "Moves",
       value: "exercise",
     },
   ];
@@ -54,6 +56,15 @@ export default function Beginners() {
   const handleFilterChange = (type) => {
     setFilterType(type);
   };
+
+  // useEffect(() => {
+  //   setActiveItem(pathname); 
+  // }, [pathname]);
+
+  // const handleFilterChange = (itemId) => {
+  //   setActiveItem(itemId);
+  //   // router.push(itemId);
+  // };
 
   const deleteMove = (id) => {
     setMoves(moves.filter((move) => move.id !== id));
@@ -95,8 +106,11 @@ export default function Beginners() {
             {more.map((item) => (
               <div
                 key={item.id}
-                onClick={() => handleFilterChange(item.value)}
+                onClick={() => handleFilterChange(item.id,item.value)}
                 className={styles.selected_option}
+                // className={`${
+                //   pathname === item.id ? styles.selected_option : styles.active
+                // }`}
               >
                 {item.gg}
               </div>
@@ -110,7 +124,7 @@ export default function Beginners() {
                 <li>Activity Name</li>
                 <li>Description</li>
                 <li>Duration</li>
-                <li>Day</li>
+                {/* <li>Day</li> */}
                 <li>Animation URL</li>
               </ul>
             </div>
@@ -132,8 +146,8 @@ export default function Beginners() {
                   </div>
                 ))}
 
-                <div onClick={addNewField} className={styles.Plus_Wrapper}>
-                  <div className={styles.Plus}>
+                <div className={styles.Plus_Wrapper}>
+                  <div onClick={addNewField} className={styles.Plus}>
                     <Image src={plus} alt="plus" width={30} height={30} />
                     <p>Add More Fields</p>
                   </div>

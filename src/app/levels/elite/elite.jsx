@@ -1,136 +1,152 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 import Image from "next/image";
 import styles from "../beginners/beginners.module.scss";
 import { VscAccount } from "react-icons/vsc";
 import Frames from "../../../../public/assets/Frame 10.svg";
-import { MdArrowDropDown } from "react-icons/md";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
-import { RiEdit2Line } from "react-icons/ri";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import Link from 'next/link';
-import TimmyDetails from '../beginners/TimmyDetails';
+import TimmyDetails from "./TimmyDetails";
+import Activity from "@/app/components/activity/activity";
 
 export default function Elite() {
+  const [activity, setActivity] = useState(false);
+  const [moves, setMoves] = useState([]);
+  const [filterType, setFilterType] = useState("");
+  const [editItem, setEditItem] = useState(null);
+  
 
-  const [down, setDown] = useState(false);
+  const more = [
+  
+    {
+      id: 1,
+      gg: "Exerscise",
+      value: "move",
+    },
+    {
+      id: 2,
+      gg: "Drills",
+      value: "drills",
+    },
+    {
+      id: 3,
+      gg: "Moves",
+      value: "exercise",
+    },
+  ];
 
-  const toggleMenu = () => {
-    setDown((open) => !open);
+  const addNewField = () => {
+    setActivity(true);
   };
+
+  const filterByMoves = (type) => {
+    if (type === "") {
+      return moves;
+    }
+    return moves.filter((move) => move.type === type);
+  };
+
+  const handleFilterChange = (type) => {
+    setFilterType(type);
+  };
+
+  const deleteMove = (id) => {
+    setMoves(moves.filter((move) => move.id !== id));
+  };
+
+  const handleEdit = (item) => {
+    setEditItem(item);
+    setActivity(true);
+  };
+
+  const handleUpdate = (updatedItem) => {
+    setMoves((prev) =>
+      prev.map((item) => (item.id === updatedItem.id ? updatedItem : item))
+    );
+    setEditItem(null);
+    setActivity(false);
+  };
+
+  const filteredMoves = filterByMoves(filterType);
 
   return (
     <section className={styles.Beginners_Container}>
-        <div className={styles.Admin_Wrapper}>
-          <div className={styles.Admin_Text}>
-            <VscAccount className={styles.Admin_Icon} />
-            <p>Hello Admin</p>
-          </div>
-          <Image
+      <div className={styles.Admin_Wrapper}>
+        <div className={styles.Admin_Text}>
+          <VscAccount className={styles.Admin_Icon} />
+          <p>Hello Admin</p>
+        </div>
+        <Image
           src={Frames}
-          alt='plus'
+          alt="plus"
           width={50}
           height={50}
           className={styles.Admin_Img}
-           />
-        </div>
-        <div className={styles.Categories_Container}>
-          <div className={styles.Categories} onClick={toggleMenu}>
-            <p>All Categories</p>
-            <MdArrowDropDown className={styles.Thick_Down_Icon} />
+        />
+      </div>
+      {!activity && (
+        <div>
+          <div className={styles.cat_container}>
+            {more.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => handleFilterChange(item.value)}
+                className={styles.selected_option}
+              >
+                {item.gg}
+              </div>
+            ))}
           </div>
-          <div className={down ? styles.drills : styles.drills_block}>
+
+          <section className={styles.Activity_Container}>
+            <div className={styles.Animation_Wrapper}>
               <ul>
-              <Link href={"/levels/elite/exercise"}>
-                    <li>
-                      Exercise
-                    </li>
-                  </Link>
-                  <Link href={"/levels/elite/drills"}>
-                    <li>
-                    Drills
-                    </li>
-                  </Link>
-                  <Link href={"/levels/elite/move"}>
-                    <li>
-                    Moves
-                    </li>
-                  </Link>
+                <li>Animation</li>
+                <li>Activity Name</li>
+                <li>Description</li>
+                <li>Duration</li>
+                <li>Day</li>
+                <li>Animation URL</li>
               </ul>
-          </div>
-        </div>
-        <section className={styles.Activity_Container}>
-          <div className={styles.Animation_Wrapper}>
-            <ul>
-              <li>Animation</li>
-              <li>Activity Name</li>
-              <li>Description</li>
-              <li>Duration</li>
-              <li>Day</li>
-              <li>Animation URL</li>
-            </ul>
-          </div>
-          <div className={styles.Activty_Container}>
-            <div className={styles.Activty_Form}>
-              <ul>
-                <li>
-                  <div className={styles.Timmy_Head}>
-                    <input type='checkbox' className={styles.Timmy_Input} />
-                    <Image
-                    src={Timmy}
-                    width={50}
-                    height={50}
-                    alt='timmy'
-                    className={styles.Timmy_Img}
+            </div>
+            <div className={styles.Activty_Container}>
+              <div className={styles.Activty_Form}>
+                {filteredMoves.length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
+                {filteredMoves.map((timmy) => (
+                  <div key={timmy.id}>
+                    <TimmyDetails
+                      imageProp={Timmy}
+                      animationName={timmy.anime_name}
+                      animation={timmy.anime_image_url}
+                      description={timmy.description}
+                      minute={timmy.minute}
+                      seconds={timmy.seconds}
+                      onDelete={() => deleteMove(timmy.id)}
+                      onEdit={() => handleEdit(timmy)}
                     />
                   </div>
-                </li>
-                <li>Neck Strech</li>
-                <li>10 Neck Strech</li>
-                <li>01:51</li>
-                <li>01</li>
-                <li>Lorem ipsum dolor...</li>
-                <li>
-                  <div className={styles.Edit_Box}>
-                    <RiEdit2Line className={styles.Edit_Icon} />
-                    <RiDeleteBin6Line className={styles.Edit_Icon} />
-                  </div>
-                </li>
-              </ul>
+                ))}
 
-              {/* {timmyHead.map((timmy) => (
-              <div key={timmy.id}>
-                <TimmyDetails
-                  imageProp={Timmy}
-                  page={timmy.name}
-                  description={timmy.description}
-                  text={timmy.time}
-                  day={timmy.day}
-                  animation={timmy.animation}
-                />
+                <div onClick={addNewField} className={styles.Plus_Wrapper}>
+                  <div className={styles.Plus}>
+                    <Image src={plus} alt="plus" width={30} height={30} />
+                    <p>Add More Fields</p>
+                  </div>
+                </div>
               </div>
-            ))} */}
-
-                  <div className={styles.Plus_Wrapper}>
-                  <Link href={"/levels/elite/activity"} >
-                      <div className={styles.Plus}>
-                        <Image 
-                        src={plus}
-                        alt='plus'
-                        width={30}
-                        height={30}
-                        />
-                          <p>Add More Fields</p>
-                      </div>
-                    </Link>
-                  </div>
-                
-              
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
+      )}
+      {activity && (
+        <Activity
+          collect={setMoves}
+          editItem={editItem}
+          handleUpdate={handleUpdate}
+          setActivity={setActivity}
+        />
+      )}
     </section>
-  )
+  );
 }
