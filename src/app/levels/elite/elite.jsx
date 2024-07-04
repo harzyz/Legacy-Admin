@@ -1,13 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "../beginners/beginners.module.scss";
+import styles from "../elite/elite.module.scss";
 import { VscAccount } from "react-icons/vsc";
 import Frames from "../../../../public/assets/Frame 10.svg";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
 import Exercise from "@/app/components/exercise/exercise";
 import Moves from "@/app/components/moves/moves";

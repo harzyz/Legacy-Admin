@@ -7,7 +7,6 @@ import Frames from "../../../../public/assets/Frame 10.svg";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
 import Exercise from "@/app/components/exercise/exercise";
 import Moves from "@/app/components/moves/moves";
