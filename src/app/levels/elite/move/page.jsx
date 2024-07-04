@@ -8,9 +8,9 @@ import Timmy from "../../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "../TimmyDetails";
+import TimmyDetails from "../../beginners/TimmyDetails";
 
-export default function Moves() {
+export default function Move() {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");

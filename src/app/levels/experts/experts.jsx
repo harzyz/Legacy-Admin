@@ -7,8 +7,8 @@ import Frames from "../../../../public/assets/Frame 10.svg";
 import Timmy from "../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
+import TimmyDetails from "../beginners/TimmyDetails";
 
 export default function Experts() {
   const [activity, setActivity] = useState(false);
