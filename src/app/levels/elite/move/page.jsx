@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "../beginners/beginners.module.scss";
+import styles from "../move/move.module.scss";
 import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import Frames from "../../../../../public/assets/Frame 10.svg";
+import Timmy from "../../../../../public/assets/Timmysmall.svg";
+import plus from "../../../../../public/assets/Plus.svg";
 import { useState } from "react";
-import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
+import TimmyDetails from "../TimmyDetails";
 
 export default function Moves() {
   const [activity, setActivity] = useState(false);
