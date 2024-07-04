@@ -8,14 +8,14 @@ import Timmy from "../../../../public/assets/Timmysmall.svg";
 import plus from "../../../../public/assets/Plus.svg";
 import { useState, useEffect } from "react";
 import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "../beginners/TimmyDetails";
-// import { usePathname } from "next/navigation";
-// import { useRouter } from 'next/router';
+import Exercise from "@/app/components/exercise/exercise";
+import Moves from "@/app/components/moves/moves";
+import Drills from "@/app/components/drills/drills";
 
-export default function Beginners() {
+export default function Elite({id}) {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
-  const [filterType, setFilterType] = useState("");
+  const [filterType, setFilterType] = useState("exercise");
   const [editItem, setEditItem] = useState(null);
   // const [activeItem, setActiveItem] = useState('');
 
@@ -24,11 +24,10 @@ export default function Beginners() {
   
 
   const more = [
-  
     {
       id: 1,
       gg: "Exerscise",
-      value: "move",
+      value: "exercise",
     },
     {
       id: 2,
@@ -38,7 +37,7 @@ export default function Beginners() {
     {
       id: 3,
       gg: "Moves",
-      value: "exercise",
+      value: "moves",
     },
   ];
 
@@ -100,71 +99,23 @@ export default function Beginners() {
           className={styles.Admin_Img}
         />
       </div>
-      {!activity && (
-        <div>
-          <div className={styles.cat_container}>
-            {more.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => handleFilterChange(item.id,item.value)}
-                className={styles.selected_option}
-                // className={`${
-                //   pathname === item.id ? styles.selected_option : styles.active
-                // }`}
-              >
-                {item.gg}
-              </div>
-            ))}
+
+      <div className={styles.cat_container}>
+        {more.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => handleFilterChange(item.value)}
+            className={filterType === item.value ? styles.selected_option1: styles.selected_option}
+          >
+            {item.gg}
           </div>
+        ))}
+      </div>
 
-          <section className={styles.Activity_Container}>
-            <div className={styles.Animation_Wrapper}>
-              <ul>
-                <li>Animation</li>
-                <li>Activity Name</li>
-                <li>Description</li>
-                <li>Duration</li>
-                {/* <li>Day</li> */}
-                <li>Animation URL</li>
-              </ul>
-            </div>
-            <div className={styles.Activty_Container}>
-              <div className={styles.Activty_Form}>
-                {filteredMoves.length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
-                {filteredMoves.map((timmy) => (
-                  <div key={timmy.id}>
-                    <TimmyDetails
-                      imageProp={Timmy}
-                      animationName={timmy.anime_name}
-                      animation={timmy.anime_image_url}
-                      description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
-                      onDelete={() => deleteMove(timmy.id)}
-                      onEdit={() => handleEdit(timmy)}
-                    />
-                  </div>
-                ))}
-
-                <div className={styles.Plus_Wrapper}>
-                  <div onClick={addNewField} className={styles.Plus}>
-                    <Image src={plus} alt="plus" width={30} height={30} />
-                    <p>Add More Fields</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      )}
-      {activity && (
-        <Activity
-          collect={setMoves}
-          editItem={editItem}
-          handleUpdate={handleUpdate}
-          setActivity={setActivity}
-        />
-      )}
+      <h3>Day {id}</h3>
+      {filterType === 'exercise' && <Exercise />}
+      {filterType === 'moves' && <Moves />}
+      {filterType === 'drills' && <Drills />}
     </section>
   );
 }

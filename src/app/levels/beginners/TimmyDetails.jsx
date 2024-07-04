@@ -33,6 +33,7 @@ const TimmyDetails = ({
           className={styles.Timmy_Img}
         />
       </div>
+      
 
       <div className={styles.Strech_One}>
         <p>{animationName}</p>

@@ -193,69 +193,8 @@
           //     border: 2px solid greenyellow;
           // }
 
-            .Timmy_Head_Two{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                // justify-content: center;
-                text-align: center;
-                gap: 55px;
-                border-bottom: 1px solid rgb(165, 163, 163);
-                padding: 20px 20px;
-                border: 2px solid red;
 
-                .Timmy_Head{
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    // width: 20%;
-
-                    input[type="checkbox"] {
-                        width: 2em;
-                        height: 2rem;
-                        accent-color: green;
-                      }
-                }
-
-
-                .Strech_One{
-                    width: 15%;
-                    // border: 2px solid green;
-                }
-
-                .Strech_Two{
-                    width: 18%;
-                    // border: 2px solid red;
-                }
-
-                .Strech_Three{
-                    width: 10%;
-                    // border: 2px solid greenyellow;
-                }
-
-                // .Strech_Four{
-                //     width: 5.33%;
-                // }
-
-                .Strech_Five{
-                    width: 15%;
-                    // border: 2px solid yellow;
-                }
-
-
-                .Edit_Box{
-                    display: flex;
-                    // border: 2px solid purple;
-                    gap: 40px;
-                    width: 20%;
-
-                    .Edit_Icon{
-                        cursor: pointer;
-                    }
-                }
-
-                
-            }
+            
 
             .Plus_Wrapper{
                 width: 100%;
@@ -283,6 +222,70 @@
       }
 }
 
+.Timmy_Head_Two{
+  // border: 2px solid red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  text-align: center;
+  gap: 35px;
+  border-bottom: 1px solid rgb(165, 163, 163);
+  padding: 20px 20px;
+  border: 2px solid green;
+
+  .Timmy_Head{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid green;
+      // width: 20%;
+
+      input[type="checkbox"] {
+          width: 2em;
+          height: 2rem;
+          accent-color: green;
+        }
+  }
+
+
+  .Strech_One{
+      width: 18%;
+      border: 2px solid black;
+  }
+
+  .Strech_Two{
+      width: 18%;
+      border: 2px solid red;
+  }
+
+  .Strech_Three{
+      width: 10%;
+      border: 2px solid greenyellow;
+  }
+
+  // .Strech_Four{
+  //     width: 5.33%;
+  // }
+
+  .Strech_Five{
+      width: 15%;
+      border: 2px solid yellow;
+  }
+
+
+  .Edit_Box{
+      display: flex;
+      // border: 2px solid purple;
+      gap: 40px;
+      width: 20%;
+
+      .Edit_Icon{
+          cursor: pointer;
+      }
+  }
+}
+
 .Delete_Modal{
   padding:50px;
   display: flex;
@@ -291,6 +294,7 @@
   align-items: center;
   width: 100%;
   gap: 20px;
+  // border: 2px solid red;
 
   strong{
     color: #2A2D74;
@@ -387,9 +391,7 @@
 }
 .selected_option{
   width: 15%;
-  // height: 53px;
   border-radius: 40px;
-  // width: 170px;
   background-color: #FFFFFF;
   padding: 12px 10px;
   border: none;
@@ -401,7 +403,22 @@
   justify-content: center;
   box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
   cursor: pointer;
-  // border: 2px solid red;
+}
+.selected_option1{
+  width: 15%;
+  border-radius: 40px;
+  background-color: #2A2D74;
+  padding: 12px 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins' , sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  justify-content: center;
+  box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+  cursor: pointer;
+  color: #ffff;
 }
 .selected_option:hover{
   background-color: #2A2D74;
@@ -416,6 +433,6 @@
   display: flex;
   align-items: center;
   margin-top: 30px;
-  // border: 2px solid red;
+  border: 2px solid red;
   // gap: 0px;
 }
