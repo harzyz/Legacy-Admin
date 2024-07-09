@@ -2,17 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./moves.module.scss";
-import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import Timmy from "/public/assets/Timmysmall.svg";
+import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
-// import TimmyDetails from "./TimmyDetails";
-import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
+import Activity from "@/components/activity/activity";
+import TimmyDetails from "@/levels/beginners/TimmyDetails";
 
 export default function Moves({activity, setActivity}) {
-  // const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);

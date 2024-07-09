@@ -1,18 +1,14 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import styles from "./exercise.module.scss";
-import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import styles from "./drills.module.scss";
+import Timmy from "/public/assets/Timmysmall.svg";
+import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
-// import TimmyDetails from "./TimmyDetails";
-import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
+import Activity from "@/components/activity/activity";
+import TimmyDetails from "@/levels/beginners/TimmyDetails";
 
-export default function Exercise({activity, setActivity}) {
-  
+export default function Drills({activity, setActivity}) {
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
@@ -71,7 +67,6 @@ export default function Exercise({activity, setActivity}) {
 
   const filteredMoves = filterByMoves(filterType);
 
-
   return (
     <section className={styles.Beginners_Container}>
       {!activity && (
@@ -83,7 +78,7 @@ export default function Exercise({activity, setActivity}) {
                 <li>Activity Name</li>
                 <li>Description</li>
                 <li>Duration</li>
-                {/* <li>Day</li> */}
+                <li>Day</li>
                 <li>Animation URL</li>
               </ul>
             </div>

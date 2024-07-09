@@ -3,29 +3,21 @@ import React from "react";
 import Image from "next/image";
 import styles from "../beginners/beginners.module.scss";
 import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import Frames from "/public/assets/Frame 10.svg";
 import { useState, useEffect } from "react";
-// import TimmyDetails from "./TimmyDetails";
-import Activity from "@/app/components/activity/activity";
-import Exercise from "../../components/exercise/exercise";
-import Moves from "@/app/components/moves/moves";
-import Drills from "@/app/components/drills/drills";
-// import { usePathname } from "next/navigation";
-// import { useRouter } from 'next/router';
+import Exercise from "@/components/exercise/exercise";
+import Moves from "@/components/moves/moves";
+import Drills from "@/components/drills/drills";
 
-export default function Beginners({id}) {
+export default function Intermediate({id}) {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("exercise");
   const [editItem, setEditItem] = useState(null);
-  // const [activeItem, setActiveItem] = useState('');
-
-  // const pathname = usePathname();
-  // const { pathname } = useRouter();
+  
 
   const more = [
+  
     {
       id: 1,
       gg: "Exerscise",
@@ -59,7 +51,7 @@ export default function Beginners({id}) {
   };
 
   // useEffect(() => {
-  //   setActiveItem(pathname);
+  //   setActiveItem(pathname); 
   // }, [pathname]);
 
   // const handleFilterChange = (itemId) => {
@@ -102,7 +94,7 @@ export default function Beginners({id}) {
         />
       </div>
 
-    {!activity &&  <div className={styles.cat_container}>
+      {!activity &&<div className={styles.cat_container}>
         {more.map((item) => (
           <div
             key={item.id}
@@ -114,10 +106,9 @@ export default function Beginners({id}) {
         ))}
       </div>}
       <p className={styles.Day_One}>Day {id}</p>
-      {filterType === 'exercise' && <Exercise activity={activity} setActivity={setActivity} />}
+      {filterType === 'exercise' && <Exercise  activity={activity} setActivity={setActivity} />}
       {filterType === 'moves' && <Moves  activity={activity} setActivity={setActivity} />}
       {filterType === 'drills' && <Drills  activity={activity} setActivity={setActivity} />}
     </section>
   );
 }
-

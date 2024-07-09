@@ -3,19 +3,13 @@ import React from "react";
 import Image from "next/image";
 import styles from "../beginners/beginners.module.scss";
 import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import Frames from "/public/assets/Frame 10.svg";
 import { useState, useEffect } from "react";
-import Activity from "@/app/components/activity/activity";
-import Modal from "@/app/components/modal/modal";
-import TimmyHead from "./TimmyHead";
-import Exercise from "@/app/components/exercise/exercise";
-import Moves from "@/app/components/moves/moves";
-import Drills from "@/app/components/drills/drills";
-// import '../../styles//globals.scss';
+import Exercise from "@/components/exercise/exercise";
+import Moves from "@/components/moves/moves";
+import Drills from "@/components/drills/drills";
 
-export default function Intermediate({id}) {
+export default function Experts({id}) {
   const [activity, setActivity] = useState(false);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("exercise");
@@ -27,7 +21,6 @@ export default function Intermediate({id}) {
   
 
   const more = [
-  
     {
       id: 1,
       gg: "Exerscise",
@@ -104,7 +97,7 @@ export default function Intermediate({id}) {
         />
       </div>
 
-      {!activity &&<div className={styles.cat_container}>
+     {!activity && <div className={styles.cat_container}>
         {more.map((item) => (
           <div
             key={item.id}
@@ -116,7 +109,8 @@ export default function Intermediate({id}) {
         ))}
       </div>}
       <p className={styles.Day_One}>Day {id}</p>
-      {filterType === 'exercise' && <Exercise  activity={activity} setActivity={setActivity} />}
+      
+      {filterType === 'exercise' && <Exercise activity={activity} setActivity={setActivity} />}
       {filterType === 'moves' && <Moves  activity={activity} setActivity={setActivity} />}
       {filterType === 'drills' && <Drills  activity={activity} setActivity={setActivity} />}
     </section>

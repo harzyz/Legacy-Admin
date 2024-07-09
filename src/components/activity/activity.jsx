@@ -1,9 +1,7 @@
 "use-client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { VscAccount } from "react-icons/vsc";
-import note from "../../../../public/assets/Frame 10.svg";
-import notes from "../../../../public/assets/Timmysmall.svg";
+import notes from "/public/assets/Timmysmall.svg";
 import styles from "./activity.module.scss";
 
 const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
@@ -31,7 +29,17 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
       ...prev,
       [name]: value,
     }));
-    // console.log(e.target.value);
+  };
+
+  const addActivity = (level, type, day, activity) => {
+    collect((prevAdmin) => {
+      const updatedLevel = { ...prevAdmin[level] };
+      updatedLevel[type][day].activities.push(activity);
+      return {
+        ...prevAdmin,
+        [level]: updatedLevel,
+      };
+    });
   };
 
   const submit = (e) => {
@@ -39,7 +47,8 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
     if (editItem) {
       handleUpdate(timmyDetail);
     } else {
-      collect((prev) => [timmyDetail, ...prev]);
+      // collect((prev) => [timmyDetail, ...prev]);
+      addActivity()
       setActivity(false);
     }
     console.log(timmyDetail)

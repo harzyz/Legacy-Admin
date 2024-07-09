@@ -1,5 +1,5 @@
 "use client"
-import Beginners from '@/app/levels/beginners/beginners';
+import Beginners from '@/levels/beginners/beginners';
 import { useParams } from 'next/navigation';
 
 const BeginnerDetails = () => {
@@ -7,9 +7,7 @@ const BeginnerDetails = () => {
 
     return (
         <div>
-            {/* <h1>Beginner Level: {id}</h1> */}
             <Beginners id={id} />
-            {/* Your content for the specific beginner level */}
         </div>
     );
 };

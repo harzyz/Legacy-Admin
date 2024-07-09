@@ -1,6 +1,5 @@
 "use client"
-import Beginners from '@/app/levels/beginners/beginners';
-import Elite from '@/app/levels/elite/elite';
+import Elite from '@/levels/elite/elite';
 import { useParams } from 'next/navigation';
 
 const EliteDetails = () => {
