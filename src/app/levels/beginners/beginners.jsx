@@ -9,6 +9,7 @@ import plus from "../../../../public/assets/Plus.svg";
 import { useState } from "react";
 import TimmyDetails from "./TimmyDetails";
 import Activity from "@/app/components/activity/activity";
+import Exercise from "@/app/components/exercise/exercise";
 
 export default function Beginners() {
   const [activity, setActivity] = useState(false);
@@ -89,7 +90,8 @@ export default function Beginners() {
           className={styles.Admin_Img}
         />
       </div>
-      {!activity && (
+      <Exercise />
+      {/* {!activity && (
         <div>
           <div className={styles.cat_container}>
             {more.map((item) => (
@@ -142,15 +144,15 @@ export default function Beginners() {
             </div>
           </section>
         </div>
-      )}
-      {activity && (
+      )} */}
+      {/* {activity && (
         <Activity
           collect={setMoves}
           editItem={editItem}
           handleUpdate={handleUpdate}
           setActivity={setActivity}
         />
-      )}
+      )} */}
     </section>
   );
 }
