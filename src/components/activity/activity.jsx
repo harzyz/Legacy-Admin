@@ -5,8 +5,8 @@ import notes from "/public/assets/Timmysmall.svg";
 import styles from "./activity.module.scss";
 import LevelContext from "@/context/LevelContext";
 
-const Activity = ({level, day, type, editItem, setActivity, handleUpdate}) => {
-  const { admin, setAdmin } = useContext(LevelContext);
+const Activity = ({level, day, type}) => {
+  const { addDayItem, editItem, setActivity, updateDayItem } = useContext(LevelContext);
   const [timmyDetail, setTimmyDetail] = useState({
     id: new Date(),
     anime_image_url: "",
@@ -32,44 +32,21 @@ const Activity = ({level, day, type, editItem, setActivity, handleUpdate}) => {
       [name]: value,
     }));
   };
-
-  const updateDay = (level, activityType, day, newActivity) => {
-    setAdmin((prevAdmin) => {
-      // Copy the previous state
-      const newState = { ...prevAdmin };
-
-      // Ensure we don't mutate the original state
-      newState[level] = {
-        ...newState[level],
-        [activityType]: {
-          ...newState[level][activityType],
-          [day]: [...newState[level][activityType][day], newActivity],
-        },
-      };
-      console.log(newState)
-      return newState;
-    });
-  };
   
   const submit = (e) => {
     e.preventDefault();
     if (editItem) {
-      handleUpdate(timmyDetail);
+      updateDayItem(level, type, day, timmyDetail);
     } else {
-      updateDay(level, type, day, timmyDetail);
-      // console.log(admin.beginners.exercice[day], 'this')
-      console.log(level, type, day, timmyDetail);
+      addDayItem(level, type, day, timmyDetail);
       setActivity(false);
     }
-    console.log(timmyDetail)
   };
 
 
   const handleTimeChange = (e) => {
     const { value, name } = e.target;
-    // Only allow digits and limit to 2 characters
     if (/^\d{0,2}$/.test(value)) {
-        // setMinute(value)
         setTimmyDetail((prev) => ({
           ...prev,
           [name]: value,
