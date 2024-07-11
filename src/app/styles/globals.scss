@@ -15,11 +15,7 @@
 body {
   display: flex;
   width: 100%;
-  // max-width: 1440px ;
-  // margin: 0 auto;
   font-family: 'Poppins', Poppins;
-  // border: 2px solid yellow;
-  // position: relative;
 }
 
 .layout{
@@ -30,7 +26,6 @@ body {
 .container{
   overflow-y: scroll;
   flex-grow: 1;
-  // width: 100%;
 }
 .container::-webkit-scrollbar{
   display: none;
