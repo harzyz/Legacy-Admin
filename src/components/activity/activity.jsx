@@ -1,12 +1,12 @@
 "use-client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { VscAccount } from "react-icons/vsc";
-import note from "../../../../public/assets/Frame 10.svg";
-import notes from "../../../../public/assets/Timmysmall.svg";
+import React, { useContext, useEffect, useState } from "react";
+import notes from "/public/assets/Timmysmall.svg";
 import styles from "./activity.module.scss";
+import LevelContext from "@/context/LevelContext";
 
-const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
+const Activity = ({level, day, type, editItem, setActivity, handleUpdate}) => {
+  const { admin, setAdmin } = useContext(LevelContext);
   const [timmyDetail, setTimmyDetail] = useState({
     id: new Date(),
     anime_image_url: "",
@@ -31,15 +31,34 @@ const Activity = ({collect, editItem, setActivity, handleUpdate}) => {
       ...prev,
       [name]: value,
     }));
-    // console.log(e.target.value);
   };
 
+  const updateDay = (level, activityType, day, newActivity) => {
+    setAdmin((prevAdmin) => {
+      // Copy the previous state
+      const newState = { ...prevAdmin };
+
+      // Ensure we don't mutate the original state
+      newState[level] = {
+        ...newState[level],
+        [activityType]: {
+          ...newState[level][activityType],
+          [day]: [...newState[level][activityType][day], newActivity],
+        },
+      };
+      console.log(newState)
+      return newState;
+    });
+  };
+  
   const submit = (e) => {
     e.preventDefault();
     if (editItem) {
       handleUpdate(timmyDetail);
     } else {
-      collect((prev) => [timmyDetail, ...prev]);
+      updateDay(level, type, day, timmyDetail);
+      // console.log(admin.beginners.exercice[day], 'this')
+      console.log(level, type, day, timmyDetail);
       setActivity(false);
     }
     console.log(timmyDetail)

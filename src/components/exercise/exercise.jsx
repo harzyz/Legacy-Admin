@@ -1,41 +1,20 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import styles from "./exercise.module.scss";
-import { VscAccount } from "react-icons/vsc";
-import Frames from "../../../../public/assets/Frame 10.svg";
-import Timmy from "../../../../public/assets/Timmysmall.svg";
-import plus from "../../../../public/assets/Plus.svg";
+import Timmy from "/public/assets/Timmysmall.svg";
+import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
-// import TimmyDetails from "./TimmyDetails";
-import Activity from "@/app/components/activity/activity";
-import TimmyDetails from "@/app/levels/beginners/TimmyDetails";
+import Activity from "@/components/activity/activity";
+import TimmyDetails from "@/levels/beginners/TimmyDetails";
+import LevelContext from "@/context/LevelContext"
 
-export default function Exercise({activity, setActivity}) {
-  
+export default function Exercise({ level, day, activity, setActivity }) {
+  const { admin, setAdmin } = useContext(LevelContext);
+
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
-  
-
-  const more = [
-  
-    {
-      id: 1,
-      gg: "Exerscise",
-      value: "move",
-    },
-    {
-      id: 2,
-      gg: "Drills",
-      value: "drills",
-    },
-    {
-      id: 3,
-      gg: "Moves",
-      value: "exercise",
-    },
-  ];
 
   const addNewField = () => {
     setActivity(true);
@@ -70,7 +49,7 @@ export default function Exercise({activity, setActivity}) {
   };
 
   const filteredMoves = filterByMoves(filterType);
-
+  
 
   return (
     <section className={styles.Beginners_Container}>
@@ -89,7 +68,9 @@ export default function Exercise({activity, setActivity}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {filteredMoves.length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
+                {filteredMoves.length === 0 && (
+                  <div className={styles.No_Activities}>No Activites Yet</div>
+                )}
                 {filteredMoves.map((timmy) => (
                   <div key={timmy.id}>
                     <TimmyDetails
@@ -118,7 +99,10 @@ export default function Exercise({activity, setActivity}) {
       )}
       {activity && (
         <Activity
-          collect={setMoves}
+          type='exercise'
+          day={day}
+          level={level}
+          collect={setAdmin}
           editItem={editItem}
           handleUpdate={handleUpdate}
           setActivity={setActivity}

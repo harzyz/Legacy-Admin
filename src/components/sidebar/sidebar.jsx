@@ -5,7 +5,7 @@ import styles from "../sidebar/sidebar.module.scss";
 // import variables from "../styles/variables.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import card1 from "../../../../public/assets/Component 6.svg";
+import card1 from "/public/assets/Component 6.svg";
 // import home from "../../../public/assets/DribbbleLogo.svg";
 import { FiHome } from "react-icons/fi";
 import { FaDribbble } from "react-icons/fa";
