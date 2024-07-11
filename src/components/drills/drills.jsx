@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import styles from "./drills.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -7,31 +7,14 @@ import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
+import LevelContext from "@/context/LevelContext";
 
-export default function Drills({activity, setActivity}) {
+export default function Drills({level, day, activity, setActivity}) {
+  const { admin, setAdmin } = useContext(LevelContext);
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
   
-
-  const more = [
-  
-    {
-      id: 1,
-      gg: "Exerscise",
-      value: "move",
-    },
-    {
-      id: 2,
-      gg: "Drills",
-      value: "drills",
-    },
-    {
-      id: 3,
-      gg: "Moves",
-      value: "exercise",
-    },
-  ];
 
   const addNewField = () => {
     setActivity(true);
@@ -113,11 +96,13 @@ export default function Drills({activity, setActivity}) {
       )}
       {activity && (
         <Activity
-          collect={setMoves}
-          editItem={editItem}
-          handleUpdate={handleUpdate}
-          setActivity={setActivity}
-        />
+        type='drills'
+        day={day}
+        level={level}
+        editItem={editItem}
+        handleUpdate={handleUpdate}
+        setActivity={setActivity}
+      />
       )}
     </section>
   );

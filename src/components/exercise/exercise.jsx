@@ -9,7 +9,7 @@ import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext"
 
-export default function Exercise({ activity, setActivity }) {
+export default function Exercise({ level, day, activity, setActivity }) {
   const { admin, setAdmin } = useContext(LevelContext);
 
   const [moves, setMoves] = useState([]);
@@ -49,6 +49,7 @@ export default function Exercise({ activity, setActivity }) {
   };
 
   const filteredMoves = filterByMoves(filterType);
+  
 
   return (
     <section className={styles.Beginners_Container}>
@@ -98,6 +99,9 @@ export default function Exercise({ activity, setActivity }) {
       )}
       {activity && (
         <Activity
+          type='exercise'
+          day={day}
+          level={level}
           collect={setAdmin}
           editItem={editItem}
           handleUpdate={handleUpdate}

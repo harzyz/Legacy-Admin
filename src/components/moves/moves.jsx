@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import styles from "./moves.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -7,8 +7,11 @@ import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
+import LevelContext from "@/context/LevelContext";
 
-export default function Moves({activity, setActivity}) {
+export default function Moves({level, day, activity, setActivity}) {
+  const { admin, setAdmin } = useContext(LevelContext);
+
   const [moves, setMoves] = useState([]);
   const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
@@ -113,11 +116,14 @@ export default function Moves({activity, setActivity}) {
       )}
       {activity && (
         <Activity
-          collect={setMoves}
-          editItem={editItem}
-          handleUpdate={handleUpdate}
-          setActivity={setActivity}
-        />
+        type='moves'
+        day={day}
+        level={level}
+        collect={setAdmin}
+        editItem={editItem}
+        handleUpdate={handleUpdate}
+        setActivity={setActivity}
+      />
       )}
     </section>
   );
