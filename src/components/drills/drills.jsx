@@ -9,46 +9,17 @@ import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
 
-export default function Drills({level, day, activity, setActivity}) {
-  const { admin, setAdmin } = useContext(LevelContext);
-  const [moves, setMoves] = useState([]);
-  const [filterType, setFilterType] = useState("");
-  const [editItem, setEditItem] = useState(null);
-  
+export default function Drills({level, day}) {
+  const { admin, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
-  };
-
-  const filterByMoves = (type) => {
-    if (type === "") {
-      return moves;
-    }
-    return moves.filter((move) => move.type === type);
-  };
-
-  const handleFilterChange = (type) => {
-    setFilterType(type);
-  };
-
-  const deleteMove = (id) => {
-    setMoves(moves.filter((move) => move.id !== id));
   };
 
   const handleEdit = (item) => {
     setEditItem(item);
     setActivity(true);
   };
-
-  const handleUpdate = (updatedItem) => {
-    setMoves((prev) =>
-      prev.map((item) => (item.id === updatedItem.id ? updatedItem : item))
-    );
-    setEditItem(null);
-    setActivity(false);
-  };
-
-  const filteredMoves = filterByMoves(filterType);
 
   return (
     <section className={styles.Beginners_Container}>
@@ -67,8 +38,8 @@ export default function Drills({level, day, activity, setActivity}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {filteredMoves.length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
-                {filteredMoves.map((timmy) => (
+                {admin[level]['drills'][day].length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
+                {admin[level]['drills'][day].map((timmy) => (
                   <div key={timmy.id}>
                     <TimmyDetails
                       imageProp={Timmy}
@@ -77,7 +48,7 @@ export default function Drills({level, day, activity, setActivity}) {
                       description={timmy.description}
                       minute={timmy.minute}
                       seconds={timmy.seconds}
-                      onDelete={() => deleteMove(timmy.id)}
+                      onDelete={() => deleteDayItem(level, 'drills', day, timmy.id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>
@@ -99,9 +70,6 @@ export default function Drills({level, day, activity, setActivity}) {
         type='drills'
         day={day}
         level={level}
-        editItem={editItem}
-        handleUpdate={handleUpdate}
-        setActivity={setActivity}
       />
       )}
     </section>

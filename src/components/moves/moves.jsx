@@ -9,66 +9,17 @@ import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
 
-export default function Moves({level, day, activity, setActivity}) {
-  const { admin, setAdmin } = useContext(LevelContext);
-
-  const [moves, setMoves] = useState([]);
-  const [filterType, setFilterType] = useState("");
-  const [editItem, setEditItem] = useState(null);
-  
-
-  const more = [
-  
-    {
-      id: 1,
-      gg: "Exerscise",
-      value: "move",
-    },
-    {
-      id: 2,
-      gg: "Drills",
-      value: "drills",
-    },
-    {
-      id: 3,
-      gg: "Moves",
-      value: "exercise",
-    },
-  ];
+export default function Moves({level, day}) {
+  const { admin, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
-  };
-
-  const filterByMoves = (type) => {
-    if (type === "") {
-      return moves;
-    }
-    return moves.filter((move) => move.type === type);
-  };
-
-  const handleFilterChange = (type) => {
-    setFilterType(type);
-  };
-
-  const deleteMove = (id) => {
-    setMoves(moves.filter((move) => move.id !== id));
   };
 
   const handleEdit = (item) => {
     setEditItem(item);
     setActivity(true);
   };
-
-  const handleUpdate = (updatedItem) => {
-    setMoves((prev) =>
-      prev.map((item) => (item.id === updatedItem.id ? updatedItem : item))
-    );
-    setEditItem(null);
-    setActivity(false);
-  };
-
-  const filteredMoves = filterByMoves(filterType);
 
   return (
     <section className={styles.Beginners_Container}>
@@ -87,8 +38,8 @@ export default function Moves({level, day, activity, setActivity}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {filteredMoves.length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
-                {filteredMoves.map((timmy) => (
+                {admin[level]['moves'][day].length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
+                {admin[level]['moves'][day].map((timmy) => (
                   <div key={timmy.id}>
                     <TimmyDetails
                       imageProp={Timmy}
@@ -97,7 +48,7 @@ export default function Moves({level, day, activity, setActivity}) {
                       description={timmy.description}
                       minute={timmy.minute}
                       seconds={timmy.seconds}
-                      onDelete={() => deleteMove(timmy.id)}
+                      onDelete={() => deleteDayItem(level, 'moves', day, timmy.id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>
@@ -119,10 +70,6 @@ export default function Moves({level, day, activity, setActivity}) {
         type='moves'
         day={day}
         level={level}
-        collect={setAdmin}
-        editItem={editItem}
-        handleUpdate={handleUpdate}
-        setActivity={setActivity}
       />
       )}
     </section>
