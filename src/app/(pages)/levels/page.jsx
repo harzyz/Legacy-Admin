@@ -1,12 +1,11 @@
 import Level from '@/levels/level'
 import React from 'react'
 
-const page = () => {
+export default function page() {
+
   return (
     <div>
-      <Level level={'intermediate'} />
+      <Level />
     </div>
   )
 }
-
-export default page

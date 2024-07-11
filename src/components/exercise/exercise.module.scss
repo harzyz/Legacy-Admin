@@ -1,0 +1,421 @@
+.Beginners_Container{
+    width: 100%;
+    background-color: #F4F6FF;
+    // padding: 50px 50px;
+    height: 100vh;
+    margin-top: 20px;
+    // flex-grow: 1;
+
+    .Admin_Wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 25px;
+        
+        .Admin_Text{
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 8px 15px ;
+          border-radius: 20px;
+          background-color: #fff;
+  
+          .Admin_Icon{
+            font-size: 22px;
+            color: #2A2D74;
+          }
+  
+          p{
+            // font-family: Poppins;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            text-align: left;
+            color: #000;
+          }
+        }
+      }
+
+      .Categories_Container{
+        position: relative;
+        
+        .Categories{
+            // border: 2px solid green;
+            width: 21%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+            margin: 30px 0px;
+            cursor: pointer;
+    
+            .Thick_Down_Icon{
+                font-size: 30px;
+                cursor: pointer;
+                // border: 2px solid red;
+            }
+          }
+
+          .drills_block{
+            display: none;
+          }
+
+          .drills{
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            
+            ul{
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            //   justify-content: center;
+              padding: 10px 0px;
+            //   border: 2px solid red;
+              width: 100%;
+              max-width: 200px;
+              border-radius: 8px;
+              background-color: #fff;
+              filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            //   margin-left: 10px;
+      
+                a{
+                  text-decoration: none;
+                  color: #2A2D74;
+                  // font-family: Poppins;
+                  font-size: 19px;
+                  font-style: normal;
+                  font-weight: 500;
+                  line-height: 36px;
+                  cursor: pointer;
+
+                  li{
+                    list-style: none;
+                    padding: 0px 20px;
+                  }
+
+                  &:hover{
+                    color: #fff;
+                    background-color: #8184D1;
+                  }
+                }
+      
+               
+            }
+      
+          }
+    
+      }
+
+      
+      .Activity_Container{
+
+
+        .Animation_Wrapper{
+            padding: 20px 20px;
+            background-color: #2A2D74;
+
+            ul{
+                display: flex;
+                gap: 50px;
+
+                li{
+                    list-style: none;
+                    // font-family: Poppins;
+                    font-size: 17px;
+                    font-weight: 400;
+                    line-height: 36px;
+                    text-align: left;
+                    color: #F4F6FF;
+                }
+            }
+        }
+      }
+
+      .Activty_Container{
+        // border: 2px solid gray;
+        background-color: #fff;
+
+
+        .Activty_Form{
+            // border-bottom: 2px solid green;
+
+            .No_Activities{
+              // border: 2px solid green;
+              text-align: center;
+              padding:  50px 0px;
+              font-size: 30px;
+              font-weight: 600;
+            }
+    
+            ul{
+                display: none;
+                align-items: center;
+                gap: 70px;
+    
+                li{
+                    list-style: none;
+                    // border: 2px solid red;
+                    font-size: 13px;
+    
+                    .Timmy_Head{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+    
+                        input[type="checkbox"] {
+                            width: 2em;
+                            height: 2rem;
+                            accent-color: green;
+                          }
+                    }
+    
+                    .Lorem{
+                        border: 2px solid green;
+                    }
+    
+                    // .Edit_Box{
+                    //     display: flex;
+                    //     gap: 20px;
+                    //     border: 2px solid red;
+                    // }
+                }
+            }
+
+          //   .Edit_Box{
+          //     display: flex;
+          //     // gap: 40px;
+          //     border: 2px solid greenyellow;
+          // }
+
+            .Timmy_Head_Two{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                // justify-content: center;
+                text-align: center;
+                gap: 55px;
+                border-bottom: 1px solid rgb(165, 163, 163);
+                padding: 20px 20px;
+                // border: 2px solid red;
+
+                .Timmy_Head{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    // width: 20%;
+
+                    input[type="checkbox"] {
+                        width: 2em;
+                        height: 2rem;
+                        accent-color: green;
+                      }
+                }
+
+
+                .Strech_One{
+                    width: 15%;
+                    // border: 2px solid green;
+                }
+
+                .Strech_Two{
+                    width: 18%;
+                    // border: 2px solid red;
+                }
+
+                .Strech_Three{
+                    width: 10%;
+                    // border: 2px solid greenyellow;
+                }
+
+                // .Strech_Four{
+                //     width: 5.33%;
+                // }
+
+                .Strech_Five{
+                    width: 15%;
+                    // border: 2px solid yellow;
+                }
+
+
+                .Edit_Box{
+                    display: flex;
+                    // border: 2px solid purple;
+                    gap: 40px;
+                    width: 20%;
+
+                    .Edit_Icon{
+                        cursor: pointer;
+                    }
+                }
+
+                
+            }
+
+            .Plus_Wrapper{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                // border: 2px solid red;
+                padding: 20px 20px;
+
+                .Plus{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    background-color: #2A2D74;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    cursor: pointer;
+
+                    p{
+                        color: #fff;
+                    }
+                }
+            }
+          }
+      }
+}
+
+.Delete_Modal{
+  padding:50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  strong{
+    color: #2A2D74;
+    font-size: 20px;
+  }
+
+  p{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .Delete_Modal_btn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .Delete_Modal_btn_One{
+      padding: 20px 0px;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      background-color: #2A2D74;
+      border: 2px solid #2A2D74;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover{
+        border: 2px solid #2A2D74;
+        color: #2A2D74;
+        background-color: #fff;
+      }
+    }
+
+    .Delete_Modal_btn_Two{
+      padding: 20px 0px;
+      width: 60%;
+      border-radius: 8px;
+      border: none;
+      background-color: #fff;
+      color: #2A2D74;
+      border: 2px solid #2A2D74;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover{
+        border: 2px solid #2A2D74;
+        color: #fff;
+        background-color: #2A2D74;
+      }
+    }
+
+  }
+}
+
+.dropdown_options{
+  list-style: none;
+  width: 239px;
+  height: 160px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 100%;
+  left: 0px
+}
+.dropdown_options_list{
+  height: 53px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: #2A2D74;
+}
+.dropdown_options_listr{
+  height: 53px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  cursor: pointer;
+  background-color: #8184D1;
+  color: #fff;
+}
+.dropdown_options_list:hover{
+  background-color: #8184D1;
+  color: #fff;
+}
+.selected_option{
+  width: 15%;
+  // height: 53px;
+  border-radius: 40px;
+  // width: 170px;
+  background-color: #FFFFFF;
+  padding: 12px 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins' , sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  justify-content: center;
+  box-shadow: 0.5px 0.5px 0px 1px rgb(0,0,0, 0.2);
+  cursor: pointer;
+  // border: 2px solid red;
+}
+.selected_option:hover{
+  background-color: #2A2D74;
+  color: #FFF;
+}
+
+.active{
+  background-color: red;
+}
+.cat_container{
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  // border: 2px solid red;
+  // gap: 0px;
+}

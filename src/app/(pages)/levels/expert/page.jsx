@@ -1,11 +1,10 @@
-import Layout from '@/app/components/layout/layout'
-import Experts from '@/app/levels/experts/experts'
+import Level from '@/levels/level'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <Experts />
+      <Level level={'expert'} />
     </div>
   )
 }
