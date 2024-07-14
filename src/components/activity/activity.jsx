@@ -54,28 +54,10 @@ const Activity = ({level, day, type}) => {
     }
   };
 
-  const types = [
-    {
-      id: 1,
-      type: 'Moves',
-      value: 'move'
-    },
-    {
-      id: 2,
-      type: 'Drills',
-      value: 'drills'
-    },
-    {
-      id: 3,
-      type: 'Exercise',
-      value: 'exercise'
-    },
-  ];
-
   return (
     <div className={styles.Activity_Container}>
       <div className={styles.Add_New_Activity}>
-      <b>{editItem ? 'Edit Activity' : 'Add new activity / Exercise'}</b>
+      <b>{editItem ? 'Edit Activity' : `Add new activity / ${type}`}</b>
       </div>
       <form onSubmit={submit} className={styles.Activity_Wrapper}>
         <h4>Basic information</h4>

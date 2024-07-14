@@ -18,14 +18,20 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const [active, setActive] = useState(false);
+  const [isActive, setIsActive] = useState(0);
 
   const toggleMenu = () => {
-    setActive(true);
+    setActive(!active);
+    activeLevel(6)
   };
 
+  const activeLevel = (key) =>{
+    setIsActive(key)
+  }
+
   return (
-    <div className={styles.Sidebar_New}>
-      <section className={styles.Sidebar_Section}>
+    <div className={styles.sidebar_new}>
+      <section className={styles.sidebar_section}>
         <div className={styles.Logo_icon}>
           <Image src={card1} width={150} height={100} alt="card" />
         </div>
@@ -34,14 +40,14 @@ export default function Sidebar() {
             <h3>Genaral</h3>
             <div className={styles.General_Head}>
               <Link href="/">
-                <div className={styles.Dashboard_Text}>
+                <div onClick={() => activeLevel(5)} className={isActive === 5 ? styles.sidebar_menu: styles.dashboard_text }>
                   <FiHome className={styles.Dribble} />
                   <h4>Dashboard</h4>
                 </div>
               </Link>
             </div>
             <div className={styles.General_Head_Level}>
-              <div className={styles.Dashboard_Text} onClick={toggleMenu}>
+              <div className={[1, 2, 3, 4, 6].includes(isActive) ? styles.sidebar_menu: styles.dashboard_text } onClick={toggleMenu}>
                 <FaDribbble className={styles.Dribble} />
                 <h4>Levels</h4>
                 <BsChevronDown />
@@ -53,8 +59,9 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/beginner">
                   <li
                     className={`${
-                      pathname === "/levels/beginner" ? styles.active : ""
+                      isActive === 1 ? styles.active : ""
                     }`}
+                    onClick={() => activeLevel(1)}
                   >
                     Beginner
                   </li>
@@ -62,8 +69,9 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/intermediate">
                   <li
                     className={`${
-                      pathname === "/levels/intermediate" ? styles.active : ""
+                      isActive === 2 ? styles.active : ""
                     }`}
+                    onClick={() => activeLevel(2)}
                   >
                     Intermediate{" "}
                   </li>
@@ -71,8 +79,9 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/expert">
                   <li
                     className={`${
-                      pathname === "/levels/expert" ? styles.active : ""
+                      isActive === 3 ? styles.active : ""
                     }`}
+                    onClick={() => activeLevel(3)}
                   >
                     Expert{" "}
                   </li>
@@ -80,8 +89,9 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/elite">
                   <li
                     className={` ${
-                      pathname === "/levels/elite" ? styles.active : ""
+                      isActive === 4 ? styles.active : ""
                     }`}
+                    onClick={() => activeLevel(4)}
                   >
                     Elite{" "}
                   </li>
@@ -92,7 +102,7 @@ export default function Sidebar() {
             <h3>Accounts</h3>
             <div className={styles.General_Head}>
               <Link href="/profile">
-                <div className={styles.Dashboard_Text}>
+                <div onClick={() => activeLevel(7)} className={isActive === 7 ? styles.sidebar_menu: styles.dashboard_text }>
                   <CgProfile className={styles.Dribble} />
                   <h4>My profile</h4>
                 </div>
