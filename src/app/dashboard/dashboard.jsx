@@ -13,6 +13,7 @@ import Timmythree from "../../../public/assets/Frame 11795.svg";
 
 export default function Dashboard() {
   return (
+  <>
     <main className={styles.main}>
       <div className={styles.Bacground_ball}></div>
       <div className={styles.Dashboard_Wrapper}>
@@ -172,5 +173,6 @@ export default function Dashboard() {
         </div>
       </section>
     </main>
+    </>
   )
 }
