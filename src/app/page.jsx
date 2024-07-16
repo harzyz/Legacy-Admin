@@ -1,13 +1,13 @@
 import Login from '@/authentication/login';
 import './styles/globals.scss';
-// import Dashboard from "./dashboard/dashboard";
+import Dashboard from "./dashboard/dashboard";
 
 
 export default function Home() {
   return (
     <div>
-      {/* <Dashboard /> */}
-      <Login />
+      <Dashboard />
+      {/* <Login /> */}
     </div>
   );
 }

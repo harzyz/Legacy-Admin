@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./styles/globals.scss";
-// import Sidebar from "@/components/sidebar/sidebar";
+import Sidebar from "@/components/sidebar/sidebar";
 import {LevelProvider} from "@/context/LevelContext";
 
 const inter = Inter({
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <LevelProvider>
           <div className="layout">
-            {/* <Sidebar /> */}
+            <Sidebar />
             <div className="container">{children}</div>
           </div>
         </LevelProvider>
