@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const LevelContext = createContext();
 
@@ -12,6 +12,11 @@ export const LevelProvider = ({ children }) => {
 
   const [active, setActive] = useState(false);
   const [isActive, setIsActive] = useState(0);
+  const [elite, setElite] = useState()
+
+  useEffect(() => {
+    console.log(elite)
+  }, [elite])
 
   const toggleMenu = () => {
     setActive(!active);
@@ -31,6 +36,7 @@ export const LevelProvider = ({ children }) => {
     }
     return days;
   };
+
 
   const [admin, setAdmin] = useState({
     beginners: {
@@ -65,13 +71,32 @@ export const LevelProvider = ({ children }) => {
         .post("https://legacy-backend-zmmd.onrender.com/admin/login", params)
         .then((response) => {
           if (response.data.token !== "") {
-            // localStorage.setItem("userToken", response.data.token);
-            document.cookie = `userToken=${response.data.token}; path=/;`;
+            localStorage.setItem("userToken", response.data.token);
+            // document.cookie = `userToken=${response.data.token}; path=/;`;
             router.push("/dashboard");
           }
         });
     } catch (error) {
       console.error(error, "this is the error");
+    }
+  }
+
+  function getTokenFromLocalStorage() {
+    return localStorage.getItem("userToken");
+  }
+
+  async function fetchAllExercises() {
+    const token = getTokenFromLocalStorage()
+    try {
+      await axios.get("https://legacy-backend-zmmd.onrender.com/training/allExercise", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((res) => {
+        setElite(res.data[0].trainingDescription)
+      });
+    } catch (error) {
+      console.error(error, "Error fetching exercises");
     }
   }
 
@@ -134,6 +159,11 @@ export const LevelProvider = ({ children }) => {
     setActivity(false);
   };
 
+  const logout =() => {
+    localStorage.removeItem("userToken");
+    router.push("/");
+  }
+
   return (
     <LevelContext.Provider
       value={{
@@ -152,7 +182,10 @@ export const LevelProvider = ({ children }) => {
         active,
         toggleMenu,
         isActive,
-        activeLevel
+        activeLevel,
+        fetchAllExercises,
+        elite,
+        logout
       }}
     >
       {children}

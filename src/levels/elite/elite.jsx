@@ -11,7 +11,7 @@ import Drills from "@/components/drills/drills";
 import LevelContext from "@/context/LevelContext";
 
 export default function Elite({ id }) {
-  const { filterType } = useContext(LevelContext);
+  const { filterType, elite } = useContext(LevelContext);
   const [activity, setActivity] = useState(false);
 
   return (

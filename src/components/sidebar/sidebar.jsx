@@ -13,15 +13,18 @@ import LevelContext from "@/context/LevelContext";
 import Modal from "../modal/modal";
 
 export default function Sidebar() {
-  const { isActive, toggleMenu, active, activeLevel } = useContext(LevelContext);
+  const { isActive, toggleMenu, logout, active, activeLevel, fetchAllExercises } = useContext(LevelContext);
   const [open, setOpen] = useState(false);
+
+
+  
 
   
 
   return (
     <div className={styles.sidebar_new}>
       <section className={styles.sidebar_section}>
-        <div className={styles.Logo_icon}>
+        <div onClick={fetchAllExercises} className={styles.Logo_icon}>
           <Image src={card1} width={150} height={100} alt="card" />
         </div>
         <div>
@@ -109,18 +112,18 @@ export default function Sidebar() {
         </div>
       </section>
       <Modal isOpen={open} onClose={() => setOpen(false)}>
-        <div className={styles.Delete_Modal}>
+        <div className={styles.logout_Modal}>
           <strong>Logout</strong>
           <p>
             Are you sure you want to Logout
           </p>
-          <div className={styles.Delete_Modal_btn}>
-            <button className={styles.Delete_Modal_btn_One}>
-              Delete
+          <div className={styles.logout_modal_btn}>
+            <button onClick={logout} className={styles.logout_modal_btn_one}>
+              Logout
             </button>
             <button
               onClick={() => setOpen(false)}
-              className={styles.Delete_Modal_btn_Two}>
+              className={styles.logout_modal_btn_two}>
               Cancel
             </button>
           </div>

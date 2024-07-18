@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext } from "react";
-// import check from "../img/Rectangle 7040.svg";
 import eye from "../../../public/assets/eye-slash.svg";
 import styles from "../login/login.module.scss";
 import { useState } from "react";
