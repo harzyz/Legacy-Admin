@@ -20,7 +20,6 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <LevelProvider>
           <div className="layout">
-            <Sidebar />
             <div className="container">{children}</div>
           </div>
         </LevelProvider>

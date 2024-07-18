@@ -1,33 +1,20 @@
 "use client";
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useContext } from "react";
 import styles from "../sidebar/sidebar.module.scss";
-// import variables from "../styles/variables.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import card1 from "/public/assets/Component 6.svg";
-// import home from "../../../public/assets/DribbbleLogo.svg";
 import { FiHome } from "react-icons/fi";
 import { FaDribbble } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
-import { useState } from "react";
+import LevelContext from "@/context/LevelContext";
 
 export default function Sidebar() {
-  const pathname = usePathname();
+  const { isActive, toggleMenu, active, activeLevel } = useContext(LevelContext);
 
-  const [active, setActive] = useState(false);
-  const [isActive, setIsActive] = useState(0);
-
-  const toggleMenu = () => {
-    setActive(!active);
-    activeLevel(6)
-  };
-
-  const activeLevel = (key) =>{
-    setIsActive(key)
-  }
+  
 
   return (
     <div className={styles.sidebar_new}>
@@ -39,7 +26,7 @@ export default function Sidebar() {
           <div className={styles.General_Container}>
             <h3>Genaral</h3>
             <div className={styles.General_Head}>
-              <Link href="/">
+              <Link href="/dashboard">
                 <div onClick={() => activeLevel(5)} className={isActive === 5 ? styles.sidebar_menu: styles.dashboard_text }>
                   <FiHome className={styles.Dribble} />
                   <h4>Dashboard</h4>

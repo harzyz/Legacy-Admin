@@ -6,8 +6,8 @@ import Dashboard from "./dashboard/dashboard";
 export default function Home() {
   return (
     <div>
-      <Dashboard />
-      {/* <Login /> */}
+      {/* <Dashboard /> */}
+      <Login />
     </div>
   );
 }
