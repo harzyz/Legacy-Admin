@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../sidebar/sidebar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,9 +10,11 @@ import { BsChevronDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
 import LevelContext from "@/context/LevelContext";
+import Modal from "../modal/modal";
 
 export default function Sidebar() {
   const { isActive, toggleMenu, active, activeLevel } = useContext(LevelContext);
+  const [open, setOpen] = useState(false);
 
   
 
@@ -96,16 +98,34 @@ export default function Sidebar() {
               </Link>
             </div>
             <div className={styles.General_Head_Two}>
-              <Link href="/levels/beginners">
-                <div className={styles.Dashboard_Text_Two}>
+              {/* <Link href="/levels/beginners"> */}
+                <div onClick={() => setOpen(true)} className={styles.Dashboard_Text_Two}>
                   <PiSignOutLight className={styles.Dribble_Two} />
                   <h4>LOGOUT</h4>
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
         </div>
       </section>
+      <Modal isOpen={open} onClose={() => setOpen(false)}>
+        <div className={styles.Delete_Modal}>
+          <strong>Logout</strong>
+          <p>
+            Are you sure you want to Logout
+          </p>
+          <div className={styles.Delete_Modal_btn}>
+            <button className={styles.Delete_Modal_btn_One}>
+              Delete
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              className={styles.Delete_Modal_btn_Two}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

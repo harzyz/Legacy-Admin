@@ -15,6 +15,8 @@ export default function Login() {
     password: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const { email, password } = loginForm;
 
   const [show, setShow] = useState(false);
@@ -23,10 +25,12 @@ export default function Login() {
     setShow(!show);
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    loginAdmin(email, password)
-  }
+    setIsLoading(true)
+    await loginAdmin(email, password);
+    setIsLoading(false)
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,10 +95,9 @@ export default function Login() {
             <div className={styles.log_button}>
               <div className={styles.link}>
                 <li>
-                    <button type="submit" className={styles.log_btn}>
-                        Log In
-                    </button>
-
+                  <button type="submit" className={isLoading? styles.load_btn : styles.log_btn}>
+                    {isLoading? 'Loading...' : 'Log In'}
+                  </button>
                 </li>
               </div>
             </div>
