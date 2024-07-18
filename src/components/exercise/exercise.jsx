@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import styles from "./exercise.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -7,22 +7,37 @@ import plus from "/public/assets/Plus.svg";
 import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
-import LevelContext from "@/context/LevelContext"
+import LevelContext from "@/context/LevelContext";
 
 export default function Exercise({ level, day }) {
-  const { admin, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
+  const {
+    deleteDayItem,
+    setEditItem,
+    activity,
+    setActivity,
+    elite,
+    fetchAllExercises,
+  } = useContext(LevelContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addNewField = () => {
     setActivity(true);
   };
 
+  useEffect(() => {
+    fetchElite();
+  }, []);
 
   const handleEdit = (item) => {
     setEditItem(item);
     setActivity(true);
   };
 
-  
+  const fetchElite = async () => {
+    setIsLoading(true);
+    await fetchAllExercises();
+    setIsLoading(false);
+  };
 
   return (
     <section className={styles.Beginners_Container}>
@@ -40,19 +55,24 @@ export default function Exercise({ level, day }) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {admin[level]['exercise'][day].length === 0 && (
+                {isLoading && (
+                  <div className={styles.No_Activities}>Loading....</div>
+                )}
+                {elite?.length === 0 && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
-                {admin[level]['exercise'][day].map((timmy) => (
-                  <div key={timmy.id}>
+                {elite?.map((timmy) => (
+                  <div key={timmy._id}>
                     <TimmyDetails
                       imageProp={Timmy}
-                      animationName={timmy.anime_name}
+                      animationName={timmy.displayName}
                       animation={timmy.anime_image_url}
                       description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
-                      onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
+                      minute={timmy.duration.minutes}
+                      seconds={timmy.duration.seconds}
+                      onDelete={() =>
+                        deleteDayItem(level, "exercise", day, timmy.id)
+                      }
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>
@@ -69,13 +89,7 @@ export default function Exercise({ level, day }) {
           </section>
         </div>
       )}
-      {activity && (
-        <Activity
-          type='exercise'
-          day={day}
-          level={level}
-        />
-      )}
+      {activity && <Activity type="exercise" day={day} level={level} />}
     </section>
   );
 }
