@@ -1,10 +1,25 @@
+"use client"
 import Dashboard from '@/app/dashboard/dashboard'
-import React from 'react'
+import Layout from '@/components/layout/layout';
+import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react'
 
 export default function page() {
+
+    // const router = useRouter();
+  
+    // useEffect(() => {
+    //   const token = localStorage.getItem('userToken'); // Retrieve your token
+  
+    //   if (!token) {
+    //     router.push('/login'); // Redirect to login if not authenticated
+    //   }
+    // }, [router]);
+
+
   return (
-    <div>
+    <Layout>
         <Dashboard />
-    </div>
+    </Layout>
   )
 }

@@ -1,45 +1,37 @@
 "use client";
-import React from "react";
-import { usePathname } from "next/navigation";
+import React, { useContext, useState } from "react";
 import styles from "../sidebar/sidebar.module.scss";
-// import variables from "../styles/variables.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import card1 from "/public/assets/Component 6.svg";
-// import home from "../../../public/assets/DribbbleLogo.svg";
 import { FiHome } from "react-icons/fi";
 import { FaDribbble } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
-import { useState } from "react";
+import LevelContext from "@/context/LevelContext";
+import Modal from "../modal/modal";
 
 export default function Sidebar() {
-  const pathname = usePathname();
+  const { isActive, toggleMenu, logout, active, activeLevel, fetchAllExercises } = useContext(LevelContext);
+  const [open, setOpen] = useState(false);
 
-  const [active, setActive] = useState(false);
-  const [isActive, setIsActive] = useState(0);
 
-  const toggleMenu = () => {
-    setActive(!active);
-    activeLevel(6)
-  };
+  
 
-  const activeLevel = (key) =>{
-    setIsActive(key)
-  }
+  
 
   return (
     <div className={styles.sidebar_new}>
       <section className={styles.sidebar_section}>
-        <div className={styles.Logo_icon}>
+        <div onClick={fetchAllExercises} className={styles.Logo_icon}>
           <Image src={card1} width={150} height={100} alt="card" />
         </div>
         <div>
           <div className={styles.General_Container}>
             <h3>Genaral</h3>
             <div className={styles.General_Head}>
-              <Link href="/">
+              <Link href="/dashboard">
                 <div onClick={() => activeLevel(5)} className={isActive === 5 ? styles.sidebar_menu: styles.dashboard_text }>
                   <FiHome className={styles.Dribble} />
                   <h4>Dashboard</h4>
@@ -109,16 +101,34 @@ export default function Sidebar() {
               </Link>
             </div>
             <div className={styles.General_Head_Two}>
-              <Link href="/levels/beginners">
-                <div className={styles.Dashboard_Text_Two}>
+              {/* <Link href="/levels/beginners"> */}
+                <div onClick={() => setOpen(true)} className={styles.Dashboard_Text_Two}>
                   <PiSignOutLight className={styles.Dribble_Two} />
                   <h4>LOGOUT</h4>
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
         </div>
       </section>
+      <Modal isOpen={open} onClose={() => setOpen(false)}>
+        <div className={styles.logout_Modal}>
+          <strong>Logout</strong>
+          <p>
+            Are you sure you want to Logout
+          </p>
+          <div className={styles.logout_modal_btn}>
+            <button onClick={logout} className={styles.logout_modal_btn_one}>
+              Logout
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              className={styles.logout_modal_btn_two}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
