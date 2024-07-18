@@ -2,6 +2,8 @@
 import React from 'react'
 // import check from "../img/Rectangle 7040.svg";
 import eye from "../../../public/assets/eye-slash.svg";
+// import plus from "../../../public/assets/eyeing.html";
+import { FaRegEye } from "react-icons/fa6";
 import styles from "../login/login.module.scss";
 import { useState } from "react";
 import Image from 'next/image';
@@ -12,10 +14,16 @@ export default function Login() {
 
     
         const [show,setShow] = useState(false)
+        const [mobile, setMobile] = useState(true);
 
-        const handleShow=() =>{
-            setShow(!show)
-        }
+        const toggleMenu = () => {
+          setMobile((open) => !open)
+          setShow(!show)
+      }
+
+        // const handleShow=() =>{
+        //     setShow(!show)
+        // }
     
   
     return ( 
@@ -36,14 +44,20 @@ export default function Login() {
                         </div>
                         <div className={styles.log_label2}>
                             <label>Password</label>
-                            <input type={show?"text" : "password"} placeholder="*** *** *** ***"  className={styles.log_input} />
-                            <Image 
+                            <input type={show?"text" : "password"} placeholder="*** *** *** ***"  className={styles.log_input}   />
+                            {/* <Image 
                             src={eye}
                             alt='eye'
                             width={30}
                             className={styles.eye_image}
                             onClick={handleShow}
-                            />
+                            /> */}
+                            <span
+                            className={styles.eye_image}
+                            onClick={toggleMenu}
+                            >
+                                {mobile ? <Image src={eye} alt="menu" width={25}/> : <FaRegEye className={styles.eyes} /> }
+                            </span>
                         </div>
                         <div className={styles.check_contents}>
                             <div className={styles.remember}>
