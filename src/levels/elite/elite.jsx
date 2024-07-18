@@ -9,6 +9,7 @@ import Exercise from "@/components/exercise/exercise";
 import Moves from "@/components/moves/moves";
 import Drills from "@/components/drills/drills";
 import LevelContext from "@/context/LevelContext";
+import Layout from "@/components/layout/layout";
 
 export default function Elite({ id }) {
   const { filterType, elite } = useContext(LevelContext);
