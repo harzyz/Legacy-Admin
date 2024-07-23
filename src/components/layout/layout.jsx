@@ -5,12 +5,12 @@ import LevelContext from '@/context/LevelContext';
 import { redirect } from 'next/navigation';
 
 const Layout = ({children}) => {
-  const { getTokenFromLocalStorage } = useContext(LevelContext);
+  // const { getTokenFromLocalStorage } = useContext(LevelContext);
 
-  const userToken = getTokenFromLocalStorage();
-  if (!userToken){
-    redirect("/")
-  }
+  // const userToken = getTokenFromLocalStorage();
+  // if (!userToken){
+  //   redirect("/")
+  // }
 
   return (
     <div className={styles.layout}>

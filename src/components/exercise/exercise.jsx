@@ -58,9 +58,6 @@ export default function Exercise({ level, day }) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {/* {isLoading && (
-                  <div className={styles.No_Activities}>Loading....</div>
-                )} */}
                 {!elite && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
