@@ -8,6 +8,7 @@ import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
+import Spinner from "../spinner";
 
 export default function Exercise({ level, day }) {
   const {
@@ -18,14 +19,15 @@ export default function Exercise({ level, day }) {
     elite,
     fetchAllExercises,
   } = useContext(LevelContext);
-  const [isLoading, setIsLoading] = useState(false);
+  
 
   const addNewField = () => {
     setActivity(true);
   };
 
   useEffect(() => {
-    fetchElite();
+    // fetchElite();
+    console.log(elite, "from there")
   }, []);
 
   const handleEdit = (item) => {
@@ -41,6 +43,7 @@ export default function Exercise({ level, day }) {
 
   return (
     <section className={styles.Beginners_Container}>
+      <Spinner />
       {!activity && (
         <div>
           <section className={styles.Activity_Container}>
@@ -55,10 +58,10 @@ export default function Exercise({ level, day }) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {isLoading && (
+                {/* {isLoading && (
                   <div className={styles.No_Activities}>Loading....</div>
-                )}
-                {elite?.length === 0 && (
+                )} */}
+                {!elite && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
                 {elite?.map((timmy) => (
@@ -89,7 +92,7 @@ export default function Exercise({ level, day }) {
           </section>
         </div>
       )}
-      {activity && <Activity type="exercise" day={day} level={level} />}
+      {activity && <Activity type="Exercises" day={day} level={level} />}
     </section>
   );
 }

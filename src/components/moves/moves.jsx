@@ -10,7 +10,7 @@ import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
 
 export default function Moves({level, day}) {
-  const { admin, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
+  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
@@ -38,22 +38,25 @@ export default function Moves({level, day}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {admin[level]['moves'][day].length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
-                {admin[level]['moves'][day].map((timmy) => (
-                  <div key={timmy.id}>
+              {!elite && (
+                  <div className={styles.No_Activities}>No Activites Yet</div>
+                )}
+                {elite?.map((timmy) => (
+                  <div key={timmy._id}>
                     <TimmyDetails
                       imageProp={Timmy}
-                      animationName={timmy.anime_name}
+                      animationName={timmy.displayName}
                       animation={timmy.anime_image_url}
                       description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
-                      onDelete={() => deleteDayItem(level, 'moves', day, timmy.id)}
+                      minute={timmy.duration.minutes}
+                      seconds={timmy.duration.seconds}
+                      onDelete={() =>
+                        deleteDayItem(level, "exercise", day, timmy.id)
+                      }
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>
                 ))}
-
                 <div onClick={addNewField} className={styles.Plus_Wrapper}>
                   <div className={styles.Plus}>
                     <Image src={plus} alt="plus" width={30} height={30} />
@@ -67,7 +70,7 @@ export default function Moves({level, day}) {
       )}
       {activity && (
         <Activity
-        type='moves'
+        type='Moves'
         day={day}
         level={level}
       />

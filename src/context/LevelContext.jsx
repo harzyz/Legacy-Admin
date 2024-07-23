@@ -6,13 +6,15 @@ import { createContext, useEffect, useState } from "react";
 const LevelContext = createContext();
 
 export const LevelProvider = ({ children }) => {
-  const [filterType, setFilterType] = useState("Exercise");
+  const [filterType, setFilterType] = useState("exercise");
   const [editItem, setEditItem] = useState(null);
   const [activity, setActivity] = useState(false);
+  const [token, setToken] = useState("");
 
   const [active, setActive] = useState(false);
   const [isActive, setIsActive] = useState(0);
   const [elite, setElite] = useState()
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     console.log(elite)
@@ -66,6 +68,7 @@ export const LevelProvider = ({ children }) => {
       email: email,
       password: password,
     };
+    setIsLoading(true)
     try {
       await axios
         .post("https://legacy-backend-zmmd.onrender.com/admin/login", params)
@@ -74,7 +77,9 @@ export const LevelProvider = ({ children }) => {
             localStorage.setItem("userToken", response.data.token);
             // document.cookie = `userToken=${response.data.token}; path=/;`;
             router.push("/dashboard");
+            setIsLoading(false)
           }
+          
         });
     } catch (error) {
       console.error(error, "this is the error");
@@ -85,16 +90,42 @@ export const LevelProvider = ({ children }) => {
     return localStorage.getItem("userToken");
   }
 
-  async function fetchAllExercises() {
+  async function fetchAllExercises(day, type, level) {
+    setElite(null)
     const token = getTokenFromLocalStorage()
+    const params = {
+      day: day,
+      trainingSection: type,
+      skillLevel: level
+    }
+    setIsLoading(true)
     try {
-      await axios.get("https://legacy-backend-zmmd.onrender.com/training/allExercise", {
+      await axios.get("https://legacy-backend-zmmd.onrender.com/training/allExercise",
+        {
+        params: params,
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }).then((res) => {
         setElite(res.data[0].trainingDescription)
+        setIsLoading(false)
       });
+    } catch (error) {
+      console.error(error, "Error fetching exercises");
+    }
+  }
+
+  async function createExercises(params) {
+    const token = getTokenFromLocalStorage()
+    try {
+      await axios.post("https://legacy-backend-zmmd.onrender.com/training/create", 
+        params,
+        {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      console.log(params, "detailcontext")
     } catch (error) {
       console.error(error, "Error fetching exercises");
     }
@@ -185,7 +216,12 @@ export const LevelProvider = ({ children }) => {
         activeLevel,
         fetchAllExercises,
         elite,
-        logout
+        logout,
+        getTokenFromLocalStorage,
+        token,
+        createExercises,
+        fetchAllExercises,
+        isLoading
       }}
     >
       {children}

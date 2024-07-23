@@ -6,18 +6,23 @@ import styles from "./activity.module.scss";
 import LevelContext from "@/context/LevelContext";
 
 const Activity = ({level, day, type}) => {
-  const { addDayItem, editItem, setActivity, updateDayItem } = useContext(LevelContext);
+  const { editItem, setActivity, updateDayItem, createExercises } = useContext(LevelContext);
   const [timmyDetail, setTimmyDetail] = useState({
-    id: new Date(),
-    anime_image_url: "",
-    anime_video_url: "",
-    anime_name: "",
+    skillLevel: level,
+    trainingSection: type,
+    displayName: "",
     description: "",
-    minute: '',
-    seconds: '',
+    imgUrl: '',
+    videoUrl: '',
+    day: day,
+    duration: {
+      minutes: 0,
+      seconds: 0
+    }
   });
 
-  const { anime_image_url, anime_video_url, anime_name, description, minute, seconds, } = timmyDetail;
+  const { displayName, description, imgUrl, videoUrl, duration } = timmyDetail;
+  const { minutes, seconds } = duration
 
   useEffect(() => {
     if (editItem) {
@@ -27,19 +32,30 @@ const Activity = ({level, day, type}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setTimmyDetail((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (name === 'minutes' || name === 'seconds') {
+      setTimmyDetail((prev) => ({
+        ...prev,
+        duration: {
+          ...prev.duration,
+          [name]: value
+        }
+      }));
+    } else {
+      setTimmyDetail((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
   
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (editItem) {
       updateDayItem(level, type, day, timmyDetail);
     } else {
-      addDayItem(level, type, day, timmyDetail);
+      await createExercises(timmyDetail)
       setActivity(false);
+      fetchAllExercises(day, type, level)
     }
   };
 
@@ -75,9 +91,9 @@ const Activity = ({level, day, type}) => {
             />
             <input
               type="text"
-              id="anime_image_url"
-              name="anime_image_url"
-              value={anime_image_url}
+              id="imgUrl"
+              name="imgUrl"
+              value={imgUrl}
               className={styles.Activity_Input}
               onChange={handleChange}
               placeholder="Input URL"
@@ -91,9 +107,9 @@ const Activity = ({level, day, type}) => {
           <div className={styles.Activity_Form}>
             <input
               type="text"
-              id="anime_video_url"
-              name="anime_video_url"
-              value={anime_video_url}
+              id="videoUrl"
+              name="videoUrl"
+              value={videoUrl}
               className={styles.Activity_Input}
               onChange={handleChange}
               placeholder="Input URL"
@@ -107,9 +123,9 @@ const Activity = ({level, day, type}) => {
           <div className={styles.Activity_Form}>
             <input
               type="text"
-              id="anime_name"
-              name="anime_name"
-              value={anime_name}
+              id="displayName"
+              name="displayName"
+              value={displayName}
               className={styles.Activity_Input}
               onChange={handleChange}
             />
@@ -136,10 +152,8 @@ const Activity = ({level, day, type}) => {
             Time<span>*</span>
           </p>
           <div className={styles.Activity_Form_two}>
-            <input type="text" value={minute} id="minute" name="minute" maxLength="2" onChange={handleTimeChange}  className={styles.Activity_Input} />
-            {/* <p>Min</p> */}
+            <input type="text" value={minutes} id="minutes" name="minutes" maxLength="2" onChange={handleTimeChange}  className={styles.Activity_Input} />
             <input type="text" value={seconds} id="seconds" name="seconds" maxLength="2" onChange={handleTimeChange} className={styles.Activity_Input} />
-            {/* <p>Sec</p> */}
           </div>
         </div>
         <div className={styles.Button_One}>

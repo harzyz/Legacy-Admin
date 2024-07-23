@@ -10,7 +10,7 @@ import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
 
 export default function Drills({level, day}) {
-  const { admin, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
+  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
@@ -38,17 +38,21 @@ export default function Drills({level, day}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {admin[level]['drills'][day].length === 0 && <div className={styles.No_Activities}>No Activites Yet</div>}
-                {admin[level]['drills'][day].map((timmy) => (
-                  <div key={timmy.id}>
+              {!elite && (
+                  <div className={styles.No_Activities}>No Activites Yet</div>
+                )}
+                {elite?.map((timmy) => (
+                  <div key={timmy._id}>
                     <TimmyDetails
                       imageProp={Timmy}
-                      animationName={timmy.anime_name}
+                      animationName={timmy.displayName}
                       animation={timmy.anime_image_url}
                       description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
-                      onDelete={() => deleteDayItem(level, 'drills', day, timmy.id)}
+                      minute={timmy.duration.minutes}
+                      seconds={timmy.duration.seconds}
+                      onDelete={() =>
+                        deleteDayItem(level, "exercise", day, timmy.id)
+                      }
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>
@@ -67,7 +71,7 @@ export default function Drills({level, day}) {
       )}
       {activity && (
         <Activity
-        type='drills'
+        type='Drills'
         day={day}
         level={level}
       />
