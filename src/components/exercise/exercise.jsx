@@ -1,10 +1,9 @@
 "use client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import styles from "./exercise.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
 import plus from "/public/assets/Plus.svg";
-import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
@@ -25,21 +24,12 @@ export default function Exercise({ level, day }) {
     setActivity(true);
   };
 
-  useEffect(() => {
-    // fetchElite();
-    console.log(elite, "from there")
-  }, []);
-
   const handleEdit = (item) => {
     setEditItem(item);
     setActivity(true);
   };
 
-  const fetchElite = async () => {
-    setIsLoading(true);
-    await fetchAllExercises();
-    setIsLoading(false);
-  };
+  
 
   return (
     <section className={styles.Beginners_Container}>
@@ -58,21 +48,19 @@ export default function Exercise({ level, day }) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-                {!elite && (
+                {elite?.length == 0 && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
                 {elite?.map((timmy) => (
-                  <div key={timmy._id}>
+                  <div key={timmy.id}>
                     <TimmyDetails
                       imageProp={Timmy}
-                      animationName={timmy.displayName}
+                      animationName={timmy.anime_name}
                       animation={timmy.anime_image_url}
                       description={timmy.description}
-                      minute={timmy.duration.minutes}
-                      seconds={timmy.duration.seconds}
-                      onDelete={() =>
-                        deleteDayItem(level, "exercise", day, timmy.id)
-                      }
+                      minute={timmy.minute}
+                      seconds={timmy.seconds}
+                      onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>

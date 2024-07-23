@@ -8,6 +8,7 @@ import { useState } from "react";
 import Activity from "@/components/activity/activity";
 import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
+import Spinner from "../spinner";
 
 export default function Moves({level, day}) {
   const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
@@ -23,6 +24,7 @@ export default function Moves({level, day}) {
 
   return (
     <section className={styles.Beginners_Container}>
+      <Spinner />
       {!activity && (
         <div>
           <section className={styles.Activity_Container}>
@@ -38,7 +40,7 @@ export default function Moves({level, day}) {
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-              {!elite && (
+              {elite?.length == 0 && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
                 {elite?.map((timmy) => (

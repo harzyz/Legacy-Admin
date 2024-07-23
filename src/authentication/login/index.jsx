@@ -1,6 +1,8 @@
 "use client";
 import React, { useContext } from "react";
 import eye from "../../../public/assets/eye-slash.svg";
+// import plus from "../../../public/assets/eyeing.html";
+import { FaRegEye } from "react-icons/fa6";
 import styles from "../login/login.module.scss";
 import { useState } from "react";
 import Image from "next/image";
