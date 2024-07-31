@@ -28,10 +28,12 @@ export const LevelProvider = ({ children }) => {
   useEffect(() => {
     let cat
     cat = localStorage.getItem("filterType")
-    if(filterType == ''){
+    if(filterType == '' && cat != ''){
       setFilterType(cat)
+    }else if(filterType != '' && cat == '') {
+      setFilterType('exercise')
     }
-  }, [])
+  }, [filterType])
 
   const toggleMenu = () => {
     setActive(!active);
@@ -114,8 +116,12 @@ export const LevelProvider = ({ children }) => {
       const response = await http.get("/training/allExercise", {
         params: params,
       });
-  
-      setElite(response.data[0].trainingDescription);
+      if(response.data == ""){
+        setElite([])
+      } else {
+        setElite(response.data[0].trainingDescription);
+
+      }
     } catch (error) {
       console.error("Error fetching exercises:", error);
     } finally {
