@@ -20,6 +20,7 @@ export default function Exercise({ level, day }) {
   } = useContext(LevelContext);
 
   useEffect(() => {
+    setActivity(false)
     fetchAllExercises(day, 'exercise', level)
   }, [])
   
@@ -43,6 +44,8 @@ export default function Exercise({ level, day }) {
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
+                <li></li>
+                <li></li>
                 <li>Animation</li>
                 <li>Activity Name</li>
                 <li>Description</li>
@@ -56,14 +59,14 @@ export default function Exercise({ level, day }) {
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
                 {elite?.map((timmy) => (
-                  <div key={timmy.id}>
+                  <div key={timmy._id}>
                     <TimmyDetails
                       imageProp={Timmy}
-                      animationName={timmy.anime_name}
-                      animation={timmy.anime_image_url}
+                      animationName={timmy.displayName}
+                      animation={timmy.videoUrl}
                       description={timmy.description}
-                      minute={timmy.minute}
-                      seconds={timmy.seconds}
+                      minute={timmy.duration.minutes}
+                      seconds={timmy.duration.seconds}
                       onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
                       onEdit={() => handleEdit(timmy)}
                     />

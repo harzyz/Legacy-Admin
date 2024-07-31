@@ -63,10 +63,13 @@ const Activity = ({level, day, type}) => {
   const handleTimeChange = (e) => {
     const { value, name } = e.target;
     if (/^\d{0,2}$/.test(value)) {
-        setTimmyDetail((prev) => ({
-          ...prev,
-          [name]: value,
-        }));
+      setTimmyDetail((prev) => ({
+        ...prev,
+        duration: {
+          ...prev.duration,
+          [name]: value
+        }
+      }));
     }
   };
 

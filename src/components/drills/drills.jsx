@@ -52,13 +52,11 @@ export default function Drills({level, day}) {
                     <TimmyDetails
                       imageProp={Timmy}
                       animationName={timmy.displayName}
-                      animation={timmy.anime_image_url}
+                      animation={timmy.videoUrl}
                       description={timmy.description}
                       minute={timmy.duration.minutes}
                       seconds={timmy.duration.seconds}
-                      onDelete={() =>
-                        deleteDayItem(level, "exercise", day, timmy.id)
-                      }
+                      onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>

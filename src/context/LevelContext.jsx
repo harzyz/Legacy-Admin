@@ -2,15 +2,17 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
+import http from "@/utils/axiosInstance";
 
 const LevelContext = createContext();
 
 export const LevelProvider = ({ children }) => {
-  const [filterType, setFilterType] = useState("exercise");
+  const [filterType, setFilterType] = useState("");
   const [editItem, setEditItem] = useState(null);
   const [activity, setActivity] = useState(false);
   const [token, setToken] = useState("");
 
+  const [assist, setAssist] = useState(false);
   const [active, setActive] = useState(false);
   const [isActive, setIsActive] = useState(0);
   const [elite, setElite] = useState()
@@ -18,7 +20,18 @@ export const LevelProvider = ({ children }) => {
 
   useEffect(() => {
     console.log(elite)
-  }, [elite])
+    if(filterType != ''){
+      localStorage.setItem("filterType", filterType)
+    }
+    
+  }, [filterType])
+  useEffect(() => {
+    let cat
+    cat = localStorage.getItem("filterType")
+    if(filterType == ''){
+      setFilterType(cat)
+    }
+  }, [])
 
   const toggleMenu = () => {
     setActive(!active);
@@ -70,12 +83,11 @@ export const LevelProvider = ({ children }) => {
     };
     setIsLoading(true)
     try {
-      await axios
-        .post("https://legacy-backend-zmmd.onrender.com/admin/login", params)
+      await http
+        .post("/admin/login", params)
         .then((response) => {
           if (response.data.token !== "") {
             localStorage.setItem("userToken", response.data.token);
-            // document.cookie = `userToken=${response.data.token}; path=/;`;
             router.push("/dashboard");
             setIsLoading(false)
           }
@@ -92,20 +104,15 @@ export const LevelProvider = ({ children }) => {
 
   async function fetchAllExercises(day, type, level) {
     try {
-      setIsLoading(true); // Set isLoading state to true before making the request
-  
-      const token = getTokenFromLocalStorage();
+      setIsLoading(true);
       const params = {
         day: day,
         trainingSection: type,
         skillLevel: level
       };
   
-      const response = await axios.get("https://legacy-backend-zmmd.onrender.com/training/allExercise", {
+      const response = await http.get("/training/allExercise", {
         params: params,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       });
   
       setElite(response.data[0].trainingDescription);
@@ -117,18 +124,14 @@ export const LevelProvider = ({ children }) => {
   }
 
   async function createExercises(params) {
-    const token = getTokenFromLocalStorage()
     try {
-      await axios.post("https://legacy-backend-zmmd.onrender.com/training/create", 
-        params,
-        {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      console.log(params, "detailcontext")
+      setIsLoading(true);
+      await http.post("/training/create", 
+        params)
     } catch (error) {
       console.error(error, "Error fetching exercises");
+    } finally {
+      setIsLoading(false);
     }
   }
 
