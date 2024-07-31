@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import styles from "./drills.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -11,11 +11,15 @@ import LevelContext from "@/context/LevelContext";
 import Spinner from "../spinner";
 
 export default function Drills({level, day}) {
-  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
+  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity, fetchAllExercises } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
   };
+
+  useEffect(() => {
+    fetchAllExercises(day, 'drills', level)
+  }, [])
 
   const handleEdit = (item) => {
     setEditItem(item);

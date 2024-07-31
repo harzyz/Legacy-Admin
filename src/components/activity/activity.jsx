@@ -6,7 +6,7 @@ import styles from "./activity.module.scss";
 import LevelContext from "@/context/LevelContext";
 
 const Activity = ({level, day, type}) => {
-  const { editItem, setActivity, updateDayItem, createExercises } = useContext(LevelContext);
+  const { editItem, setActivity, updateDayItem, createExercises, fetchAllExercises } = useContext(LevelContext);
   const [timmyDetail, setTimmyDetail] = useState({
     skillLevel: level,
     trainingSection: type,
@@ -16,8 +16,8 @@ const Activity = ({level, day, type}) => {
     videoUrl: '',
     day: day,
     duration: {
-      minutes: 0,
-      seconds: 0
+      minutes: "",
+      seconds: ""
     }
   });
 

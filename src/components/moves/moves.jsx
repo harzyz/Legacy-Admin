@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import styles from "./moves.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -11,7 +11,12 @@ import LevelContext from "@/context/LevelContext";
 import Spinner from "../spinner";
 
 export default function Moves({level, day}) {
-  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity } = useContext(LevelContext);
+  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity, fetchAllExercises } = useContext(LevelContext);
+
+
+  useEffect(() => {
+    fetchAllExercises(day, 'moves', level)
+  }, [])
 
   const addNewField = () => {
     setActivity(true);

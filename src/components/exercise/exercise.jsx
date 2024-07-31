@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 import styles from "./exercise.module.scss";
 import Timmy from "/public/assets/Timmysmall.svg";
@@ -18,6 +18,10 @@ export default function Exercise({ level, day }) {
     elite,
     fetchAllExercises,
   } = useContext(LevelContext);
+
+  useEffect(() => {
+    fetchAllExercises(day, 'exercise', level)
+  }, [])
   
 
   const addNewField = () => {

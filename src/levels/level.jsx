@@ -59,7 +59,7 @@ export default function Level({ level }) {
       <div className={styles.day_card_grid}>
         {days.map((day) => (
           <Link key={day} href={`/levels/${level}/${day}`}>
-            <div onClick={() => getThem(day)} className={styles.day_card}>Day{day}</div>
+            <div className={styles.day_card}>Day{day}</div>
           </Link>
         ))}
       </div>
