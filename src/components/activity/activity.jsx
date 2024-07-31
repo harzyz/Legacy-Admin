@@ -76,7 +76,7 @@ const Activity = ({level, day, type}) => {
   return (
     <div className={styles.Activity_Container}>
       <div className={styles.Add_New_Activity}>
-      <b>{editItem ? 'Edit Activity' : `Add new activity / ${type}`}</b>
+      <b>{editItem ? "Edit Activity" : `Add new activity / ${type}`}</b>
       </div>
       <form onSubmit={submit} className={styles.Activity_Wrapper}>
         <h4>Basic information</h4>
