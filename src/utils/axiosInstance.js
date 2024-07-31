@@ -27,7 +27,7 @@ http.interceptors.response.use(
     if (error.response.status === 401 || 403) {
       clearToken(); // Clear the token from storage
       if (typeof window !== 'undefined') {
-        window.location.href = '/login'; // Redirect to login page
+        window.location.href = '/'; // Redirect to login page
       }
     }
     return Promise.reject(error);
