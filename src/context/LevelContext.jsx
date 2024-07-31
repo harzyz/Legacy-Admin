@@ -85,8 +85,8 @@ export const LevelProvider = ({ children }) => {
     };
     setIsLoading(true)
     try {
-      await http
-        .post("/admin/login", params)
+      await axios
+        .post("https://legacy-backend-zmmd.onrender.com/admin/login", params)
         .then((response) => {
           if (response.data.token !== "") {
             localStorage.setItem("userToken", response.data.token);
