@@ -18,6 +18,7 @@ export default function Drills({level, day}) {
   };
 
   useEffect(() => {
+    setActivity(false)
     fetchAllExercises(day, 'drills', level)
   }, [])
 

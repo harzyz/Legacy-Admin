@@ -15,8 +15,9 @@ export default function Moves({level, day}) {
 
 
   useEffect(() => {
+    setActivity(false)
     fetchAllExercises(day, 'moves', level)
-  }, [elite])
+  }, [])
 
   const addNewField = () => {
     setActivity(true);
