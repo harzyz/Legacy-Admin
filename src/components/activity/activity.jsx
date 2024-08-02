@@ -6,7 +6,7 @@ import styles from "./activity.module.scss";
 import LevelContext from "@/context/LevelContext";
 
 const Activity = ({level, day, type}) => {
-  const { editItem, setActivity, updateDayItem, createExercises, fetchAllExercises } = useContext(LevelContext);
+  const { editItem, setActivity, updateDayItem, createExercises, fetchAllExercises, editActivity } = useContext(LevelContext);
   const [timmyDetail, setTimmyDetail] = useState({
     skillLevel: level,
     trainingSection: type,
@@ -51,7 +51,9 @@ const Activity = ({level, day, type}) => {
   const submit = async (e) => {
     e.preventDefault();
     if (editItem) {
-      updateDayItem(level, type, day, timmyDetail);
+      await editActivity(editItem._id, timmyDetail);
+      setActivity(false);
+      fetchAllExercises(day, type, level)
     } else {
       await createExercises(timmyDetail)
       setActivity(false);

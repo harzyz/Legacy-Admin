@@ -10,16 +10,26 @@ import TimmyDetails from "@/levels/beginners/TimmyDetails";
 import LevelContext from "@/context/LevelContext";
 import Spinner from "../spinner";
 
-export default function Moves({level, day}) {
-  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity, fetchAllExercises, deleteActivity } = useContext(LevelContext);
-
+export default function Moves({ level, day }) {
+  const {
+    elite,
+    updateDayItem,
+    deleteDayItem,
+    editItem,
+    setEditItem,
+    activity,
+    setActivity,
+    fetchAllExercises,
+    deleteActivity,
+  } = useContext(LevelContext);
 
   useEffect(() => {
-    setActivity(false)
-    fetchAllExercises(day, 'moves', level)
-  }, [])
+    setActivity(false);
+    fetchAllExercises(day, "moves", level);
+  }, []);
 
   const addNewField = () => {
+    setEditItem("");
     setActivity(true);
   };
 
@@ -29,12 +39,9 @@ export default function Moves({level, day}) {
   };
 
   const deleteExercise = async (id) => {
-    console.log("1")
-    await deleteActivity(id)
-    console.log("2")
-    fetchAllExercises(day, 'exercise', level)
-    console.log("3")
-  }
+    await deleteActivity(id);
+    fetchAllExercises(day, "exercise", level);
+  };
 
   return (
     <section className={styles.Beginners_Container}>
@@ -44,17 +51,18 @@ export default function Moves({level, day}) {
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
-                <li>Animation</li>
-                <li>Activity Name</li>
+                <li>Animation Name</li>
+                <li>Activity Image Url</li>
+                <li>Animation Video URL</li>
                 <li>Description</li>
                 <li>Duration</li>
-                <li>Day</li>
-                <li>Animation URL</li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
             <div className={styles.Activty_Container}>
               <div className={styles.Activty_Form}>
-              {elite?.length == 0 && (
+                {elite?.length == 0 && (
                   <div className={styles.No_Activities}>No Activites Yet</div>
                 )}
                 {elite?.map((timmy) => (
@@ -62,7 +70,8 @@ export default function Moves({level, day}) {
                     <TimmyDetails
                       imageProp={Timmy}
                       animationName={timmy.displayName}
-                      animation={timmy.videoUrl}
+                      animationImg={timmy.imgUrl}
+                      animationVid={timmy.videoUrl}
                       description={timmy.description}
                       minute={timmy.duration.minutes}
                       seconds={timmy.duration.seconds}
@@ -82,13 +91,7 @@ export default function Moves({level, day}) {
           </section>
         </div>
       )}
-      {activity && (
-        <Activity
-        type='Moves'
-        day={day}
-        level={level}
-      />
-      )}
+      {activity && <Activity type="Moves" day={day} level={level} />}
     </section>
   );
 }

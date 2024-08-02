@@ -9,7 +9,8 @@ import del from "/public/assets/Group 3278.svg";
 
 const TimmyDetails = ({
   imageProp,
-  animation,
+  animationImg,
+  animationVid,
   minute,
   seconds,
   description,
@@ -25,21 +26,17 @@ const TimmyDetails = ({
   }
   return (
     <div className={styles.Timmy_Head_Two}>
-      <div className={styles.Timmy_Head}>
-        <input type="checkbox" className={styles.Timmy_Input} />
-        <Image
-          src={imageProp}
-          width={50}
-          height={50}
-          alt="timmy"
-          className={styles.Timmy_Img}
-        />
-      </div>
 
       <div className={styles.Strech_One}>
         <p>{animationName}</p>
       </div>
       <div className={styles.Strech_Two}>
+        <p>{animationImg}</p>
+      </div>
+      <div className={styles.Strech_Five}>
+        <p>{animationVid}</p>
+      </div>
+      <div className={styles.Strech_Five}>
         <p>{description}</p>
       </div>
 
@@ -47,9 +44,6 @@ const TimmyDetails = ({
         <p>
           {minute}:{seconds}
         </p>
-      </div>
-      <div className={styles.Strech_Five}>
-        <p>{animation}</p>
       </div>
       <div className={styles.Edit_Box}>
         <Image

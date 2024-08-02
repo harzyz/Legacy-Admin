@@ -19,7 +19,6 @@ export const LevelProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(elite)
     if(filterType != ''){
       localStorage.setItem("filterType", filterType)
     }
@@ -143,18 +142,26 @@ export const LevelProvider = ({ children }) => {
 
   async function deleteActivity(id) {
     try {
-      console.log("tryinng")
       setIsLoading(true);
       const response = await http.delete(`/training/${id}`);
       
       if (response.status === 200) {
-        console.log('Activity deleted successfully.');
-        // Add any additional success handling logic here
       } else {
         console.error('Failed to delete the activity.');
       }
     } catch (error) {
       console.error(`Error deleting activity: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function editActivity(id, item){
+    try {
+      setIsLoading(true);
+      await http.patch(`training/description/${id}`, item)
+    } catch (error) {
+      console.error(error)
     } finally {
       setIsLoading(false);
     }
@@ -251,7 +258,8 @@ export const LevelProvider = ({ children }) => {
         createExercises,
         fetchAllExercises,
         isLoading,
-        deleteActivity
+        deleteActivity,
+        editActivity
       }}
     >
       {children}

@@ -17,16 +17,16 @@ export default function Exercise({ level, day }) {
     setActivity,
     elite,
     fetchAllExercises,
-    deleteActivity
+    deleteActivity,
   } = useContext(LevelContext);
 
   useEffect(() => {
-    setActivity(false)
-    fetchAllExercises(day, 'exercise', level)
-  }, [])
-  
+    setActivity(false);
+    fetchAllExercises(day, "exercise", level);
+  }, []);
 
   const addNewField = () => {
+    setEditItem("");
     setActivity(true);
   };
 
@@ -36,14 +36,9 @@ export default function Exercise({ level, day }) {
   };
 
   const deleteExercise = async (id) => {
-    console.log("1")
-    await deleteActivity(id)
-    console.log("2")
-    fetchAllExercises(day, 'exercise', level)
-    console.log("3")
-  }
-
-  
+    await deleteActivity(id);
+    fetchAllExercises(day, "exercise", level);
+  };
 
   return (
     <section className={styles.Beginners_Container}>
@@ -53,13 +48,13 @@ export default function Exercise({ level, day }) {
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
-                <li></li>
-                <li></li>
-                <li>Animation</li>
-                <li>Activity Name</li>
+                <li>Animation Name</li>
+                <li>Activity Image Url</li>
+                <li>Animation Video URL</li>
                 <li>Description</li>
                 <li>Duration</li>
-                <li>Animation URL</li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
             <div className={styles.Activty_Container}>
@@ -72,7 +67,8 @@ export default function Exercise({ level, day }) {
                     <TimmyDetails
                       imageProp={Timmy}
                       animationName={timmy.displayName}
-                      animation={timmy.videoUrl}
+                      animationImg={timmy.imgUrl}
+                      animationVid={timmy.videoUrl}
                       description={timmy.description}
                       minute={timmy.duration.minutes}
                       seconds={timmy.duration.seconds}
