@@ -17,6 +17,7 @@ export default function Exercise({ level, day }) {
     setActivity,
     elite,
     fetchAllExercises,
+    deleteActivity
   } = useContext(LevelContext);
 
   useEffect(() => {
@@ -33,6 +34,14 @@ export default function Exercise({ level, day }) {
     setEditItem(item);
     setActivity(true);
   };
+
+  const deleteExercise = async (id) => {
+    console.log("1")
+    await deleteActivity(id)
+    console.log("2")
+    fetchAllExercises(day, 'exercise', level)
+    console.log("3")
+  }
 
   
 
@@ -67,7 +76,7 @@ export default function Exercise({ level, day }) {
                       description={timmy.description}
                       minute={timmy.duration.minutes}
                       seconds={timmy.duration.seconds}
-                      onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
+                      onDelete={() => deleteExercise(timmy._id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>

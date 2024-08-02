@@ -85,8 +85,8 @@ export const LevelProvider = ({ children }) => {
     };
     setIsLoading(true)
     try {
-      await axios
-        .post("https://legacy-backend-zmmd.onrender.com/admin/login", params)
+      await http
+        .post("/admin/login", params)
         .then((response) => {
           if (response.data.token !== "") {
             localStorage.setItem("userToken", response.data.token);
@@ -141,6 +141,25 @@ export const LevelProvider = ({ children }) => {
     }
   }
 
+  async function deleteActivity(id) {
+    try {
+      console.log("tryinng")
+      setIsLoading(true);
+      const response = await http.delete(`/training/${id}`);
+      
+      if (response.status === 200) {
+        console.log('Activity deleted successfully.');
+        // Add any additional success handling logic here
+      } else {
+        console.error('Failed to delete the activity.');
+      }
+    } catch (error) {
+      console.error(`Error deleting activity: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   const addDayItem = (level, activityType, day, newActivity) => {
     setAdmin((prevAdmin) => {
       const newState = { ...prevAdmin };
@@ -179,25 +198,25 @@ export const LevelProvider = ({ children }) => {
   };
 
   const deleteDayItem = (level, activityType, day, id) => {
-    setAdmin((prevAdmin) => {
-      const newState = { ...prevAdmin };
+    // setAdmin((prevAdmin) => {
+    //   const newState = { ...prevAdmin };
 
-      const updatedActivities = newState[level][activityType][day].filter(
-        (item) => item.id !== id
-      );
+    //   const updatedActivities = newState[level][activityType][day].filter(
+    //     (item) => item.id !== id
+    //   );
 
-      newState[level] = {
-        ...newState[level],
-        [activityType]: {
-          ...newState[level][activityType],
-          [day]: updatedActivities,
-        },
-      };
+    //   newState[level] = {
+    //     ...newState[level],
+    //     [activityType]: {
+    //       ...newState[level][activityType],
+    //       [day]: updatedActivities,
+    //     },
+    //   };
 
-      return newState;
-    });
-    setEditItem(null);
-    setActivity(false);
+    //   return newState;
+    // });
+    // setEditItem(null);
+    // setActivity(false);
   };
 
   const logout =() => {
@@ -231,7 +250,8 @@ export const LevelProvider = ({ children }) => {
         token,
         createExercises,
         fetchAllExercises,
-        isLoading
+        isLoading,
+        deleteActivity
       }}
     >
       {children}

@@ -11,7 +11,7 @@ import LevelContext from "@/context/LevelContext";
 import Spinner from "../spinner";
 
 export default function Drills({level, day}) {
-  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity, fetchAllExercises } = useContext(LevelContext);
+  const { elite, updateDayItem, deleteDayItem, editItem, setEditItem, activity, setActivity, fetchAllExercises, deleteActivity } = useContext(LevelContext);
 
   const addNewField = () => {
     setActivity(true);
@@ -25,6 +25,14 @@ export default function Drills({level, day}) {
     setEditItem(item);
     setActivity(true);
   };
+
+  const deleteExercise = async (id) => {
+    console.log("1")
+    await deleteActivity(id)
+    console.log("2")
+    fetchAllExercises(day, 'exercise', level)
+    console.log("3")
+  }
 
   return (
     <section className={styles.Beginners_Container}>
@@ -56,7 +64,7 @@ export default function Drills({level, day}) {
                       description={timmy.description}
                       minute={timmy.duration.minutes}
                       seconds={timmy.duration.seconds}
-                      onDelete={() => deleteDayItem(level, 'exercise', day, timmy.id)}
+                      onDelete={() => deleteExercise(timmy._id)}
                       onEdit={() => handleEdit(timmy)}
                     />
                   </div>

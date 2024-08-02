@@ -18,6 +18,11 @@ const TimmyDetails = ({
   onEdit,
 }) => {
   const [open, setOpen] = useState(false);
+
+  const deleteExercise = () => {
+    onDelete()
+    setOpen(false)
+  }
   return (
     <div className={styles.Timmy_Head_Two}>
       <div className={styles.Timmy_Head}>
@@ -71,7 +76,7 @@ const TimmyDetails = ({
             cannot be undone
           </p>
           <div className={styles.Delete_Modal_btn}>
-            <button className={styles.Delete_Modal_btn_One} onClick={onDelete}>
+            <button className={styles.Delete_Modal_btn_One} onClick={deleteExercise}>
               Delete
             </button>
             <button
