@@ -26,7 +26,7 @@ const TimmyDetails = ({
   };
   return (
     <div className={styles.Timmy_Head_Two}>
-      <div>
+      <div className={styles.cont}>
         <p>{animationName}</p>
       </div>
       <div>
@@ -39,7 +39,7 @@ const TimmyDetails = ({
           <p>Link</p>
         </a>
       </div>
-      <div>
+      <div className={styles.cont}>
         <p>{description}</p>
       </div>
 

@@ -53,7 +53,7 @@ export default function Exercise({ level, day }) {
             <div className={styles.Animation_Wrapper}>
               <ul>
                 {TableHead.map((heads) => (
-                  <li>{heads}</li>
+                  <li key={heads}>{heads}</li>
                 ))}
               </ul>
             </div>

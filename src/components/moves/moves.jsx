@@ -40,8 +40,16 @@ export default function Moves({ level, day }) {
 
   const deleteExercise = async (id) => {
     await deleteActivity(id);
-    fetchAllExercises(day, "exercise", level);
+    fetchAllExercises(day, "moves", level);
   };
+
+  const TableHead = [
+    "Animation Name",
+    "Activity Image Url",
+    "Animation Video URL",
+    "Description",
+    "Duration",
+  ];
 
   return (
     <section className={styles.Beginners_Container}>
@@ -51,13 +59,9 @@ export default function Moves({ level, day }) {
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
-                <li>Animation Name</li>
-                <li>Activity Image Url</li>
-                <li>Animation Video URL</li>
-                <li>Description</li>
-                <li>Duration</li>
-                <li></li>
-                <li></li>
+                {TableHead.map((heads) => (
+                  <li key={heads}>{heads}</li>
+                ))}
               </ul>
             </div>
             <div className={styles.Activty_Container}>
