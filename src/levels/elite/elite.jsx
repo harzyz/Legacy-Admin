@@ -9,14 +9,13 @@ import Exercise from "@/components/exercise/exercise";
 import Moves from "@/components/moves/moves";
 import Drills from "@/components/drills/drills";
 import LevelContext from "@/context/LevelContext";
-import Layout from "@/components/layout/layout";
 
 export default function Elite({ id }) {
   const { filterType, elite } = useContext(LevelContext);
   const [activity, setActivity] = useState(false);
 
   return (
-    <Layout>
+    <>
       <section className={styles.Beginners_Container}>
         <div className={styles.Admin_Wrapper}>
           <div className={styles.Admin_Text}>
@@ -63,6 +62,6 @@ export default function Elite({ id }) {
           />
         )}
       </section>
-    </Layout>
+    </>
   );
 }

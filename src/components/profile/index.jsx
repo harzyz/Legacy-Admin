@@ -9,11 +9,9 @@ import thick from "../../../public/assets/Line 8.svg";
 import line from "../../../public/assets/Line 9.svg";
 import simple from "../../../public/assets/PencilSimpleLine (1).svg";
 import Link from "next/link";
-import Layout from "@/components/layout/layout";
 
 const Profile = () => {
   return (
-    <Layout>
       <section className={styles.Profile_Container}>
         <div className={styles.Dashboard_Wrapper}>
           <div className={styles.Dashboard_Text}>
@@ -118,7 +116,6 @@ const Profile = () => {
           </div>
         </div>
       </section>
-    </Layout>
   )
 }
 

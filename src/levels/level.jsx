@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import styles from "./level.module.scss";
 import Link from "next/link";
 import LevelContext from "@/context/LevelContext"
-import Layout from "@/components/layout/layout";
 
 export default function Level({ level }) {
   const { filterType, setFilterType, fetchAllExercises } = useContext(LevelContext);
@@ -40,7 +39,6 @@ export default function Level({ level }) {
   };
 
   return (
-    <Layout>
       <div className={styles.container}>
       <div className={styles.cat_container}>
         {more.map((item) => (
@@ -64,6 +62,5 @@ export default function Level({ level }) {
         ))}
       </div>
     </div>
-    </Layout>
   );
 }
