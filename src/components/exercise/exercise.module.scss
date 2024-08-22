@@ -121,8 +121,9 @@
             background-color: #2A2D74;
 
             ul{
-                display: flex;
-                gap: 50px;
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 20px;
 
                 li{
                     list-style: none;

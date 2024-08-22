@@ -40,6 +40,10 @@ export default function Exercise({ level, day }) {
     fetchAllExercises(day, "exercise", level);
   };
 
+  const TableHead = [
+    "Animation Name", "Activity Image Url", "Animation Video URL", "Description", "Duration"
+  ]
+
   return (
     <section className={styles.Beginners_Container}>
       <Spinner />
@@ -48,13 +52,9 @@ export default function Exercise({ level, day }) {
           <section className={styles.Activity_Container}>
             <div className={styles.Animation_Wrapper}>
               <ul>
-                <li>Animation Name</li>
-                <li>Activity Image Url</li>
-                <li>Animation Video URL</li>
-                <li>Description</li>
-                <li>Duration</li>
-                <li></li>
-                <li></li>
+                {TableHead.map((heads) => (
+                  <li>{heads}</li>
+                ))}
               </ul>
             </div>
             <div className={styles.Activty_Container}>

@@ -21,26 +21,29 @@ const TimmyDetails = ({
   const [open, setOpen] = useState(false);
 
   const deleteExercise = () => {
-    onDelete()
-    setOpen(false)
-  }
+    onDelete();
+    setOpen(false);
+  };
   return (
     <div className={styles.Timmy_Head_Two}>
-
-      <div className={styles.Strech_One}>
+      <div>
         <p>{animationName}</p>
       </div>
-      <div className={styles.Strech_Two}>
-        <p>{animationImg}</p>
+      <div>
+        <a target="_blank" href={animationImg}>
+          <p>Link</p>
+        </a>
       </div>
-      <div className={styles.Strech_Five}>
-        <p>{animationVid}</p>
+      <div>
+        <a target="_blank" href={animationVid}>
+          <p>Link</p>
+        </a>
       </div>
-      <div className={styles.Strech_Five}>
+      <div>
         <p>{description}</p>
       </div>
 
-      <div className={styles.Strech_Three}>
+      <div>
         <p>
           {minute}:{seconds}
         </p>
@@ -70,12 +73,16 @@ const TimmyDetails = ({
             cannot be undone
           </p>
           <div className={styles.Delete_Modal_btn}>
-            <button className={styles.Delete_Modal_btn_One} onClick={deleteExercise}>
+            <button
+              className={styles.Delete_Modal_btn_One}
+              onClick={deleteExercise}
+            >
               Delete
             </button>
             <button
               onClick={() => setOpen(false)}
-              className={styles.Delete_Modal_btn_Two}>
+              className={styles.Delete_Modal_btn_Two}
+            >
               Cancel
             </button>
           </div>

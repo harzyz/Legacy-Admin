@@ -14,19 +14,15 @@ import Modal from "../modal/modal";
 import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
-  const pathname = usePathname()
-  const { isActive, toggleMenu, logout, active, activeLevel } = useContext(LevelContext);
+  const pathname = usePathname();
+  const { isActive, toggleMenu, logout, active, activeLevel } =
+    useContext(LevelContext);
   const [open, setOpen] = useState(false);
-  const isSidebarMenu = pathname.startsWith('/levels/');
-  const isBeginner = pathname.startsWith('/levels/beginner');
-  const isIntermidiate = pathname.startsWith('/levels/intermediate');
-  const isExpert = pathname.startsWith('/levels/expert');
-  const isElite = pathname.startsWith('/levels/elite');
-
-
-  
-
-  
+  const isSidebarMenu = pathname.startsWith("/levels/");
+  const isBeginner = pathname.startsWith("/levels/beginner");
+  const isIntermidiate = pathname.startsWith("/levels/intermediate");
+  const isExpert = pathname.startsWith("/levels/expert");
+  const isElite = pathname.startsWith("/levels/elite");
 
   return (
     <div className={styles.sidebar_new}>
@@ -39,14 +35,24 @@ export default function Sidebar() {
             <h3>Genaral</h3>
             <div className={styles.General_Head}>
               <Link href="/dashboard">
-                <div onClick={() => activeLevel(5)} className={isActive === 5 ? styles.sidebar_menu: styles.dashboard_text }>
+                <div
+                  onClick={() => activeLevel(5)}
+                  className={
+                    isActive === 5 ? styles.sidebar_menu : styles.dashboard_text
+                  }
+                >
                   <FiHome className={styles.Dribble} />
                   <h4>Dashboard</h4>
                 </div>
               </Link>
             </div>
             <div className={styles.General_Head_Level}>
-              <div className={isSidebarMenu ? styles.sidebar_menu: styles.dashboard_text } onClick={toggleMenu}>
+              <div
+                className={
+                  isSidebarMenu ? styles.sidebar_menu : styles.dashboard_text
+                }
+                onClick={toggleMenu}
+              >
                 <FaDribbble className={styles.Dribble} />
                 <h4>Levels</h4>
                 <BsChevronDown />
@@ -56,40 +62,22 @@ export default function Sidebar() {
             <div className={active ? styles.expert : styles.expert_block}>
               <ul>
                 <Link className={styles.link} href="/levels/beginner">
-                  <li
-                    className={`${
-                      isBeginner ? styles.active : ""
-                    }`}
-                  >
+                  <li className={`${isBeginner ? styles.active : ""}`}>
                     Beginner
                   </li>
                 </Link>
                 <Link className={styles.link} href="/levels/intermediate">
-                  <li
-                    className={`${
-                      isIntermidiate ? styles.active : ""
-                    }`}
-                  >
+                  <li className={`${isIntermidiate ? styles.active : ""}`}>
                     Intermediate{" "}
                   </li>
                 </Link>
                 <Link className={styles.link} href="/levels/expert">
-                  <li
-                    className={`${
-                      isExpert ? styles.active : ""
-                    }`}
-                  >
+                  <li className={`${isExpert ? styles.active : ""}`}>
                     Expert{" "}
                   </li>
                 </Link>
                 <Link className={styles.link} href="/levels/elite">
-                  <li
-                    className={` ${
-                      isElite ? styles.active : ""
-                    }`}
-                  >
-                    Elite{" "}
-                  </li>
+                  <li className={` ${isElite ? styles.active : ""}`}>Elite </li>
                 </Link>
               </ul>
             </div>
@@ -97,19 +85,26 @@ export default function Sidebar() {
             <h3>Accounts</h3>
             <div className={styles.General_Head}>
               <Link href="/profile">
-                <div className={pathname === "/profile" ? styles.sidebar_menu: styles.dashboard_text }>
+                <div
+                  className={
+                    pathname === "/profile"
+                      ? styles.sidebar_menu
+                      : styles.dashboard_text
+                  }
+                >
                   <CgProfile className={styles.Dribble} />
                   <h4>My profile</h4>
                 </div>
               </Link>
             </div>
             <div className={styles.General_Head_Two}>
-              {/* <Link href="/levels/beginners"> */}
-                <div onClick={() => setOpen(true)} className={styles.Dashboard_Text_Two}>
-                  <PiSignOutLight className={styles.Dribble_Two} />
-                  <h4>LOGOUT</h4>
-                </div>
-              {/* </Link> */}
+              <div
+                onClick={() => setOpen(true)}
+                className={styles.Dashboard_Text_Two}
+              >
+                <PiSignOutLight className={styles.Dribble_Two} />
+                <h4>LOGOUT</h4>
+              </div>
             </div>
           </div>
         </div>
@@ -117,16 +112,15 @@ export default function Sidebar() {
       <Modal isOpen={open} onClose={() => setOpen(false)}>
         <div className={styles.logout_Modal}>
           <strong>Logout</strong>
-          <p>
-            Are you sure you want to Logout
-          </p>
+          <p>Are you sure you want to Logout</p>
           <div className={styles.logout_modal_btn}>
             <button onClick={logout} className={styles.logout_modal_btn_one}>
               Logout
             </button>
             <button
               onClick={() => setOpen(false)}
-              className={styles.logout_modal_btn_two}>
+              className={styles.logout_modal_btn_two}
+            >
               Cancel
             </button>
           </div>
