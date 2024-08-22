@@ -11,10 +11,17 @@ import { CgProfile } from "react-icons/cg";
 import { PiSignOutLight } from "react-icons/pi";
 import LevelContext from "@/context/LevelContext";
 import Modal from "../modal/modal";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname()
   const { isActive, toggleMenu, logout, active, activeLevel } = useContext(LevelContext);
   const [open, setOpen] = useState(false);
+  const isSidebarMenu = pathname.startsWith('/levels/');
+  const isBeginner = pathname.startsWith('/levels/beginner');
+  const isIntermidiate = pathname.startsWith('/levels/intermediate');
+  const isExpert = pathname.startsWith('/levels/expert');
+  const isElite = pathname.startsWith('/levels/elite');
 
 
   
@@ -39,7 +46,7 @@ export default function Sidebar() {
               </Link>
             </div>
             <div className={styles.General_Head_Level}>
-              <div className={[1, 2, 3, 4, 6].includes(isActive) ? styles.sidebar_menu: styles.dashboard_text } onClick={toggleMenu}>
+              <div className={isSidebarMenu ? styles.sidebar_menu: styles.dashboard_text } onClick={toggleMenu}>
                 <FaDribbble className={styles.Dribble} />
                 <h4>Levels</h4>
                 <BsChevronDown />
@@ -51,9 +58,8 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/beginner">
                   <li
                     className={`${
-                      isActive === 1 ? styles.active : ""
+                      isBeginner ? styles.active : ""
                     }`}
-                    onClick={() => activeLevel(1)}
                   >
                     Beginner
                   </li>
@@ -61,9 +67,8 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/intermediate">
                   <li
                     className={`${
-                      isActive === 2 ? styles.active : ""
+                      isIntermidiate ? styles.active : ""
                     }`}
-                    onClick={() => activeLevel(2)}
                   >
                     Intermediate{" "}
                   </li>
@@ -71,9 +76,8 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/expert">
                   <li
                     className={`${
-                      isActive === 3 ? styles.active : ""
+                      isExpert ? styles.active : ""
                     }`}
-                    onClick={() => activeLevel(3)}
                   >
                     Expert{" "}
                   </li>
@@ -81,9 +85,8 @@ export default function Sidebar() {
                 <Link className={styles.link} href="/levels/elite">
                   <li
                     className={` ${
-                      isActive === 4 ? styles.active : ""
+                      isElite ? styles.active : ""
                     }`}
-                    onClick={() => activeLevel(4)}
                   >
                     Elite{" "}
                   </li>
@@ -94,7 +97,7 @@ export default function Sidebar() {
             <h3>Accounts</h3>
             <div className={styles.General_Head}>
               <Link href="/profile">
-                <div onClick={() => activeLevel(7)} className={isActive === 7 ? styles.sidebar_menu: styles.dashboard_text }>
+                <div className={pathname === "/profile" ? styles.sidebar_menu: styles.dashboard_text }>
                   <CgProfile className={styles.Dribble} />
                   <h4>My profile</h4>
                 </div>
