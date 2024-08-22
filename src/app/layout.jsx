@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  itle: "Legacy Admin",
+  title: "Legacy Admin | Drills, Exercise And Moves",
   description: "Drills, Exercise And Moves",
 };
 
